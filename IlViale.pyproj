@@ -1,0 +1,198 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Name>IlViale</Name>
+    <RootNamespace>IlViale</RootNamespace>
+    <InterpreterId>Global|VisualStudio|Ambiente sviluppo Django</InterpreterId>
+    <TestFramework>Pytest</TestFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>b6f783d3-4d86-468b-8fe1-745de699091e</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <DjangoSettingsModule>IlViale.settings</DjangoSettingsModule>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <OutputPath>.</OutputPath>
+    <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="BlogView\admin.py" />
+    <Compile Include="BlogView\apps.py" />
+    <Compile Include="BlogView\migrations\__init__.py" />
+    <Compile Include="BlogView\models.py" />
+    <Compile Include="BlogView\templatetags\date_filter.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BlogView\templatetags\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BlogView\tests.py" />
+    <Compile Include="BlogView\urls.py" />
+    <Compile Include="BlogView\views.py" />
+    <Compile Include="BlogView\__init__.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="IlViale\__init__.py" />
+    <Compile Include="IlViale\settings.py" />
+    <Compile Include="IlViale\urls.py" />
+    <Compile Include="IlViale\wsgi.py" />
+    <Compile Include="sito_statico\admin.py" />
+    <Compile Include="sito_statico\apps.py" />
+    <Compile Include="sito_statico\migrations\__init__.py" />
+    <Compile Include="sito_statico\models.py" />
+    <Compile Include="sito_statico\tests.py" />
+    <Compile Include="sito_statico\urls.py" />
+    <Compile Include="sito_statico\views.py" />
+    <Compile Include="sito_statico\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BlogView\migrations\__pycache__\__init__.cpython-38.pyc" />
+    <Content Include="BlogView\templates\base.html" />
+    <Content Include="BlogView\templates\reader.html" />
+    <Content Include="BlogView\__pycache__\admin.cpython-38.pyc" />
+    <Content Include="BlogView\__pycache__\apps.cpython-38.pyc" />
+    <Content Include="BlogView\__pycache__\models.cpython-38.pyc" />
+    <Content Include="BlogView\__pycache__\urls.cpython-38.pyc" />
+    <Content Include="BlogView\__pycache__\views.cpython-38.pyc" />
+    <Content Include="BlogView\__pycache__\__init__.cpython-38.pyc" />
+    <Content Include="IlViale\static\css\activeArrowRight.gif" />
+    <Content Include="IlViale\static\css\animate.css" />
+    <Content Include="IlViale\static\css\animate.min.css" />
+    <Content Include="IlViale\static\css\arrowExpand.gif" />
+    <Content Include="IlViale\static\css\arrowRight.gif" />
+    <Content Include="IlViale\static\css\bg-curve-bottom-right.gif" />
+    <Content Include="IlViale\static\css\bg-curve-top-left.gif" />
+    <Content Include="IlViale\static\css\bootstrap-dropdownhover.css" />
+    <Content Include="IlViale\static\css\bootstrap-dropdownhover.min.css" />
+    <Content Include="IlViale\static\css\bootstrap.min.css" />
+    <Content Include="IlViale\static\css\Copy of NBlog.Core.dll1" />
+    <Content Include="IlViale\static\css\images\email.png" />
+    <Content Include="IlViale\static\css\images\facebook.png" />
+    <Content Include="IlViale\static\css\images\flickr.png" />
+    <Content Include="IlViale\static\css\images\rss.png" />
+    <Content Include="IlViale\static\css\images\social.png" />
+    <Content Include="IlViale\static\css\images\twitter.png" />
+    <Content Include="IlViale\static\css\MainMaster.css" />
+    <Content Include="IlViale\static\css\Menu.css" />
+    <Content Include="IlViale\static\css\msvs_template_rounded_divs.css" />
+    <Content Include="IlViale\static\css\TreeView.css" />
+    <Content Include="IlViale\static\images\background.gif" />
+    <Content Include="IlViale\static\images\bg-curve-bottom-right.gif" />
+    <Content Include="IlViale\static\images\bg-curve-top-left.gif" />
+    <Content Include="IlViale\static\images\Copy of logoassociazione.jpg" />
+    <Content Include="IlViale\static\images\Favicon.gif" />
+    <Content Include="IlViale\static\images\Favicon.ico" />
+    <Content Include="IlViale\static\images\ImmagineLogo.jpg" />
+    <Content Include="IlViale\static\images\liquid.jpg" />
+    <Content Include="IlViale\static\images\locandina2.jpg" />
+    <Content Include="IlViale\static\images\locandinaFull.jpg" />
+    <Content Include="IlViale\static\images\Logo.gif" />
+    <Content Include="IlViale\static\images\logoassociazione.gif" />
+    <Content Include="IlViale\static\images\logoassociazione.gif.jpg" />
+    <Content Include="IlViale\static\images\logoassociazione.jpg" />
+    <Content Include="IlViale\static\images\logoassociazione1.GIF" />
+    <Content Include="IlViale\static\images\logoassociazione1.jpg" />
+    <Content Include="IlViale\static\images\LogoAVA.gif" />
+    <Content Include="IlViale\static\images\masthead.gif" />
+    <Content Include="IlViale\static\images\PercorsoGita.jpg" />
+    <Content Include="IlViale\static\images\QRViale.png" />
+    <Content Include="IlViale\static\images\rssLogo.gif" />
+    <Content Include="IlViale\static\images\Social_thumb.gif" />
+    <Content Include="IlViale\static\js\bootstrap-dropdownhover.js" />
+    <Content Include="IlViale\static\js\bootstrap-dropdownhover.min.js" />
+    <Content Include="IlViale\templates\base.html" />
+    <Content Include="IlViale\templates\reader.html" />
+    <Content Include="requirements.txt" />
+    <Content Include="sito_statico\templates\sito_statico\index.html" />
+    <Content Include="sito_statico\templates\sito_statico\mappa.html" />
+    <Content Include="sito_statico\templates\sito_statico\storia.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BlogView\" />
+    <Folder Include="BlogView\migrations\" />
+    <Folder Include="BlogView\migrations\__pycache__\" />
+    <Folder Include="BlogView\templatetags\" />
+    <Folder Include="BlogView\templates\" />
+    <Folder Include="BlogView\__pycache__\" />
+    <Folder Include="IlViale\" />
+    <Folder Include="IlViale\static\" />
+    <Folder Include="IlViale\static\css\" />
+    <Folder Include="IlViale\static\css\images\" />
+    <Folder Include="IlViale\static\images\" />
+    <Folder Include="IlViale\static\js\" />
+    <Folder Include="IlViale\templates\" />
+    <Folder Include="sito_statico\" />
+    <Folder Include="sito_statico\migrations\" />
+    <Folder Include="sito_statico\templates\" />
+    <Folder Include="sito_statico\templates\sito_statico\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.8</Version>
+      <Description>env (Python 3.8 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.8" />
+    <InterpreterReference Include="Global|VisualStudio|Ambiente sviluppo Django" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

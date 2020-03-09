@@ -1,0 +1,151 @@
+﻿
+#pageFrame {	margin:10px
+}
+#menu
+{
+	clear:both;
+}
+#dropdown {
+	clear: both;
+}
+
+hr {
+	border: 2px solid #828AD0;
+	border-radius: 1px;
+	margin-top:5px;
+}
+#header-container {
+	background: #828AD0 url(bg-main.jpg) repeat-x;
+	height: 60px;
+	font-size: 2em;
+	margin: 0px;
+	font-weight: bold;
+}
+
+#header-container a {
+	border: 0 none;
+	border-width: 0;
+	text-decoration: none;
+	color: #FFFFFF;
+	bottom: 50px;
+	padding-bottom: 50px;
+	top: 100px;
+	margin-bottom: 50px;
+}
+	
+#header-left {
+	float: left;
+	display:inline-block;
+	clear:none;
+	color: #FFFFFF;
+	padding: 25px 10px 0 10px;
+	background: url(bg-curve-top-left.gif) no-repeat;
+	text-align: left;
+	height: auto;
+	width: 70%;
+	border-right: 5px solid #FFFFFF;
+}
+#header-left img {
+	width: 30px;
+	}
+#header-right {
+	margin: 0px;
+	display: inline-block;
+	margin-right: 2px;
+	color: #FFFFFF;
+	margin-top: 35px;
+	padding: 0px;
+	font-size: .55em;
+	text-align: right;
+	width: 25%;
+	float: right;
+	clear: none;
+}
+#three-column-container {
+	width: 100%;
+	margin: 10px 0px;
+	padding: 10px 0px
+}
+
+#three-column-left {
+	float: left;
+	width: 70%;
+}
+
+#three-column-right {
+	float: right;
+	width: 30%;
+}
+
+#three-column-middle {
+	width: 0%;
+	margin: 0px 31% 0px 35%;
+}
+
+
+#footer-container {
+	background: #828AD0 url(bg-main.jpg);
+	height: 70px;
+	color: #FFFFFF;
+	margin: 4px 0px 0px 0px;
+	clear: both;
+	font-size: .8em;
+	
+}
+	#footer-container a {
+		color: antiquewhite;
+		text-decoration: underline;
+	}
+	#footer-left {
+		width: 70%;
+		height: 70px;
+		padding: 1px 0px 0px 10px;
+		margin: 0px;
+		float: left;
+		clear: none;
+	}
+
+#footer-right {
+	float: right;
+	clear: both;
+	color: #FFFFFF;
+	padding: 0px;
+	width: 200px;
+	height: 70px;
+	border-left: 4px solid #FFFFFF;
+	margin: 0px;
+	background: url(bg-curve-bottom-right.gif) no-repeat right bottom;
+	width: 30%;
+}
+
+
+.Menu-Skin-DynamicHover {
+	background: #165EA9 url(bg-menu-main.png) repeat-x;
+}
+
+.bookmarks {
+	display: inline-block;
+	margin-left: 10px
+}
+
+.facebook, .twitter {
+	width: 16px;
+	height: 16px;
+	text-indent: -500px;
+	overflow: hidden;
+	display: inline-block;
+	background-image: url("images/social.png");
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+	background-position-x: 0%;
+	background-position-y: 0%;
+	background-size: auto;
+	background-origin: padding-box;
+	background-clip: border-box;
+	background-color: transparent;
+}
+
+.twitter {
+	background-position-x: 0px;
+	background-position-y: -20px;
+}
