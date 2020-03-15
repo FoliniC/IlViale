@@ -3,9 +3,12 @@
 {% load date_filter %}
 
 {% block body %}
+ <div id="three-column-container">
+            <div id="three-column-left">
+            
 <font size="4" color="red">Ricordati di iscriverti alla nostra newsletter, se vuoi essere aggiornato sulle nostre attività! E' semplice e gratuito. Basta inserire i dati qui a fianco!!!   </font>
 <br />
-
+bbbbbbbbbbb
 {% if feed %}
 
 {% if feed.entries %}
@@ -41,9 +44,8 @@
 
 
 
-{% endblock %}
-
-{% block right_column %}
+            </div>
+            <div id="three-column-right">
 <div class="newsletterBox"><h1>Newsletter</h1>
         Vuoi essere informato sulle attività dell'associazione?<br />
 <form class="form-inline">
@@ -101,4 +103,7 @@
     </asp:TreeView>
                     <div id="QRCode">Scannerizza per avere l'indirizzo del sito<img src="{% static "images/QRViale.png" %}" />
                     </div>
+                   
+            </div>                
+        </div>
 {% endblock %}

@@ -26,4 +26,4 @@ def index(request):
     else:
         post_id = request.GET.get("post_id")
         myfeed = feedparser.parse('http://ilvialedellaformica.blogspot.com/feeds/posts/default')
-    return render(request, "./reader.html", {"feed" : myfeed,"post_id" : post_id,"base_url" : base_url,} )
+    return render(request, "BlogView/reader.html", {"feed" : myfeed,"post_id" : post_id,"base_url" : base_url,} )
