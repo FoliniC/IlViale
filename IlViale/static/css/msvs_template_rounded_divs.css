@@ -35,19 +35,17 @@ hr {
 	
 #header-left {
 	float: left;
-	display:inline-block;
+	display:block;
 	clear:none;
 	color: #FFFFFF;
-	padding: 25px 10px 0 10px;
+	padding: 5px 15px 0 30px;
 	background: url(bg-curve-top-left.gif) no-repeat;
 	text-align: left;
-	height: auto;
+	height: 60px;
 	width: 70%;
 	border-right: 5px solid #FFFFFF;
 }
-#header-left img {
-	width: 30px;
-	}
+
 #header-right {
 	margin: 0px;
 	display: inline-block;

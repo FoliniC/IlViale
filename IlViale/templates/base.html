@@ -40,17 +40,17 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    
+    {% block head %}{% endblock %}
 </head>
 <body>
     <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v6.0&appId=790382868110792&autoLogAppEvents=1"></script>
-    <div id="pageFrame">
+    <div id="pageFrame" style="width:95%;margin:10px auto;align=center">
         <div id="header-container">
-            <div id="header-left">
+           
                 
-                <a title="Il Viale della Formica homepage" href="/">Il Viale della Formica</a>
-                <div style="display: inline-flex;"><img alt="logo associazione" src="{% static "images/Logo.gif" %}" /></div>
+                <div id="header-left"><a title="Il Viale della Formica homepage" href="/">
+                <img  height="50" width="200"  alt="logo associazione" src="{% static "images/LogoVialeBianco2019.png" %}" /></a>
                  <div style="display: inline-flex;" class="fb-like" data-href="{{ request.build_absolute_uri }}" data-width="" data-layout="button" data-action="like" data-size="small" data-share="true"></div>
             </div>
             <div id="header-right">Associazione culturale</div>
@@ -62,18 +62,12 @@
             {% sitetree_menu from "Main" include "trunk,topmenu" template "sitetree/menu_bootstrap3_deep.html"  %}
                     
            
-            <div style="display:flex;" class="SiteMap">{% sitetree_breadcrumbs from "Main" template "sitetree/breadcrumbs_bootstrap.html" %}
+            <div style="display:flex;" class="SiteMap">{% sitetree_breadcrumbs from "Main" template "sitetree/breadcrumbs_bootstrap3.html" %}
             </div>
 
         </div>
         </div>    
-        <div id="three-column-container">
-            <div id="three-column-left">
-            {% block body %}{% endblock %}
-            </div>
-            <div id="three-column-right">{% block right_column %}{% endblock %}
-            </div>                
-        </div>
+       {% block body %}{% endblock %}
         <div id="footer-container">
             <div id="footer-right">
                 <a href="//www.iubenda.com/privacy-policy/7898839" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
