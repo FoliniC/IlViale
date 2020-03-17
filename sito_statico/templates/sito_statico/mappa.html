@@ -1,14 +1,27 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
+   integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
+   integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
+   crossorigin=""></script>
+   <style>
+    html, body, #map { height: 100%; }
+    html, body, #map { margin: 0; padding: 0; }
+</style>
+{% endblock %}
+
 {% block body %}
     <div id="three-column-left">
 
-        <div id="MapDownload" align="center"><a href="http://associazioni.provincia.so.it/ilviale/documenti/2017/DALICO_10000V2.tif">Scarica il cartello della mappa</a></div>
-        <br><br><br>
-        <div id="map" style="width: 1200px; height: 600px; z-index: 0; position: relative;" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 19; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/cycle/15/17294/11634.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(401px, 195px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/cycle/15/17295/11634.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(657px, 195px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/cycle/15/17294/11633.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(401px, -61px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/cycle/15/17295/11633.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(657px, -61px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/cycle/15/17294/11635.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(401px, 451px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/cycle/15/17295/11635.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(657px, 451px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/cycle/15/17293/11634.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(145px, 195px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/cycle/15/17296/11634.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(913px, 195px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/cycle/15/17293/11633.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(145px, -61px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/cycle/15/17296/11633.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(913px, -61px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/cycle/15/17293/11635.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(145px, 451px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/cycle/15/17296/11635.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(913px, 451px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/cycle/15/17292/11634.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-111px, 195px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/cycle/15/17297/11634.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1169px, 195px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/cycle/15/17292/11633.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-111px, -61px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/cycle/15/17297/11633.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1169px, -61px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/cycle/15/17292/11635.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-111px, 451px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/cycle/15/17297/11635.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1169px, 451px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-marker-pane"></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated"></div><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 19; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/cycle/15/17294/11634.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(401px, 195px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/cycle/15/17295/11634.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(657px, 195px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/cycle/15/17294/11633.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(401px, -61px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/cycle/15/17295/11633.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(657px, -61px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/cycle/15/17294/11635.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(401px, 451px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/cycle/15/17295/11635.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(657px, 451px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/cycle/15/17293/11634.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(145px, 195px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/cycle/15/17296/11634.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(913px, 195px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/cycle/15/17293/11633.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(145px, -61px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/cycle/15/17296/11633.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(913px, -61px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/cycle/15/17293/11635.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(145px, 451px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/cycle/15/17296/11635.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(913px, 451px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/cycle/15/17292/11634.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-111px, 195px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/cycle/15/17297/11634.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1169px, 195px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/cycle/15/17292/11633.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-111px, -61px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/cycle/15/17297/11633.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1169px, -61px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/cycle/15/17292/11635.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-111px, 451px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/cycle/15/17297/11635.png?apikey=0254ec947170450aa46ae1bd6de2240b" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1169px, 451px, 0px); opacity: 1;"></div></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out">-</a></div></div><div class="leaflet-top leaflet-right"><div class="leaflet-control-layers leaflet-control" aria-haspopup="true"><a class="leaflet-control-layers-toggle" href="#" title="Layers"></a><form class="leaflet-control-layers-list"><div class="leaflet-control-layers-base"><label><div><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers" checked="checked"><span> openstreetmap</span></div></label><label><div><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers"><span> Mapbox satellite</span></div></label><label><div><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers"><span> Mapbox strade</span></div></label><label><div><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers"><span> Mapbox strade v7</span></div></label></div><div class="leaflet-control-layers-separator"></div><div class="leaflet-control-layers-overlays"><label><div><input type="checkbox" class="leaflet-control-layers-selector"><span> Sentieri tracciati</span></div></label><label><div><input type="checkbox" class="leaflet-control-layers-selector"><span> Confini</span></div></label><label><div><input type="checkbox" class="leaflet-control-layers-selector"><span> Mapillary</span></div></label></div></form></div></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control"><span id="id_valBlend">1.0</span><input type="range" id="id_sliderBlend" min="0" max="1" step="0.1" value="1" style="width:100px;" oninput="fct_blend()"></div><div class="leaflet-control-attribution leaflet-control"><a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> | <a href="http://www.thunderforest.com">Thunderforest</a> | <a href="http://www.openstreetmap.org/copyright/">OpenStreetMap</a></div></div></div></div>
+       <div id="MapDownload" align="center"><a href="http://associazioni.provincia.so.it/ilviale/documenti/2017/DALICO_10000V2.tif">Scarica il cartello della mappa</a></div>
+    <br/><br/><br/>
+<div id="map" style="width: 1200px; height: 600px;z-index: 0"></div>
 
-        <script>
+<script>
 
 // 1.) BASEMAPS
 var openstreetmap = L.tileLayer('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=0254ec947170450aa46ae1bd6de2240b', {subdomains:'abc', maxZoom:19, noWrap:true, attribution:'<a href="http://www.thunderforest.com">Thunderforest</a> | <a href="http://www.openstreetmap.org/copyright/">OpenStreetMap</a>' });
@@ -26,7 +39,7 @@ var stradeV7_bg = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.
 var heidel_bound = L.tileLayer('http://korona.geog.uni-heidelberg.de/tiles/adminb/x={x}&y={y}&z={z}', {maxNativeZoom: 18, maxZoom:19, noWrap:true, attribution:'<a href="http://korona.geog.uni-heidelberg.de/contact.html">Uni-Heidelberg</a>' });
 var wmt_hiking = L.tileLayer('https://tile.waymarkedtrails.org/hiking/{z}/{x}/{y}.png', {maxNativeZoom: 18, maxZoom:19, noWrap:true, attribution:'<a href="http://waymarkedtrails.org">Waymarkedtrails</a>' });
 var mapillary = L.tileLayer('https://d6a1v2w10ny40.cloudfront.net/v0.1/{z}/{x}/{y}.png', {subdomains:'abc',  maxNativeZoom: 17,maxZoom: 19,    id: 'mapillary.sequences', noWrap:true, attribution:'<a href="http://www.openstreetmap.org">Openstreetmap</a> | <a href="http://www.openstreetmap.org/copyright/">OpenStreetMap</a>' });
-
+ 
 // LAYERMENU
 var baseMaps = {
     "openstreetmap": openstreetmap,
@@ -35,10 +48,10 @@ var baseMaps = {
     "Mapbox strade v7": stradeV7
 };
 
-// needed to get the layer's Objectname by its Layer-Controlname which is the only name passed by the 'baselayerchange'-event
-var layerLookup = {"openstreetmap":"openstreetmap",
-					"Mapbox strade":"strade",
-					"Mapbox strade v7":"stradeV7",
+// needed to get the layer's Objectname by its Layer-Controlname which is the only name passed by the 'baselayerchange'-event  
+var layerLookup = {"openstreetmap":"openstreetmap", 
+					"Mapbox strade":"strade", 
+					"Mapbox strade v7":"stradeV7", 
 					"Mapbox satellite":"satellite"
 				};
 
@@ -52,18 +65,18 @@ var ctr_mapLayers = L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 var fgLayerControlname = "openstreetmap";       // default foreground-Layer*Controlname*
 //alert( fgLayerControlname+'/'+layerLookup [fgLayerControlname] );
-
+   
 var fgLayer = window [layerLookup [fgLayerControlname]];  // default foreground-Layer Object
 var bgLayerName = 'openstreetmap_bg';                   // default background-Layer*Objectname*
 var bgLayer = openstreetmap_bg;                         // default background-Layer Object
-map.addLayer(bgLayer);
+map.addLayer(bgLayer);        
 
 function fct_blend() {
   valBlend = document.getElementById("id_sliderBlend").value;
   document.getElementById("id_valBlend").innerHTML = Number(valBlend).toFixed(1)
   fgLayer.setOpacity(valBlend);
 }
-
+ 
 var ctr_blend = L.control({position:'bottomright'});
 ctr_blend.onAdd = function (map) {
     valBlend = 1.0;
@@ -79,8 +92,8 @@ var fct_layerchange = function (e) {
 	//	alert(e.name + '/' + fgLayerControlname+'/'+layerLookup [fgLayerControlname] );
     bgLayerName = [layerLookup [fgLayerControlname]] + '_bg';   // set Object*name* of new bg-Layer which is former fg-Layer
 	//alert('bgLayer=' + bgLayerName);
-    bgLayer = window[bgLayerName];                              // set bgLayer-Object out of its Object*name*
-    map.addLayer(bgLayer);                                      // add former foregroundmap-layer as backgroundmap-layer to map again.
+    bgLayer = window[bgLayerName];                              // set bgLayer-Object out of its Object*name* 
+    map.addLayer(bgLayer);                                      // add former foregroundmap-layer as backgroundmap-layer to map again. 
     fgLayerControlname = e.name;                                // get fg-Layer *Controlname* which is used in the Layercontrol-menu (its Objectname is not passed by the event)
     //alert(e.name + '/' + fgLayerControlname+'/'+layerLookup [fgLayerControlname] );
 	fgLayer = window [layerLookup [fgLayerControlname]];        //set fgLayer-Object by the use of its Objectname which is derived from its *Controlname*
@@ -89,8 +102,7 @@ var fct_layerchange = function (e) {
 
 map.on('baselayerchange', fct_layerchange);                     // fired if a new maplayer is choosen by the Layercontrol
 
-        </script>
-
+</script>
 
     </div>
 {% endblock %}
