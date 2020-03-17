@@ -40,7 +40,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    
+    {% block head %}{% endblock %}
 </head>
 <body>
     <div id="fb-root"></div>
@@ -62,7 +62,7 @@
             {% sitetree_menu from "Main" include "trunk,topmenu" template "sitetree/menu_bootstrap3_deep.html"  %}
                     
            
-            <div style="display:flex;" class="SiteMap">{% sitetree_breadcrumbs from "Main" template "sitetree/breadcrumbs_bootstrap.html" %}
+            <div style="display:flex;" class="SiteMap">{% sitetree_breadcrumbs from "Main" template "sitetree/breadcrumbs_bootstrap3.html" %}
             </div>
 
         </div>
