@@ -48,7 +48,14 @@
             <div id="three-column-right">
 <div class="newsletterBox"><h1>Newsletter</h1>
         Vuoi essere informato sulle attività dell'associazione?<br />
-<form class="form-inline">
+    <form  action="" method="post" class="form-inline">
+        {% csrf_token %}
+            <table>
+            {{ form.as_table }}
+            </table>
+            <input type="submit" value="Submit">
+        
+        
 
     <div >
         <label for="txtIndirizzoEmail" >Inserisci il tuo indirizzo di email</label>
