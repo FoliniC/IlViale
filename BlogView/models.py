@@ -18,6 +18,9 @@ def update_user_profile(sender, instance, created, **kwargs):
 class NewsletterRegistration(models.Model):
     
     # Fields
-    indirizzo_mail = models.EmailField(max_length = 254) 
-    nome = models.CharField(max_length=2)
+    indirizzo_mail = models.EmailField(max_length = 254,help_text='Inserisci l''email dove vuoi ricevere la newsletter',verbose_name='Inserisci il tuo indirizzo di email') 
+    nome = models.CharField(max_length=50,blank=True,help_text='se vuoi inserisci il tuo nome o un identificativo',verbose_name='Inserisci il tuo nome (facoltativo)')
+    cognome = models.CharField(max_length=50,blank=True,help_text='se vuoi inserisci il tuo cognome',verbose_name='Inserisci il tuo cognome (facoltativo)')
+    localita = models.CharField(max_length=50,blank=True,help_text='se vuoi inserisci la località',verbose_name='Inserisci il tuo comune (facoltativo)')
+    consenso_privacy =  models.BooleanField(default=False,help_text='conferma di permetterci di registrare i dati inseriti')
     # Metadata

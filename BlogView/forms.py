@@ -12,4 +12,10 @@ class RegisterForm(ModelForm):
 
     class Meta:
         model = NewsletterRegistration
-        fields = ('indirizzo_mail', 'nome', )
+        
+        fields = ('indirizzo_mail', 'nome', 'cognome', 'localita', 'consenso_privacy')
+    def clean_consenso_privacy(self):
+        consenso_privacy = self.cleaned_data['consenso_privacy']
+        if not(consenso_privacy):
+            raise forms.ValidationError("Devi selezionare il consenso alla privacy")
+        return consenso_privacy
