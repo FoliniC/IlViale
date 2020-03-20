@@ -1,4 +1,3 @@
 {
-    "python.pythonPath": "E:\\Progetti\\WebSites\\IlViale\\EnvIlViale\\Scripts\\python.exe",
-    "http.proxySupport": "on"
+    "python.pythonPath": "envIlViale\\Scripts\\python.exe"
 }

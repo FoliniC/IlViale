@@ -1,0 +1,61 @@
+.titoli {  font-family: Geneva, Arial, Helvetica, san-serif; font-size: 14px; color: #0000FF; font-style: italic}
+.testo {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; text-align: justify; vertical-align: top; font-weight: normal; line-height: 30px}
+.titoli {  font-weight: bold; line-height: 30px}
+.testocentrato {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: normal; text-align: center; line-height: 30px}
+a:hover {  color: #333333; text-decoration: none}
+a:link {  color: #333333}
+.testino {  font-family: Arial, Helvetica, sans-serif; font-size: 10px; line-height: 15px; text-align: center}
+.verdana1 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; text-align: center}
+.titolisinistra { font-family: Geneva, Arial, Helvetica, san-serif; font-size: 14px; color: #0000FF; font-style: italic; font-weight: bold; line-height: 30px ; text-align: left}
+.testoapice { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; text-align: justify; vertical-align: super; font-weight: normal; line-height: 30px }
+.testoSinistra {
+font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; text-align: left; vertical-align: top; font-weight: normal; line-height: 30px
+}
+.google {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+
+}
+.googleLink {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	color: 828282;
+	text-decoration: underline;
+
+
+
+
+}
+.googleLinkBold {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	color: #000000;
+	font-weight: bold;
+	text-decoration: underline;
+
+}
+
+/*
+     FILE ARCHIVED ON 22:01:09 Feb 02, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:33:56 Mar 15, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  exclusion.robots: 0.146
+  CDXLines.iter: 15.199 (3)
+  esindex: 0.01
+  LoadShardBlock: 564.46 (3)
+  RedisCDXSource: 229.101
+  load_resource: 352.48
+  PetaboxLoader3.datanode: 550.47 (4)
+  exclusion.robots.policy: 0.135
+  captures_list: 812.92
+  PetaboxLoader3.resolve: 80.295
+*/

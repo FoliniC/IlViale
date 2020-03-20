@@ -25,7 +25,7 @@ SECRET_KEY = 'p$6-^4q-9@j2z!y^d^^5l3-nc_pvlh8*8ld&_(0!971-b6jvu('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 SERVER_TYPE = 'DEV'
 
@@ -58,8 +58,8 @@ ROOT_URLCONF = 'IlViale.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'IlViale\\templates'),
-                 os.path.join(BASE_DIR, 'sito_statico\\templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'IlViale/templates'),
+                 os.path.join(BASE_DIR, 'sito_statico/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -114,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'it-it'
+LANGUAGE_CODE = 'it-IT'
 
 TIME_ZONE = 'Europe/Rome'
 
@@ -130,10 +130,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'root')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'IlViale\\static'),
+        os.path.join(BASE_DIR, 'IlViale/static'),
     ]
 
 
@@ -145,16 +145,20 @@ LOGGING = {
             'class': 'logging.StreamHandler',
         },
         'file': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': 'debug.log',
+            'filename': os.path.join(BASE_DIR, 'django.log'),
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['file'],
+            'handlers': ['console',
+                         'file', ],
             'level': 'INFO',
             'propagate': True,
+
         },
     },
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
