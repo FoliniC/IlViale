@@ -1,0 +1,7 @@
+{% autoescape off %}
+Ciao {{ user }},
+
+Clicka nel link sottostante per attivare la sottoscrizione:
+
+http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+{% endautoescape %}

@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'p$6-^4q-9@j2z!y^d^^5l3-nc_pvlh8*8ld&_(0!971-b6jvu('
+#SECRET_KEY = 'p$6-^4q-9@j2z!y^d^^5l3-nc_pvlh8*8ld&_(0!971-b6jvu('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 SERVER_TYPE = 'DEV'
+SITE_ID = 1
 
 
 # Application definition
@@ -39,13 +40,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'BlogView.apps.BlogViewConfig',
     'sitetree',
+    'tinymce',
+    'sorl.thumbnail',
+    'newsletter',
 ] 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -58,8 +64,8 @@ ROOT_URLCONF = 'IlViale.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'IlViale/templates'),
-                 os.path.join(BASE_DIR, 'sito_statico/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'IlViale', 'templates'),
+                 os.path.join(BASE_DIR, 'sito_statico', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -114,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'it-IT'
+LANGUAGE_CODE = 'it'
 
 TIME_ZONE = 'Europe/Rome'
 
@@ -135,7 +141,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'IlViale/static'),
     ]
-
+# Random secret key
+import random
+key_chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+SECRET_KEY = ''.join([
+    random.SystemRandom().choice(key_chars) for i in range(50)
+])
 
 LOGGING = {
     'version': 1,
@@ -151,6 +162,11 @@ LOGGING = {
         },
     },
     'loggers': {
+         'newsletter': {
+            'handlers': ['console',
+                         'file', ],
+            'propagate': True,
+        },
         'django': {
             'handlers': ['console',
                          'file', ],
@@ -162,3 +178,12 @@ LOGGING = {
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'IlVialeDellaFormica@gmail.com'
+EMAIL_HOST_PASSWORD = 'IlViale012!'
+
+DEFAULT_CONFIRM_EMAIL = True
+NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"

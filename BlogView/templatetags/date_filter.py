@@ -17,11 +17,10 @@ def parse_date(date_string, format):
 
     """
     try:
-        my_locale = locale.getlocale()
-        print (my_locale)
-        locale.setlocale(locale.LC_ALL, 'it-IT')
+        locale.setlocale(locale.LC_TIME, 'it')
         return datetime.datetime.strptime(date_string, format)
     except ValueError:
+        print ('Error converting date:' + date_string )
         return None
 
 register.filter(parse_date)

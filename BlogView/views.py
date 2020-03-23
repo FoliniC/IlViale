@@ -8,6 +8,7 @@ from django.utils.http import urlsafe_base64_encode
 from django.template.loader import render_to_string
 from BlogView.forms import RegisterForm
 from BlogView.tokens import account_activation_token
+from django.core.mail import EmailMessage
 
 # Create your views here.
 from django.http import HttpResponse
@@ -15,34 +16,54 @@ from django.http import HttpResponse
 
 import feedparser
 
+
 def index(request):
     post_id = ""
     base_url = None
-    try: 
+    try:
         server = os.environ["SERVER_TYPE"]
-    except KeyError:  
+    except KeyError:
         server = "PROD"
     if server != 'DEV':
         base_url = request.build_absolute_uri
-    myfeed = feedparser.parse('http://ilvialedellaformica.blogspot.com/feeds/posts/default')
-    
+    myfeed = feedparser.parse(
+        'http://ilvialedellaformica.blogspot.com/feeds/posts/default')
+
     # return HttpResponse("Hello, world.")
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            form.save()
-            
-            #raw_password = form.cleaned_data.get('password1')
-            #user = authenticate(username=username, password=raw_password)
-            #login(request, user)
-            return redirect('account_activation_sent')
+            """     try:
+            subscribe_model_instance = SubscribeModel.objects.get(email=email)
+        except ObjectDoesNotExist as e:
+            subscribe_model_instance = SubscribeModel()
+            subscribe_model_instance.email = email
+        except Exception as e:
+            logging.getLogger("error").error(traceback.format_exc())
+            return False """
+            newsletter_registration = form.save()
+            # indirizzo_mail = newsletter_registration.indirizzo_mail
+            # nome = newsletter_registration.nome
+            # cognome = newsletter_registration.cognome
+            # localita = newsletter_registration.localita
+            # current_site = get_current_site(request)
+            # subject = 'Attiva la sottoscrizione della newsletter del Viale della Formica'
+            # message = render_to_string('newsletter_activation_email.html', {
+            #     'user': nome + cognome,
+            #     'domain': current_site.domain,
+            #     'uid': urlsafe_base64_encode(force_bytes(newsletter_registration.pk)),
+            #     'token': encrypt(indirizzo_mail + constants.SEPARATOR + str(time.time())),
+            # })
+            # email = EmailMessage(subject, message, to=[indirizzo_mail])
+            # email.send()
+            return redirect('newsletter_activation_sent')
     else:
         post_id = request.GET.get("post_id")
         form = RegisterForm()
-    return render(request, "reader.html", {"feed" : myfeed,"post_id" : post_id,"base_url" : base_url,'form': form} )
+    return render(request, "reader.html", {"feed": myfeed, "post_id": post_id, "base_url": base_url, 'form': form})
 
 
-def signup(request):
+""" def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -62,10 +83,12 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+ """
 
-def account_activation_sent(request):   
+def account_activation_sent(request):
     return render(request, 'mail_sent.html', )
- 
+
+""" 
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
@@ -81,3 +104,4 @@ def activate(request, uidb64, token):
         return redirect('home')
     else:
         return render(request, 'account_activation_invalid.html')
+ """

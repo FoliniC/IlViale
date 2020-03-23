@@ -1,4 +1,9 @@
-﻿
+﻿body {
+	font-family: "trebuchet MS", tahoma, verdana, arial, helvetica, sans-serif;
+	color: #666666;
+    font-size: .8em;
+}
+
 #pageFrame {	margin:10px
 }
 #menu
@@ -35,46 +40,38 @@ hr {
 	
 #header-left {
 	float: left;
-	display:inline-block;
-	clear:none;
+	display:block;
 	color: #FFFFFF;
-	padding: 25px 10px 0 10px;
+	padding: 5px 15px 0 30px;
 	background: url(bg-curve-top-left.gif) no-repeat;
 	text-align: left;
-	height: auto;
-	width: 70%;
+	height: 60px;
+	width: 80%;
 	border-right: 5px solid #FFFFFF;
 }
-#header-left img {
-	width: 30px;
-	}
+
 #header-right {
-	margin: 0px;
-	display: inline-block;
-	margin-right: 2px;
+	display: block;
 	color: #FFFFFF;
 	margin-top: 35px;
-	padding: 0px;
+	margin-right: 5px;
 	font-size: .55em;
 	text-align: right;
-	width: 25%;
+	width: auto;
 	float: right;
-	clear: none;
 }
 #three-column-container {
 	width: 100%;
-	margin: 10px 0px;
-	padding: 10px 0px
 }
 
 #three-column-left {
 	float: left;
-	width: 70%;
+	width: 80%;
 }
 
 #three-column-right {
 	float: right;
-	width: 30%;
+	width: 20%;
 }
 
 #three-column-middle {
@@ -148,4 +145,23 @@ hr {
 .twitter {
 	background-position-x: 0px;
 	background-position-y: -20px;
+}
+
+div.newsletterBox {
+	margin-top: -30px;
+	border-style: dashed;
+    border-width: thin;
+    padding: 10px;
+}
+
+h1 {
+	margin-top: 0px;
+	font-family: "trebuchet MS", tahoma, verdana, arial, helvetica, sans-serif;
+    font-size: 18px;
+}
+.navbar-nav>li>a {
+	margin-top: 0px;
+	font-size: 1.8em;
+	padding-top: 0px;
+    padding-bottom: 0px;
 }
