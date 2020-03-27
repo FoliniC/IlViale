@@ -67,6 +67,7 @@ hr {
 #three-column-left {
 	float: left;
 	width: 80%;
+	padding-right: 5px;
 }
 
 #three-column-right {
@@ -164,4 +165,8 @@ h1 {
 	font-size: 1.8em;
 	padding-top: 0px;
     padding-bottom: 0px;
+}
+
+.post-body {
+	font-size: 1.5em;
 }

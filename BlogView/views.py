@@ -1,4 +1,6 @@
 import os
+import lxml.etree as ET
+import urllib3
 
 from django.shortcuts import render
 from django.contrib.sites.shortcuts import get_current_site
@@ -26,9 +28,17 @@ def index(request):
         server = "PROD"
     if server != 'DEV':
         base_url = request.build_absolute_uri
-    myfeed = feedparser.parse(
-        'http://ilvialedellaformica.blogspot.com/feeds/posts/default')
+    http = urllib3.ProxyManager('http://proxy.d1.bkd:8080')
 
+    response = http.request('GET', 'http://ilvialedellaformica.blogspot.com/feeds/posts/default?max-results=1500')
+
+    myfeed = feedparser.parse('http://ilvialedellaformica.blogspot.com/feeds/posts/default?max-results=1500')
+
+    dom = ET.XML(response.data)
+    xslt = ET.parse(os.path.join('BlogView','RSS2HTMLUL.xslt'))
+    transform = ET.XSLT(xslt)
+    HTMLTree = transform(dom)
+    print(ET.tostring(HTMLTree, pretty_print=True))
     # return HttpResponse("Hello, world.")
     if request.method == 'POST':
         form = RegisterForm(request.POST)
@@ -60,7 +70,7 @@ def index(request):
     else:
         post_id = request.GET.get("post_id")
         form = RegisterForm()
-    return render(request, "reader.html", {"feed": myfeed, "post_id": post_id, "base_url": base_url, 'form': form})
+    return render(request, "reader.html", {"feed": myfeed, "post_id": post_id, "base_url": base_url, 'form': form, 'HTMLTree': HTMLTree})
 
 
 """ def signup(request):
