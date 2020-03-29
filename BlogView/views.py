@@ -38,7 +38,7 @@ def index(request):
     xslt = ET.parse(os.path.join('BlogView','RSS2HTMLUL.xslt'))
     transform = ET.XSLT(xslt)
     HTMLTree = transform(dom)
-    print(ET.tostring(HTMLTree, pretty_print=True))
+    # print(ET.tostring(HTMLTree, pretty_print=True))
     # return HttpResponse("Hello, world.")
     if request.method == 'POST':
         form = RegisterForm(request.POST)

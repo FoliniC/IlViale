@@ -1,3 +1,4 @@
+{% load static %}
 {% load i18n %}
 
 {% block body %}
@@ -6,7 +7,7 @@
 you, or someone in your name requested a subscription to {{ title }}.
 
 If you would like to confirm your subscription, please follow this activation link:
-http://{{ domain }}{{ url }}
+http://127.0.0.1:8000{{ url }}
 
 Kind regards,{% endblocktrans %}
 {{ newsletter.sender }}

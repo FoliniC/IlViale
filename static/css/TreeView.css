@@ -8,6 +8,7 @@ div.TreeView
 	border: dotted;
 	padding: 10px;
 	padding-left:0px;
+	font-size: 1.5em;
 }
 
 div.TreeView ul
@@ -45,7 +46,8 @@ div.TreeView ul li ul li ul
 	background-image: url('arrowRight.gif');
 	background-repeat: no-repeat;
 	padding-left: 10px;
-	cursor:pointer
+	cursor:pointer;
+	margin-right: 3px;
 }
 .TreeView-Expand
 {
