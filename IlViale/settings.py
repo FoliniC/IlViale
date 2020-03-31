@@ -140,6 +140,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'IlViale/static'),
+        os.path.join(BASE_DIR, 'IlViale/sito_statico'),
     ]
 # Random secret key
 import random
@@ -187,3 +188,4 @@ EMAIL_HOST_PASSWORD = 'IlViale012!'
 
 DEFAULT_CONFIRM_EMAIL = True
 NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"
+

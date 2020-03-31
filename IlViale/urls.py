@@ -27,3 +27,7 @@ urlpatterns = [
     path('', RedirectView.as_view(url='/BlogView/', permanent=True)),
     url(r'^newsletter/', include('newsletter.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+admin.site.site_header = "Amministrazione sito"
+admin.site.site_title = "Amministrazione sito"
+admin.site.index_title = "Amministrazione sito"
