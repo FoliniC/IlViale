@@ -1,7 +1,6 @@
 from django.urls import path
 from django.urls import include
 from django.conf.urls import url
-from BlogView import views as core_views
 from . import views
 
 urlpatterns = [
