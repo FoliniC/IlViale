@@ -26,13 +26,14 @@ def index(request):
         server = os.environ["SERVER_TYPE"]
     except KeyError:
         server = "PROD"
-   if server != 'DEV':
-        base_url = request.build_absolute_uri
-    elif server = 'DEV':
+    if server == 'DEV':
         http = urllib3.ProxyManager('http://proxy.d1.bkd:8080')
-    elif server = 'DEVHOME':
+    elif server == 'DEVHOME':
         http = urllib3.PoolManager()
-
+    else:
+        base_url = request.build_absolute_uri
+        http = urllib3.PoolManager()
+    
     response = http.request('GET', 'http://ilvialedellaformica.blogspot.com/feeds/posts/default?max-results=1500')
 
     myfeed = feedparser.parse('http://ilvialedellaformica.blogspot.com/feeds/posts/default?max-results=1500')
