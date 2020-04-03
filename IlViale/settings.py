@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+BASE_URL = ''
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-SERVER_TYPE = 'DEV'
+# SERVER_TYPE = 'DEV'
 SITE_ID = 1
 
 
@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+    ]
 
 ROOT_URLCONF = 'IlViale.urls'
 
@@ -74,7 +74,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.request',
-                'IlViale.template.context_processors.request',
+                #'IlViale.context_base_url.baseurl',
             ],
         },
     },
@@ -155,6 +155,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'handlers': {
         'console': {
+            'level': 'INFO',
             'class': 'logging.StreamHandler',
         },
         'file': {
@@ -167,6 +168,7 @@ LOGGING = {
          'newsletter': {
             'handlers': ['console',
                          'file', ],
+            'level': 'INFO',
             'propagate': True,
         },
         'django': {
@@ -179,14 +181,13 @@ LOGGING = {
     },
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'IlVialeDellaFormica@gmail.com'
-EMAIL_HOST_PASSWORD = 'IlViale012!'
+EMAIL_HOST_PASSWORD = 'fcyhiwjzhavokdpq'
 
 DEFAULT_CONFIRM_EMAIL = True
 NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"
-
