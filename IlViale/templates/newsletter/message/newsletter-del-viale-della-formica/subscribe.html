@@ -3,13 +3,13 @@
 
 {% block body %}
 
-{% blocktrans with name=subscription.name|default:_("Sir/Madam") title=newsletter.title domain=site.domain url=subscription.subscribe_activate_url %}Dear {{ name }},
-
-you, or someone in your name requested a subscription to {{ title }}.
-
-If you would like to confirm your subscription, please follow this activation link:
-{{ domain }}{{ url }}
-
-Kind regards,{% endblocktrans %}
+{% blocktrans with name=subscription.name|default:_("Sir/Madam") title=newsletter.title url=subscription.subscribe_activate_url %}Ciao {{ name }},<br/>
+66666666
+tu, o qualcuno a tuo nome, ha richiesto l'iscrizione alla newsletter de {{ title }}.
+<br/><br/>
+Per confermare la tua iscrizione clicka sul link seguente:<br/>
+{{ site }}{{ url }}
+<br/><br/>
+ciao,<br/>{% endblocktrans %}
 {{ newsletter.sender }}
 {% endblock body %}

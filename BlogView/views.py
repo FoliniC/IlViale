@@ -1,6 +1,7 @@
 import os
 import lxml.etree as ET
 import urllib3
+import logging
 
 from django.shortcuts import render
 from django.contrib.sites.shortcuts import get_current_site
@@ -8,6 +9,7 @@ from django.shortcuts import redirect
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.template.loader import render_to_string
+from IlViale.settings import BASE_DIR
 from BlogView.forms import RegisterForm
 from BlogView.tokens import account_activation_token
 from django.core.mail import EmailMessage
@@ -39,9 +41,16 @@ def index(request):
     myfeed = feedparser.parse('http://ilvialedellaformica.blogspot.com/feeds/posts/default?max-results=1500')
 
     dom = ET.XML(response.data)
-    xslt = ET.parse(os.path.join('BlogView','RSS2HTMLUL.xslt'))
+    logger = logging.getLogger("django")
+    logger.warning ('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' + BASE_DIR)
+    logger.warning (os.path.join(BASE_DIR,'BlogView','RSS2HTMLUL.xslt'))
+    logger.warning('Server:' + server)
+    xslt = ET.parse(os.path.join(BASE_DIR,'BlogView','RSS2HTMLUL.xslt'))
     transform = ET.XSLT(xslt)
     HTMLTree = transform(dom)
+    
+    site = get_current_site(request)
+    logger.warning('current_site' + site.domain)
     # print(ET.tostring(HTMLTree, pretty_print=True))
     # return HttpResponse("Hello, world.")
     if request.method == 'POST':

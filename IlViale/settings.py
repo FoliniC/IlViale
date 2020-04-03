@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-SERVER_TYPE = 'DEV'
+# SERVER_TYPE = 'DEV'
 SITE_ID = 1
 
 
@@ -74,6 +74,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.request',
+                'IlViale.context_base_url.baseurl',
             ],
         },
     },
@@ -154,6 +155,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'handlers': {
         'console': {
+            'level': 'INFO',
             'class': 'logging.StreamHandler',
         },
         'file': {
@@ -166,6 +168,7 @@ LOGGING = {
          'newsletter': {
             'handlers': ['console',
                          'file', ],
+            'level': 'INFO',
             'propagate': True,
         },
         'django': {
@@ -184,8 +187,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'IlVialeDellaFormica@gmail.com'
-EMAIL_HOST_PASSWORD = 'IlViale012!'
+EMAIL_HOST_PASSWORD = 'fcyhiwjzhavokdpq'
 
 DEFAULT_CONFIRM_EMAIL = True
 NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"
-

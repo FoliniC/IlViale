@@ -17,7 +17,7 @@ def parse_date(date_string, format):
 
     """
     try:
-        locale.setlocale(locale.LC_TIME, 'it')
+        #locale.setlocale(locale.LC_TIME, 'it')
         return datetime.datetime.strptime(date_string, format)
     except ValueError:
         print ('Error converting date:' + date_string )
