@@ -31,3 +31,14 @@ urlpatterns = [
 admin.site.site_header = "Amministrazione sito"
 admin.site.site_title = "Amministrazione sito"
 admin.site.index_title = "Amministrazione sito"
+from django.conf import settings
+from django.core.signals import request_started
+from django.dispatch import receiver
+from django.conf import settings
+@receiver(request_started)
+def my_request_started(sender, environ, **kwargs):
+    if settings.BASE_URL=='':
+        site = environ['HTTP_HOST']
+        scheme = 'https' #if self.request.is_secure() else 'http'
+        base_url_request = scheme + '://' + site
+        settings.BASE_URL = base_url_request 
