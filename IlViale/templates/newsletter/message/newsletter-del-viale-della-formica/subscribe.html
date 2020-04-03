@@ -1,15 +1,14 @@
 {% load static %}
-{% load i18n %}
+{% comment %} {% load i18n %} {% endcomment %}
+{% load context_base_url_template %}
 
 {% block body %}
 
-{% blocktrans with name=subscription.name|default:_("Sir/Madam") title=newsletter.title url=subscription.subscribe_activate_url %}Ciao {{ name }},<br/>
-66666666
-tu, o qualcuno a tuo nome, ha richiesto l'iscrizione alla newsletter de {{ title }}.
+Ciao {{ subscription.name }},<br/>
+tu, o qualcuno a tuo nome, ha richiesto l'iscrizione alla newsletter de {{ newsletter.title }}.
 <br/><br/>
 Per confermare la tua iscrizione clicka sul link seguente:<br/>
-{{ site }}{{ url }}
+{% baseurl %}{{ subscription.subscribe_activate_url }}
 <br/><br/>
-ciao,<br/>{% endblocktrans %}
 {{ newsletter.sender }}
 {% endblock body %}

@@ -7,3 +7,5 @@ http://{{ domain }}{{ url }}
 
 Kind regards,{% endblocktrans %}
 {{ newsletter.sender }}
+E:\Progetti\WebSites\IlViale\IlViale\templates\newsletter\message\newsletter-del-viale-della-formica\subscribe.txt
+  

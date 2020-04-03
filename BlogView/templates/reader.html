@@ -2,12 +2,13 @@
 {% load static %}
 {% load i18n %}
 {% load date_filter %}
+{% load context_base_url_template %}
 {% block head %}
 <script type="text/javascript" src="{% static 'js/rss_tree.js' %}"></script>
 <link rel="stylesheet" href="{% static 'css/TreeView.css' %}">
 
 {% endblock %}
-{% block body %}
+{% block body %}  
     <div id="three-column-container">
         <div id="three-column-left">
             <font size="2" color="red">Ricordati di iscriverti alla nostra newsletter, se vuoi essere aggiornato sulle nostre attività! E' semplice e gratuito. Basta inserire i dati qui a fianco!!!   </font>
