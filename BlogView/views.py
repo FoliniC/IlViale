@@ -42,15 +42,15 @@ def index(request):
 
     dom = ET.XML(response.data)
     logger = logging.getLogger("django")
-    logger.warning ('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' + BASE_DIR)
-    logger.warning (os.path.join(BASE_DIR,'BlogView','RSS2HTMLUL.xslt'))
+    #logger.warning ('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' + BASE_DIR)
+    #logger.warning (os.path.join(BASE_DIR,'BlogView','RSS2HTMLUL.xslt'))
     logger.warning('Server:' + server)
     xslt = ET.parse(os.path.join(BASE_DIR,'BlogView','RSS2HTMLUL.xslt'))
     transform = ET.XSLT(xslt)
     HTMLTree = transform(dom)
     
-    site = get_current_site(request)
-    logger.warning('current_site' + site.domain)
+    #site = get_current_site(request)
+    #logger.warning('current_site' + site.domain)
     # print(ET.tostring(HTMLTree, pretty_print=True))
     # return HttpResponse("Hello, world.")
     if request.method == 'POST':
