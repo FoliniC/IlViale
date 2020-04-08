@@ -1,4 +1,147 @@
-﻿body {
+﻿.navbar {
+	background-color: #828ad0;
+  }
+  .navbar .navbar-brand {
+	color: #3c479f;
+  }
+  .navbar .navbar-brand:hover,
+  .navbar .navbar-brand:focus {
+	color: #ecdbff;
+  }
+  .navbar .navbar-text {
+	color: #3c479f;
+  }
+  .navbar .navbar-text a {
+	color: #ecdbff;
+  }
+  .navbar .navbar-text a:hover,
+  .navbar .navbar-text a:focus {
+	color: #ecdbff; 
+  }
+  .navbar .navbar-nav .nav-link {
+	color: #3c479f;
+	border-radius: .25rem;
+	margin: 0 0.25em;
+  }
+  .navbar .navbar-nav .nav-link:not(.disabled):hover,
+  .navbar .navbar-nav .nav-link:not(.disabled):focus {
+	color: #ecdbff;
+  }
+  .navbar .navbar-nav .dropdown-menu {
+	background-color: #828ad0;
+	border-color: #4956c9;
+  }
+  .navbar .navbar-nav .dropdown-menu .dropdown-item {
+	color: #3c479f;
+  }
+  .navbar .navbar-nav .dropdown-menu .dropdown-item:hover,
+  .navbar .navbar-nav .dropdown-menu .dropdown-item:focus,
+  .navbar .navbar-nav .dropdown-menu .dropdown-item.active {
+	color: #ecdbff;
+	background-color: #4956c9;
+  }
+  .navbar .navbar-nav .dropdown-menu .dropdown-divider {
+	border-top-color: #4956c9;
+  }
+  .navbar .navbar-nav .nav-item.active .nav-link,
+  .navbar .navbar-nav .nav-item.active .nav-link:hover,
+  .navbar .navbar-nav .nav-item.active .nav-link:focus,
+  .navbar .navbar-nav .nav-item.show .nav-link,
+  .navbar .navbar-nav .nav-item.show .nav-link:hover,
+  .navbar .navbar-nav .nav-item.show .nav-link:focus {
+	color: #ecdbff;
+	background-color: #4956c9;
+  }
+  .navbar .navbar-toggle {
+	border-color: #4956c9;
+  }
+  .navbar .navbar-toggle:hover,
+  .navbar .navbar-toggle:focus {
+	background-color: #4956c9;
+  }
+  .navbar .navbar-toggle .navbar-toggler-icon {
+	color: #3c479f;
+  }
+  .navbar .navbar-collapse,
+  .navbar .navbar-form {
+	border-color: #3c479f;
+  }
+  .navbar .navbar-link {
+	color: #3c479f;
+  }
+  .navbar .navbar-link:hover {
+	color: #ecdbff;
+  }
+  
+  @media (max-width: 575px) {
+	.navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
+	  color: #3c479f;
+	}
+	.navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+	.navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+	  color: #ecdbff;
+	}
+	.navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active {
+	  color: #ecdbff;
+	  background-color: #4956c9;
+	}
+  }
+  
+  @media (max-width: 767px) {
+	.navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
+	  color: #3c479f;
+	}
+	.navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+	.navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+	  color: #ecdbff;
+	}
+	.navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
+	  color: #ecdbff;
+	  background-color: #4956c9;
+	}
+  }
+  
+  @media (max-width: 991px) {
+	.navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
+	  color: #3c479f;
+	}
+	.navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+	.navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+	  color: #ecdbff;
+	}
+	.navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
+	  color: #ecdbff;
+	  background-color: #4956c9;
+	}
+  }
+  
+  @media (max-width: 1199px) {
+	.navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
+	  color: #3c479f;
+	}
+	.navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+	.navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+	  color: #ecdbff;
+	}
+	.navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
+	  color: #ecdbff;
+	  background-color: #4956c9;
+	}
+  }
+  
+  .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
+	color: #3c479f;
+  }
+  .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+	color: #ecdbff;
+  }
+  .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
+	color: #ecdbff;
+	background-color: #4956c9;
+  }
+  
+  body {
 	font-family: "trebuchet MS", tahoma, verdana, arial, helvetica, sans-serif;
 	color: #666666;
     font-size: 1em;
@@ -170,3 +313,4 @@ h1 {
 .post-body {
 	font-size: 1.5em;
 }
+

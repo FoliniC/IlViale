@@ -35,13 +35,31 @@ def index(request):
     else:
         base_url = request.build_absolute_uri
         http = urllib3.PoolManager()
-    
-    response = http.request('GET', 'http://ilvialedellaformica.blogspot.com/feeds/posts/default?max-results=1500')
-
-    myfeed = feedparser.parse('http://ilvialedellaformica.blogspot.com/feeds/posts/default?max-results=1500')
-
-    dom = ET.XML(response.data)
     logger = logging.getLogger("django")
+    
+    try:
+        rss_response = http.request("GET", 'http://ilvialedellaformica.blogspot.com/feeds/posts/default?max-results=10')
+        rss_response_data = ''
+        with open('IlVialeRSSPayload.rss', 'wb') as cache_file:
+            #for chunk in rss_response.stream(32):
+            cache_file.write(rss_response.data)
+            rss_response_data = rss_response.data 
+
+    except (Exception) as exception: 
+        logger.exception("general exception ")
+        try:
+            requests_session = rss_response.session()
+            requests_session.mount('file://', LocalFileAdapter())
+            rss_response = requests_session.get('file://IlVialeRSSPayload.rss')
+            rss_response.release_conn()
+        except :
+            logger.exception("Cache File not found or broken")
+            raise
+
+    #myfeed = feedparser.parse('http://ilvialedellaformica.blogspot.com/feeds/posts/default?max-results=1500')
+    myfeed = feedparser.parse(rss_response_data)
+
+    dom = ET.XML(rss_response_data )
     #logger.warning ('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' + BASE_DIR)
     #logger.warning (os.path.join(BASE_DIR,'BlogView','RSS2HTMLUL.xslt'))
     logger.warning('Server:' + server)
@@ -83,7 +101,10 @@ def index(request):
     else:
         post_id = request.GET.get("post_id")
         form = RegisterForm()
-    return render(request, "reader.html", {"feed": myfeed, "post_id": post_id, "base_url": base_url, 'form': form, 'HTMLTree': HTMLTree})
+    if request.GET.get("Prova")=="si":
+        return render(request, "ProvaLayout.html", {"feed": myfeed, "post_id": post_id, "base_url": base_url, 'form': form, 'HTMLTree': HTMLTree})
+    else:
+        return render(request, "reader.html", {"feed": myfeed, "post_id": post_id, "base_url": base_url, 'form': form, 'HTMLTree': HTMLTree})
 
 
 """ def signup(request):
