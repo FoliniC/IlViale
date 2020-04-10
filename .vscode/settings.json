@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "envIlViale\\Scripts\\python.exe",
+    "python.pythonPath": "C:\\Users\\U570062\\.virtualenvs\\EnvIlViale-unw_stWM\\Scripts\\python.exe",
     "python.formatting.provider": "black",
     "console": "integratedTerminal",
     "justMyCode" : false, 
