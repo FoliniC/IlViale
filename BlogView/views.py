@@ -2,7 +2,7 @@ import os
 import lxml.etree as ET
 import urllib3
 import logging
-
+import filecmp
 from django.shortcuts import render
 from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import redirect
@@ -13,6 +13,8 @@ from IlViale.settings import BASE_DIR
 from BlogView.forms import RegisterForm
 from BlogView.tokens import account_activation_token
 from django.core.mail import EmailMessage
+
+from datetime import datetime
 
 # Create your views here.
 from django.http import HttpResponse
@@ -36,26 +38,33 @@ def index(request):
         base_url = request.build_absolute_uri
         http = urllib3.PoolManager()
     logger = logging.getLogger("django")
-    
+    rss_response_data = ''
     try:
-        rss_response = http.request("GET", 'http://ilvialedellaformica.blogspot.com/feeds/posts/default?max-results=10')
-        rss_response_data = ''
-        with open('IlVialeRSSPayload.rss', 'wb') as cache_file:
-            #for chunk in rss_response.stream(32):
+        rss_response = http.request("GET", 'http://ilvialedellaformica.blogspot.com/feeds/posts/default?max-results=1500')
+        renamed_file = ''
+        rss_cache_file_path = os.path.join(BASE_DIR, 'media', 'IlVialeRSSPayload.rss')
+        if os.path.exists(rss_cache_file_path):
+            renamed_file = rss_cache_file_path.replace('.', datetime.now().strftime("%Y%m%d_%H%M%S.%f."))
+            os.rename(rss_cache_file_path, renamed_file)
+            
+        rss_response_data = rss_response.data 
+        with open(rss_cache_file_path, 'wb') as cache_file:
+        #     #for chunk in rss_response.stream(32):
             cache_file.write(rss_response.data)
-            rss_response_data = rss_response.data 
-
+        if filecmp.cmp(rss_cache_file_path, renamed_file):
+            os.remove(renamed_file)
     except (Exception) as exception: 
         logger.exception("general exception ")
         try:
-            requests_session = rss_response.session()
-            requests_session.mount('file://', LocalFileAdapter())
-            rss_response = requests_session.get('file://IlVialeRSSPayload.rss')
-            rss_response.release_conn()
+            no_op = ''
+            # requests_session = rss_response.session()
+            # requests_session.mount('file://', LocalFileAdapter())
+            # rss_response = requests_session.get('file://IlVialeRSSPayload.rss')
+            # rss_response.release_conn()
         except :
             logger.exception("Cache File not found or broken")
             raise
-
+    logger.warning ('>>>>+++ response data:' + rss_response_data.decode('utf-8'))
     #myfeed = feedparser.parse('http://ilvialedellaformica.blogspot.com/feeds/posts/default?max-results=1500')
     myfeed = feedparser.parse(rss_response_data)
 
