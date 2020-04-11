@@ -8,6 +8,7 @@
 
 <head id="Head1">
   <title>Il viale della Formica - associazione culturale</title>
+  {% block head_top %}{% endblock %}
   <meta name="og:title" id="OgTitle" content="Il viale della Formica - associazione culturale" />
   <meta property="og:description" id="OgDescription"
     content="Sito dell'associazione culturale Il viale della Formica, promozione culturale Castionetto di Chiuro" />
@@ -105,6 +106,9 @@
       margin-top: 1rem;
       margin-bottom: 0rem;
     }
+    ul li {
+list-style-type: none  }
+    
 
     </style>
   {% block head %}{% endblock %}
@@ -149,6 +153,20 @@
         {% block newsletter %}{% endblock %}
         {% block tree %}{% endblock %}
       </div>
+    </div>
+    <div class="row" >
+      <div class="col-xs-4 col-md-1"></div>
+      <div class="col-xs-4 col-md-10" >
+        {% block body_static %}{% endblock %}
+      </div>
+      <div class="col-xs-4 col-md-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2 col-md-1"></div>
+      <div class="col-xs-2 col-md-9" style="margin: 10px;">
+        {% block body_admin %}{% endblock %}
+      </div>
+     
     </div>
     <div class="row" id="footer-container">
       <div class="col-xs-6 col-md-9" id="footer-left">

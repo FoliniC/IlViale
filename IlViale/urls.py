@@ -75,6 +75,7 @@ def my_request_started(sender, environ, **kwargs):
             logger.warning(">>>>>>>>>>>second:" + str(base_url_request.find('http://ec2')))
             logger.error("Base url didn\'t come from aws -> clear: " + base_url_request )
             base_url_request = ''    
+            raise Exception("Base url didn\'t come from aws -> clear: " + base_url_request)
         logger.warning('>>>>>>>>>>>Error Base Url:' + base_url_request)
         settings.BASE_URL = base_url_request 
 

@@ -1,10 +1,8 @@
 import requests
 import os, sys
+import logging
 
-if sys.version_info.major < 3:
-    from urllib import url2pathname
-else:
-    from urllib.request import url2pathname
+from urllib.request import url2pathname
 
 class LocalFileAdapter(requests.adapters.BaseAdapter):
     """Protocol Adapter to allow Requests to GET file:// URLs
@@ -37,7 +35,9 @@ class LocalFileAdapter(requests.adapters.BaseAdapter):
         """
         path = os.path.normcase(os.path.normpath(url2pathname(req.path_url)))
         response = requests.Response()
+        logger = logging.getLogger("django")
 
+        logger.warning("path:" + path)
         response.status_code, response.reason = self._chkpath(req.method, path)
         if response.status_code == 200 and req.method.lower() != 'head':
             try:
