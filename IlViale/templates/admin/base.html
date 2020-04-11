@@ -2,10 +2,12 @@
 {% load i18n static %}
 {% load static %}
 {% load sitetree %}
-{% block head_top %}
+{% block head %}
 <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
 <style>#content-main table {
 width: 100%;  }
+caption {
+caption-side: top;  }
 </style>
 {% endblock %}
 {% block body_admin %}
@@ -62,7 +64,7 @@ width: 100%;  }
 
     <!-- Content -->
         {% block pretitle %}{% endblock %}
-        {% block content_title %}{% if title %}<h3>Gestione utenti
+        {% block content_title %}{% if title %}<h3>
         </h3>{% endif %}{% endblock %}
         {% block content %}
         {% block object-tools %}{% endblock %}
