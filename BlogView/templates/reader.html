@@ -4,7 +4,7 @@
 {% load date_filter %}
 {% load context_base_url_template %}
 {% block head %}
-<script type="text/javascript" src="{% static 'js/rss_tree.js' %}"></script>
+<script src="{% static 'js/rss_tree.js' %}"></script>
 <link rel="stylesheet" href="{% static 'css/TreeView.css' %}">
 <style>
 div.newsletterBox {
@@ -34,8 +34,8 @@ div.QRCode   {
 {% endblock %}
 {% block body %}
 <div id="BlogContent">
-    <font size="2" color="red">Ricordati di iscriverti alla nostra newsletter, se vuoi essere aggiornato sulle nostre
-        attività! E' semplice e gratuito. Basta inserire i dati <a href="" onclick="document.getElementById('IndirizzoNewsletter').focus()">qui</a>!!! </font>
+    <div style="font-size: 1em; color: red;">Ricordati di iscriverti alla nostra newsletter, se vuoi essere aggiornato sulle nostre
+        attività! E' semplice e gratuito. Basta inserire i dati <a href="" onclick="document.getElementById('IndirizzoNewsletter').focus()">qui</a>!!! </div>
     <br />
     {% if feed %}
     {% if feed.entries %}

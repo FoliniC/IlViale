@@ -69,7 +69,7 @@ def my_request_started(sender, environ, **kwargs):
             logger.exception("server_type not found > prod")
             server_type = 'PROD'
         logger.warning('>>>>>>>>>>>SERVER_TYPE' + server_type )
-        if not server_type=='DEVHOME' and not ( base_url_request.find('.compute.amazonaws.com')>-1 and base_url_request.find('http://ec2')>-1):
+        if not (server_type=='DEVHOME' or server_type=='DEV') and not ( base_url_request.find('.compute.amazonaws.com')>-1 and base_url_request.find('http://ec2')>-1):
             # double check if it's the right url
             logger.warning(">>>>>>>>>>>first:" + str(base_url_request.find('.compute.amazonaws.com')))
             logger.warning(">>>>>>>>>>>second:" + str(base_url_request.find('http://ec2')))
