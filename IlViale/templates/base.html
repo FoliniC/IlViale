@@ -186,11 +186,10 @@ list-style-type: none  }
       <div class="col-xs-6 col-md-3" id="footer-right">
         <a href="//www.iubenda.com/privacy-policy/7898839" class="iubenda-white iubenda-embed"
           title="Privacy Policy">Privacy Policy</a>
-        <script
-          type="text/javascript">(function (w, d) { var loader = function () { var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s, tag); }; if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; } })(window, document);</script>
+        <script>(function (w, d) { var loader = function () { var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s, tag); }; if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; } })(window, document);</script>
         <br /><a
           href="http://translate.google.com/translate?js=n&sl=it&tl=en&u={{ request.scheme }}://{{ request.get_host }}{{ request.get_full_path }}"><img
-            width="30" height="30" src="{% static "images/GoogleTranslate.webp" %}" />Translate</a>
+            width="30" height="30" alt="Google translate" src="{% static "images/GoogleTranslate.webp" %}" />Translate</a>
         <br /><a href="{{ request.scheme }}://{{ request.get_host }}/admin">login@formica</a>
       </div>
     </div>

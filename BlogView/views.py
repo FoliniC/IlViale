@@ -4,6 +4,7 @@ import urllib3
 import logging
 import filecmp
 import requests
+import binascii
 
 from django.shortcuts import render
 from django.contrib.sites.shortcuts import get_current_site
@@ -46,7 +47,7 @@ def index(request):
     try:
         rss_response = http.request(
             "GET",
-            "http://2ilvialedellaformica.blogspot.com/feeds/posts/default?max-results=1500",
+            "http://ilvialedellaformica.blogspot.com/feeds/posts/default?max-results=1500",
         )
         renamed_file = ""
         rss_cache_file_path = os.path.join(BASE_DIR, "media", "il_viale_rss_payload.rss").replace('/home/', 'home/')
@@ -72,7 +73,15 @@ def index(request):
         #     logger.warning("renamed correctly")
         # if os.path.exists(renamed_file):
         #     logger.warning("Deletion failed")
-        rss_response_data = rss_response.data
+        rss_response_data = rss_response.data.replace(rb'imageanchor=&quot;1&quot;', rb'').replace(rb'&lt;img ', rb'&lt;img alt="Immagine dal blog" ').replace(rb'border=&quot;0&quot; ', rb' ')
+        #position_byte = rss_response_data1.find(b'imageanchor')
+        # data_chunk = rss_response_data[rss_response_data.find(b'<a title=&quot;Condividi su facebook&quot; ')-10: rss_response_data.find(b'<a title=&quot;Condividi su facebook&quot; ')+50]
+        #data_chunk = rss_response_data1[2970:2970+50]
+        #logger.warning(data_chunk)
+        # binascii.hexlify(rss_response_data.find(b'imageanchor="1"')
+        # a single replace isn't enough ?!?!?
+        # rss_response_data = rss_response_data.replace(rb'imageanchor=&quot;1&quot; ', rb'')
+        #rss_response_data = rss_response_data.replace(b'imageanchor="1"', b'')
         with open(rss_cache_file_path, "wb") as cache_file:
             cache_file.write(rss_response.data)
             cache_file.close

@@ -7,35 +7,68 @@
 <script src="{% static 'js/rss_tree.js' %}"></script>
 <link rel="stylesheet" href="{% static 'css/TreeView.css' %}">
 <style>
-div.newsletterBox {
-    border-style: dashed;
-    border-width: thin;
-    padding: 10px;
-    font-size: 0.7em;
+    div.newsletterBox {
+        border-style: dashed;
+        border-width: thin;
+        padding: 10px;
+        font-size: 0.7em;
+    }
+
+    .newsletterBox h1 {
+        font-size: 1.4em;
+        padding: 10px 0 6px 0;
+    }
+
+    div.TreeView {
+        margin-top: 10px;
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .TreeView h1 {
+        font-size: 1.3em;
+        padding: 10px 0 6px 0;
+    }
+
+    div.QRCode {
+        margin-top: 10px;
+        font-size: .8em;
+    }
+
+    div.post-title {
+        font-size: 1.5em;
+    }
+    .bookmarks {
+    display: contents;
 }
-.newsletterBox h1 {
-    font-size: 1.4em;
-    padding: 10px 0 6px 0;
+    .facebook, .twitter {
+    width: 16px;
+    height: 16px;
+    text-indent: -500px;
+    overflow: hidden;
+    display: inline-block;
+    background-image: url({% static 'css/images/social.png' %});
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+    background-color: transparent;
 }
-div.TreeView {
-    margin-top: 10px;
-    font-size: 1em;
-    padding: 10px;
+hr {
+    width: 80%; text-align: right; margin-right: 0;
 }
-.TreeView h1 {
-    font-size: 1.3em;
-    padding: 10px 0 6px 0;
-}
-div.QRCode   {
-    margin-top: 10px;
-    font-size: .8em;
-}
+
 </style>
 {% endblock %}
 {% block body %}
 <div id="BlogContent">
-    <div style="font-size: 1em; color: red;">Ricordati di iscriverti alla nostra newsletter, se vuoi essere aggiornato sulle nostre
-        attività! E' semplice e gratuito. Basta inserire i dati <a href="" onclick="document.getElementById('IndirizzoNewsletter').focus()">qui</a>!!! </div>
+    <div style="font-size: 1em; color: red;">Ricordati di iscriverti alla nostra newsletter, se vuoi essere aggiornato
+        sulle nostre
+        attività! E' semplice e gratuito. Basta inserire i dati <a href=""
+            onclick="document.getElementById('IndirizzoNewsletter').focus()">qui</a>!!! </div>
     <br />
     {% if feed %}
     {% if feed.entries %}
@@ -43,12 +76,13 @@ div.QRCode   {
         {% if post_id is None or post_id.strip == '' %}
         {% for entry in feed.entries|slice:":5" %}
         <div class="post uncustomized-post-template">
-            <h3 class="post-title"><a
-                    href="{{ request.build_absolute_uri }}?post_id={{ entry.id }}">{{ entry.title }}</a>
-                <div class="bookmarks"><a title="Condividi su facebook" class="facebook"
-                        href="http://www.facebook.com/sharer/sharer.php?url=&amp;u={{ base_url|default_if_none:entry.link }}?post_id={{ entry.id }}&amp;s=100&amp;p[url]={{ base_url|default_if_none:entry.link }}?post_id={{ entry.id }}&amp;p[title]={{ entry.title }}&amp;p[summary]={{ entry.content.0.value }}"></a>
+            <div class="post-title">
+                <a href="{{ request.build_absolute_uri }}?post_id={{ entry.id }}">{{ entry.title }}</a>
+                <div class="bookmarks">
+                    <a title="Condividi su facebook" class="facebook"
+                        href="http://www.facebook.com/sharer/sharer.php?u={{ base_url|default_if_none:entry.link }}?post_id={{ entry.id }}"></a>
                 </div>
-            </h3>
+            </div>
         </div>
         <div class="post-header-line-1"></div>
         <div class="post-body">
@@ -62,19 +96,19 @@ div.QRCode   {
             </span>
         </div>
         <div>
-            <hr align="center" width="80%">
+            <hr >
         </div>
         {% endfor %}
         {% else %}
         {% for entry in feed.entries %}
         {% if post_id == entry.id %}
         <div class="post uncustomized-post-template">
-            <h3 class="post-title"><a
+            <div class="post-title"><a
                     href="{{ request.build_absolute_uri }}?post_id={{ entry.id }}">{{ entry.title }}</a>
                 <div class="bookmarks"><a title="Condividi su facebook" class="facebook"
-                        href="http://www.facebook.com/sharer/sharer.php?url=&amp;u={{ base_url|default_if_none:entry.link }}?post_id={{ entry.id }}&amp;s=100&amp;p[url]={{ base_url|default_if_none:entry.link }}?post_id={{ entry.id }}&amp;p[title]={{ entry.title }}&amp;p[summary]={{ entry.content.0.value }}"></a>
+                        href="http://www.facebook.com/sharer/sharer.php?u={{ base_url|default_if_none:entry.link }}?post_id={{ entry.id }}"></a>
                 </div>
-            </h3>
+            </div>
         </div>
         <div class="post-header-line-1"></div>
         <div class="post-body">
@@ -99,34 +133,34 @@ div.QRCode   {
 </div>
 {% endblock %}
 {% block newsletter %}
-    <div class="newsletterBox">
-        <h1>Newsletter</h1>
-        Vuoi essere informato sulle attività dell'associazione?
+<div class="newsletterBox">
+    <h1>Newsletter</h1>
+    Vuoi essere informato sulle attività dell'associazione?
 
-        <form enctype="multipart/form-data" method="post"
-            action="/newsletter/newsletter-del-viale-della-formica/subscribe/">
-            {% csrf_token %}
+    <form enctype="multipart/form-data" method="post"
+        action="/newsletter/newsletter-del-viale-della-formica/subscribe/">
+        {% csrf_token %}
 
-            <label id="IndirizzoNewsletter" for="id_email_field">Inserisci il tuo indirizzo di email<br /></label> <input type="email" size="18"
-                maxlength="254" name="email_field" required="" id="id_email_field">
-            <br />Inserisci il nome e/o la tua località (facoltativo) <br /><input type="text" name="name_field"
-                size="18" maxlength="30" id="id_name_field">
-            <br />Ti invieremo una email, gratuitamente, ogni volta che ci sono novità sul sito.<br />
-            Clickando sul bottone dai il consenso per il trattamento dei tuoi dati.<br />
-            <br /><i>I dati personali da lei forniti, verranno utilizzati nei limiti e per il perseguimento delle
-                finalità relative al presente modulo, nel rispetto dei principi stabiliti dal Codice della Privacy
-                (D.Lgs. 196/2003).
-                <br />Per esercitare i diritti a lei riconosciuti dall’articolo 7 del Codice della privacy suddetto,
-                potrà rivolgersi al Titolare del trattamento scrivendo a ilvialedellaformica@gmail.com</i>
-            <button id="id_submit" name="submit" value="{% trans "Activate" %}" type="submit">Attiva</button>
-        </form>
-    </div>
+        <label id="IndirizzoNewsletter" for="id_email_field">Inserisci il tuo indirizzo di email<br /></label> <input
+            type="email" size="18" maxlength="254" name="email_field" required="" id="id_email_field">
+        <br />Inserisci il nome e/o la tua località (facoltativo) <br /><input type="text" name="name_field" size="18"
+            maxlength="30" id="id_name_field">
+        <br />Ti invieremo una email, gratuitamente, ogni volta che ci sono novità sul sito.<br />
+        Clickando sul bottone dai il consenso per il trattamento dei tuoi dati.<br />
+        <br /><i>I dati personali da lei forniti, verranno utilizzati nei limiti e per il perseguimento delle
+            finalità relative al presente modulo, nel rispetto dei principi stabiliti dal Codice della Privacy
+            (D.Lgs. 196/2003).
+            <br />Per esercitare i diritti a lei riconosciuti dall’articolo 7 del Codice della privacy suddetto,
+            potrà rivolgersi al Titolare del trattamento scrivendo a ilvialedellaformica@gmail.com</i>
+        <button id="id_submit" name="submit" value="{% trans "Activate" %}" type="submit">Attiva</button>
+    </form>
+</div>
 {% endblock %}
 {% block tree %}
-    <div class="TreeView">
-        <h1 >Cronologia</h1>
-        {{ HTMLTree|safe }}
-    </div>
-    <div class="QRCode">Scannerizza per avere l'indirizzo del sito<img src="{% static "images/QRViale.png" %}" />
-    </div>
-{% endblock %}  
+<div class="TreeView">
+    <h1>Cronologia</h1>
+    {{ HTMLTree|safe }}
+</div>
+<div class="QRCode">Scannerizza per avere l'indirizzo del sito<img alt="QR code url sito Il viale della Formica" src="{% static "images/QRViale.png" %}" />
+</div>
+{% endblock %}
