@@ -77,14 +77,16 @@
       float: left;
       color: #FFFFFF;
       text-align: left;
-      border-right: 5px solid #FFFFFF;
     }
 
-    #header-right {
+    #header-right div {
       color: #FFFFFF;
       font-size: .3em;
       text-align: right;
-      display: inline-block;
+      position: absolute;
+      padding-right: 4px;
+      bottom: 0;
+      right: 0;
     }
 
 
@@ -112,8 +114,18 @@ list-style-type: none  }
 .flex-fixed-width-item {
     flex: 0 0 4px; width: 4px;
 }
+.ImageContainer {
+        width:auto;
+        height:auto;
+    } 
+
+    .ImageContainer img {
+    max-width: 100%;
+    max-height: 100%;
+}
     </style>
   {% block head %}{% endblock %}
+  {% block head_newsletter %}{% endblock %}
 </head>
 
 <body>
@@ -129,7 +141,7 @@ list-style-type: none  }
       </div>
       <div class="flex-fixed-width-item d-none d-md-table-cell" style=" background-color: white;">
       &#160;</div>   
-      <div class="col-xs-6 col-md-2" id="header-right">
+      <div class="col" id="header-right">
         <div>Associazione culturale</div>
       </div>
 
@@ -188,7 +200,9 @@ list-style-type: none  }
             modo 3.0 Unported</a>.
         </div>
       </div>
-      <div class="col-xs-6 col-md-3" id="footer-right">
+      <div class="flex-fixed-width-item d-none d-md-table-cell" style=" background-color: white;">
+        &#160;</div> 
+      <div class="col" id="footer-right">
         <a href="//www.iubenda.com/privacy-policy/7898839" class="iubenda-white iubenda-embed"
           title="Privacy Policy">Privacy Policy</a>
         <script>(function (w, d) { var loader = function () { var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s, tag); }; if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; } })(window, document);</script>

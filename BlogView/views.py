@@ -31,6 +31,14 @@ import feedparser
 def index(request):
     post_id = ""
     base_url = None
+    if request.GET.get("Newsletter") == 'compila':
+        return render(
+            request,
+            "newsletter.html",
+            {
+                'ext_templ':'base.html'
+            },
+        )
     try:
         server = os.environ["SERVER_TYPE"]
     except KeyError:
@@ -154,6 +162,15 @@ def index(request):
     else:
         post_id = request.GET.get("post_id")
         form = RegisterForm()
+    if request.GET.get("Cronologia") == 'visualizza':
+        return render(
+        request,
+        "cronologia.html",
+        {
+            "HTMLTree": HTMLTree,
+            'ext_templ':'base.html'
+        },
+    )
     if request.GET.get("Prova") == "si":
         return render(
             request,
@@ -169,13 +186,14 @@ def index(request):
     else:
         return render(
             request,
-            "reader.html",
+            "newsletter.html",
             {
                 "feed": myfeed,
                 "post_id": post_id,
                 "base_url": base_url,
                 "form": form,
                 "HTMLTree": HTMLTree,
+                'ext_templ':'reader.html'
             },
         )
 

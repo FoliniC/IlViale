@@ -1,0 +1,33 @@
+{% extends ext_templ %}
+{% load static %}
+{% load i18n %}
+{% load date_filter %}
+{% load context_base_url_template %}
+{% block head %}
+<script src="{% static 'js/rss_tree.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/TreeView.css' %}">
+<style>
+
+    div.TreeView {
+        margin-top: 10px;
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .TreeView h1 {
+        font-size: 1.3em;
+        padding: 10px 0 6px 0;
+    }
+
+
+
+</style>
+{% endblock %}
+{% block tree %}
+<div class="TreeView">
+    <div class="ImageContainer"><img alt="Cronologia" src="{% static 'images/cronologia.png' %}" /></div>
+    {{ HTMLTree|safe }}
+</div>
+<div class="QRCode">Scannerizza per avere l'indirizzo del sito<img alt="QR code url sito Il viale della Formica" src="{% static "images/QRViale.png" %}" />
+</div>
+{% endblock %}

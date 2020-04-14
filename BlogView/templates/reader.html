@@ -7,17 +7,22 @@
 <script src="{% static 'js/rss_tree.js' %}"></script>
 <link rel="stylesheet" href="{% static 'css/TreeView.css' %}">
 <style>
-    div.newsletterBox {
+        div.newsletterBox {
         border-style: dashed;
         border-width: thin;
         padding: 10px;
         font-size: 0.7em;
     }
 
-    .newsletterBox h1 {
-        font-size: 1.4em;
-        padding: 10px 0 6px 0;
-    }
+
+    /* .NewsletterLogo {
+        height: 50px;
+        width: 250px;        
+        background-position: center;
+        background-size: cover;
+        background-repeat:no-repeat;
+        background: url({% static "images/newsletter.png" %}) ;
+    }     */
 
     div.TreeView {
         margin-top: 10px;
@@ -60,6 +65,7 @@
 hr {
     width: 80%; text-align: right; margin-right: 0;
 }
+
 
 </style>
 {% endblock %}
@@ -132,33 +138,9 @@ hr {
     {% endif %}
 </div>
 {% endblock %}
-{% block newsletter %}
-<div class="newsletterBox">
-    <h1>Newsletter</h1>
-    Vuoi essere informato sulle attività dell'associazione?
-
-    <form enctype="multipart/form-data" method="post"
-        action="/newsletter/newsletter-del-viale-della-formica/subscribe/">
-        {% csrf_token %}
-
-        <label id="IndirizzoNewsletter" for="id_email_field">Inserisci il tuo indirizzo di email<br /></label> <input
-            type="email" size="18" maxlength="254" name="email_field" required="" id="id_email_field">
-        <br />Inserisci il nome e/o la tua località (facoltativo) <br /><input type="text" name="name_field" size="18"
-            maxlength="30" id="id_name_field">
-        <br />Ti invieremo una email, gratuitamente, ogni volta che ci sono novità sul sito.<br />
-        Clickando sul bottone dai il consenso per il trattamento dei tuoi dati.<br />
-        <br /><i>I dati personali da lei forniti, verranno utilizzati nei limiti e per il perseguimento delle
-            finalità relative al presente modulo, nel rispetto dei principi stabiliti dal Codice della Privacy
-            (D.Lgs. 196/2003).
-            <br />Per esercitare i diritti a lei riconosciuti dall’articolo 7 del Codice della privacy suddetto,
-            potrà rivolgersi al Titolare del trattamento scrivendo a ilvialedellaformica@gmail.com</i>
-        <button id="id_submit" name="submit" value="{% trans "Activate" %}" type="submit">Attiva</button>
-    </form>
-</div>
-{% endblock %}
 {% block tree %}
 <div class="TreeView">
-    <h1>Cronologia</h1>
+    <div class="ImageContainer"><img alt="Cronologia" src="{% static 'images/cronologia.png' %}" /></div>
     {{ HTMLTree|safe }}
 </div>
 <div class="QRCode">Scannerizza per avere l'indirizzo del sito<img alt="QR code url sito Il viale della Formica" src="{% static "images/QRViale.png" %}" />
