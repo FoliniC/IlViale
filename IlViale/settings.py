@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import logging
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_URL = ''
@@ -213,7 +214,10 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'IlVialeDellaFormica@gmail.com'
-EMAIL_HOST_PASSWORD = 'fcyhiwjzhavokdpq'
+#EMAIL_HOST_PASSWORD = 'fcyhiwjzhavokdpq'
+# on unix > export EMAIL_HOST_PASSWORD='your_password'
+# on windows > setx EMAIL_HOST_PASSWORD "your_password" /M
 
+EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
 DEFAULT_CONFIRM_EMAIL = True
 NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"
