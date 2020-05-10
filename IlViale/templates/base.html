@@ -7,6 +7,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
 
 <head id="Head1">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1824496-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-1824496-5');
+</script>
+
   <title>Il viale della Formica - associazione culturale</title>
   {% block head_top %}{% endblock %}
   <meta name="og:title" id="OgTitle" content="Il viale della Formica - associazione culturale" />
@@ -114,8 +124,9 @@
       margin-bottom: 0rem;
       padding: 0px;
     }
-    ul li {
-list-style-type: none  }
+    .TreeView ul li {
+      list-style-type: none  
+      }
     
 .flex-fixed-width-item {
     flex: 0 0 4px; width: 4px;

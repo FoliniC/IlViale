@@ -20,6 +20,8 @@ from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
 import logging
+import concurrent_log_handler
+
 # # First import the register function.
 # from sitetree.sitetreeapp import register_items_hook
 # # The following function will be used as items processor.
@@ -51,17 +53,20 @@ from django.conf import settings
 from django.core.signals import request_started
 from django.dispatch import receiver
 from django.conf import settings
+
 import os
 
 @receiver(request_started)
 def my_request_started(sender, environ, **kwargs):
+    
     logger = logging.getLogger("django")
-    logger.warning(">>>>>>>>>>>Base url : " + settings.BASE_URL + "<<<" )
+    logger.warning("new request")
+    #logger.warning(">>>>>>>>>>>Base url : " + settings.BASE_URL + "<<<" )
     if settings.BASE_URL=='':
         site = environ['HTTP_HOST']
         scheme = 'http' #if self.request.is_secure() else 'http'
         base_url_request = scheme + '://' + site
-        logger.warning('>>>>>>>>>>>Check Base Url:' + base_url_request)
+        #logger.warning('>>>>>>>>>>>Check Base Url:' + base_url_request)
         server_type = ''
         try:
              server_type = os.environ["SERVER_TYPE"]

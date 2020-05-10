@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 import logging
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_URL = ''
@@ -91,7 +92,7 @@ TEMPLATES = [
 ]
 
 TEMPLATE_CONTEXT_PROCESSORS = [
-    {"django.core.context_processors.request",
+    {"django.core.context_processors.request",      
      "django.contrib.auth.context_processors.auth",}
     ]
 
@@ -154,7 +155,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'IlViale/static'),
-        os.path.join(BASE_DIR, 'IlViale/sito_statico'),
+        os.path.join(BASE_DIR, 'sito_statico'),
     ]
 # Random secret key
 import random
@@ -168,8 +169,10 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
-            'style': '{',
+            'format': '[%(asctime)s] %(levelname)s %(filename)s:%(lineno)s %(message)s',
+            #'style': '{',
+            # %(module) %(process:d) %(thread:d) 
+            #'datefmt': "%d/%b/%Y %H:%M:%S",
         },
         'simple': {
             'format': '{levelname} {message}',
@@ -184,12 +187,21 @@ LOGGING = {
             'class': 'logging.StreamHandler',
             'formatter': 'verbose',
         },
+        'file1': {
+            'level': 'INFO',
+            #'class': 'logging.FileHandler',    
+            'class': 'concurrent_log_handler.ConcurrentRotatingFileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs', 'ilviale.log'),
+            'formatter': 'verbose',
+            'maxBytes': 50*1024,
+            'backupCount': 5    
+        },
         'file': {
             'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'django.log'),
+            'class': 'logging.FileHandler',    
+            'filename': os.path.join(BASE_DIR, 'ilviale.log'),
             'formatter': 'verbose',
-        },
+        },  
     },
     'loggers': {
          'newsletter': {
@@ -200,7 +212,7 @@ LOGGING = {
         },
         'django': {
             'handlers': ['console',
-                         'file', ],
+                         'file1', ],
             'level': 'INFO',
             'propagate': True,
 
@@ -215,9 +227,13 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'IlVialeDellaFormica@gmail.com'
 #EMAIL_HOST_PASSWORD = 'fcyhiwjzhavokdpq'
-# on unix > export EMAIL_HOST_PASSWORD='your_password'
+# on unix > create a shell script in /etc/profile.d
+# sudo nano /etc/profile.d/set_environment.sh
+# insert following line at the end
+# export EMAIL_HOST_PASSWORD='your_password'
 # on windows > setx EMAIL_HOST_PASSWORD "your_password" /M
 
-EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
+#EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_CONFIRM_EMAIL = True
 NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"
