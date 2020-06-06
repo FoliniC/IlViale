@@ -7,7 +7,7 @@ bsdiff4==1.1.9
 certifi==2019.11.28
 chardet==3.0.4
 colorama==0.4.3
-Django==3.0.4
+Django==3.0.7
 django-braces==1.13.0
 django-feed-reader==0.2.1
 django-feedreader==2.2.6
