@@ -1,19 +1,14 @@
-{% load i18n %}<!DOCTYPE html>
+{% load static %}
+{% comment %} {% load i18n %} {% endcomment %}
+{% load context_base_url_template %}
 
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>{% blocktrans with title=newsletter.title %}Unsubscription from {{ title }}{% endblocktrans %}</title>
-</head>
-<body>
-{% blocktrans with name=subscription.name|default:_("Sir/Madam") title=newsletter.title domain=site.domain url=subscription.unsubscribe_activate_url %}Dear {{ name }},
+{% block body %}
 
-you, or someone in your name requested unsubscription from {{ title }}.
-
-If you would like to confirm your unsubscription, please follow this activation link:
-http://{{ domain }}{{ url }}
-
-Kind regards,{% endblocktrans %}
+Ciao {{ subscription.name }},<br/>
+tu, o qualcuno a tuo nome, ha richiesto di cancellare la sottoscrizione de {{ newsletter.title }}.
+<br/><br/>
+Per confermare la tua scelta clicka sul link seguente:<br/>
+{% baseurl %}{{ subscription.subscribe_activate_url }}
+<br/><br/>
 {{ newsletter.sender }}
-</body>
-</html>
+{% endblock body %}
