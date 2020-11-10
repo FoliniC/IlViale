@@ -90,7 +90,7 @@ def index(request):
         # binascii.hexlify(rss_response_data.find(b'imageanchor="1"')
         # a single replace isn't enough ?!?!?
         # rss_response_data = rss_response_data.replace(rb'imageanchor=&quot;1&quot; ', rb'')
-        #rss_response_data = rss_response_data.replace(b'imageanchor="1"', b'') 
+        #rss_response_data = rss_response_data.replace(b'imageanchor="1"', b'')         
         with open(rss_cache_file_path, "wb") as cache_file:
             cache_file.write(rss_response.data)
             cache_file.close
@@ -204,7 +204,7 @@ def index(request):
 
 """ def signup(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = SignUpForm(re    quest.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.is_active = False

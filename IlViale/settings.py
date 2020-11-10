@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'newsletter',
     'django_user_agents',
+    'django_ses',
+    'cookielaw',
 ] 
 
 MIDDLEWARE = [
@@ -196,17 +198,17 @@ LOGGING = {
             'maxBytes': 50*1024,
             'backupCount': 5    
         },
-        'file': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',    
-            'filename': os.path.join(BASE_DIR, 'ilviale.log'),
-            'formatter': 'verbose',
-        },  
+        # 'file': {
+        #     'level': 'INFO',
+        #     'class': 'logging.FileHandler',    
+        #     'filename': os.path.join(BASE_DIR, 'ilviale.log'),
+        #     'formatter': 'verbose',
+        # },  
     },
     'loggers': {
          'newsletter': {
             'handlers': ['console',
-                         'file', ],
+                         'file1', ],
             'level': 'INFO',
             'propagate': True,
         },
@@ -221,11 +223,19 @@ LOGGING = {
 }
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django_ses.SESBackend'
+EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'
+#AWS_ACCESS_KEY_ID = 'AKIA4NPCGD67FNOTBU7Q'
+#AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = 'AKIA4NPCGD67FNOTBU7Q'
+AWS_SECRET_ACCESS_KEY = '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'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'IlVialeDellaFormica@gmail.com'
+EMAIL_HOST_USER = 'info@vialeformica.org'
+DEFAULT_FROM_EMAIL = 'info@vialeformica.org'
+AWS_SES_REGION_NAME = 'us-east-1'
+AWS_SES_REGION_ENDPOINT = 'email.us-east-1.amazonaws.com'
 #EMAIL_HOST_PASSWORD = 'fcyhiwjzhavokdpq'
 # on unix > create a shell script in /etc/profile.d
 # sudo nano /etc/profile.d/set_environment.sh
@@ -234,6 +244,6 @@ EMAIL_HOST_USER = 'IlVialeDellaFormica@gmail.com'
 # on windows > setx EMAIL_HOST_PASSWORD "your_password" /M
 
 #EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+#EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_CONFIRM_EMAIL = True
-NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"
+#NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"
