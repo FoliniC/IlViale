@@ -11,7 +11,9 @@
         <meta property="og:description" id="OgDescription"
           content="Sito dell'associazione culturale Il viale della Formica, promozione culturale Castionetto di Chiuro" />
           <meta property="og:image" content="{% baseurl %}{% static 'images/path5815.jpg' %}" />
-    {% else %}  
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+            {% else %}  
     
     {% for entry in feed.entries %} 
                 {% if post_id == entry.id %}
@@ -19,8 +21,11 @@
                 <meta property="og:title" id="OgTitle" content="{{ entry.title }}" />
                 <meta property="og:description" id="Ogdescription" content="Il viale della Formica - associazione culturale" />
                 <meta property="og:image" id="OgImage" content="{{ entry.media_thumbnail.0.url }}" />
-                <meta property="og:image" content="{% baseurl %}{% static 'images/path5815.jpg' %}" />
-                {% endif %}
+                      <meta property="og:image:width" content="{{ entry.media_thumbnail.0.width }}" />
+                    <meta property="og:image:height" content="{{ entry.media_thumbnail.0.height }}" />
+                    <meta property="og:image:alt" content="Nome associazione con stele di Castionetto" />
+                     
+                        {% endif %}
             {% endfor %}
         {% endif %}
     {% endif %}

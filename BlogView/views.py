@@ -50,9 +50,10 @@ def index(request):
         http = urllib3.PoolManager()
     else:
         base_url = request.build_absolute_uri
-        http = urllib3.PoolManager()
+        http = urllib3.PoolManager()    
     logger = logging.getLogger("django")
-    rss_response_data = ""
+    #logger.warning("New request 111 " + os.getenv ('PROVA   ') )
+    rss_response_data = ""      
     try:
         rss_response = http.request(
             "GET",
@@ -65,7 +66,7 @@ def index(request):
         #logger.warning("check file exists:" + rss_cache_file_path)
         # logger.warning(os.listdir('home/ubuntu/django/IlViale/media/'))
         # move('home/ubuntu/django/IlViale/media/django.log2', 'home/ubuntu/django/IlViale/media/django.log2.rename')
-        # logger.warning(os.listdir('home/ubuntu/IlViale/media/'))
+        # logger.warning(os.listdir('home/ubuntu/IlViale/media/'))  
         # os.rename('home/ubuntu/django/IlViale/media/django.log1', 'home/ubuntu/django/IlViale/media/django.log1.rename')
         # logger.warning(os.listdir('home/ubuntu/IlViale/media/'))
         if os.path.exists(rss_cache_file_path):
