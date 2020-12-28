@@ -5,6 +5,7 @@ import logging
 import filecmp
 import requests
 import binascii
+import concurrent_log_handler
 
 from django.shortcuts import render
 from django.contrib.sites.shortcuts import get_current_site
@@ -61,7 +62,7 @@ def index(request):
         rss_cache_file_path = os.path.join(BASE_DIR, "media", "il_viale_rss_payload.rss").replace('/home/', 'home/')
         if not rss_response.status == 200:
             raise Exception("Load cache file")
-        logger.warning("check file exists:" + rss_cache_file_path)
+        #logger.warning("check file exists:" + rss_cache_file_path)
         # logger.warning(os.listdir('home/ubuntu/django/IlViale/media/'))
         # move('home/ubuntu/django/IlViale/media/django.log2', 'home/ubuntu/django/IlViale/media/django.log2.rename')
         # logger.warning(os.listdir('home/ubuntu/IlViale/media/'))
@@ -74,9 +75,9 @@ def index(request):
             try:
                 copy2(rss_cache_file_path, renamed_file)
             except (Exception) as identifier:
-                logger.warning("errire")
+                logger.warning("error")
             
-            logger.warning("renaming:" +rss_cache_file_path + " in:" + renamed_file)
+            #logger.warning("renaming:" +rss_cache_file_path + " in:" + renamed_file)
         # if os.path.exists(renamed_file):
         #     logger.warning("renamed correctly")
         # if os.path.exists(renamed_file):
@@ -89,13 +90,16 @@ def index(request):
         # binascii.hexlify(rss_response_data.find(b'imageanchor="1"')
         # a single replace isn't enough ?!?!?
         # rss_response_data = rss_response_data.replace(rb'imageanchor=&quot;1&quot; ', rb'')
-        #rss_response_data = rss_response_data.replace(b'imageanchor="1"', b'')
+        #rss_response_data = rss_response_data.replace(b'imageanchor="1"', b'') 
         with open(rss_cache_file_path, "wb") as cache_file:
             cache_file.write(rss_response.data)
             cache_file.close
         if filecmp.cmp(rss_cache_file_path, renamed_file):
             os.remove(renamed_file)
-            logger.warning("Same content, removing created cache file")
+        else:
+            logger.warning("New content, new file created")
+
+            #logger.warning("Same content, removing created cache file")
         # logger.warning(">>>>+++ response data:" + rss_response_data.decode("utf-8"))
         
     except (Exception) as exception:
@@ -123,7 +127,7 @@ def index(request):
 
     # logger.warning ('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' + BASE_DIR)
     # logger.warning (os.path.join(BASE_DIR,'BlogView','RSS2HTMLUL.xslt'))
-    logger.warning("Server:" + server)
+    #logger.warning("Server:" + server)
     xslt = ET.parse(os.path.join(BASE_DIR, "BlogView", "RSS2HTMLUL.xslt"))
     transform = ET.XSLT(xslt)
     HTMLTree = transform(dom)

@@ -1,0 +1,23 @@
+[2020-05-10 23:42:43,009] WARNING MainProcess urls.py:63 >>>>>>>>>>>Base url : <<<
+[2020-05-10 23:42:43,016] WARNING MainProcess urls.py:68 >>>>>>>>>>>Check Base Url:http://127.0.0.1:8000
+[2020-05-10 23:42:43,031] WARNING MainProcess urls.py:75 >>>>>>>>>>>SERVER_TYPEDEVHOME
+[2020-05-10 23:42:43,035] WARNING MainProcess urls.py:83 >>>>>>>>>>>Error Base Url:http://127.0.0.1:8000
+[2020-05-10 23:42:43,085] INFO MainProcess basehttp.py:154 "GET / HTTP/1.1" 301 0
+[2020-05-10 23:42:43,096] WARNING MainProcess urls.py:63 >>>>>>>>>>>Base url : http://127.0.0.1:8000<<<
+[2020-05-10 23:42:44,061] ERROR MainProcess log.py:222 Internal Server Error: /BlogView/
+Traceback (most recent call last):
+  File "c:\Progetti\SitiWeb\IlViale\envIlViale\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "c:\Progetti\SitiWeb\IlViale\envIlViale\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "c:\Progetti\SitiWeb\IlViale\envIlViale\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Progetti\SitiWeb\IlViale\BlogView\views.py", line 54, in index
+    logger.warning(dir(concurrent_log_handler))
+NameError: name 'concurrent_log_handler' is not defined
+[2020-05-10 23:42:44,079] ERROR MainProcess basehttp.py:154 "GET /BlogView/ HTTP/1.1" 500 73428
+[2020-05-10 23:43:26,503] WARNING MainProcess urls.py:63 >>>>>>>>>>>Base url : <<<
+[2020-05-10 23:43:26,507] WARNING MainProcess urls.py:68 >>>>>>>>>>>Check Base Url:http://127.0.0.1:8000
+[2020-05-10 23:43:26,515] WARNING MainProcess urls.py:75 >>>>>>>>>>>SERVER_TYPEDEVHOME
+[2020-05-10 23:43:26,517] WARNING MainProcess urls.py:83 >>>>>>>>>>>Error Base Url:http://127.0.0.1:8000
+[2020-05-10 23:43:26,540] WARNING MainProcess views.py:55 ['BaseRotatingHandler', 'ConcurrentRotatingFileHandler', 'LOCK_EX', 'LogRecord', 'NullLogRecord', 'PY2', '__all__', '__author__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__', '__version__', 'contextmanager', 'grp', 'gzip', 'io', 'lock', 'logging', 'os', 'pwd', 'randbits', 'sys', 'time', 'traceback', 'unlock', 'warnings']

@@ -7,9 +7,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
 
 <head id="Head1">
-  <title>Il viale della Formica - associazione culturale</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1824496-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-1824496-5');
+</script>
+
+  <title>Il viale della formica - associazione promozione sociale</title>
   {% block head_top %}{% endblock %}
-  <meta name="og:title" id="OgTitle" content="Il viale della Formica - associazione culturale" />
+  <meta name="og:title" id="OgTitle" content="Il viale della formica - associazione promozione sociale" />
+  <meta property="og:title" id="OgTitle" content="Il viale della formica - associazione promozione sociale" />
   <meta property="og:description" id="OgDescription"
     content="Sito dell'associazione culturale Il viale della Formica, promozione culturale Castionetto di Chiuro" />
   <meta name="Keywords"
@@ -17,7 +28,12 @@
   <meta name="Description"
     content="Sito dell'associazione culturale Il viale della Formica, promozione culturale Castionetto di Chiuro" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="{% static 'images/LogoViale2019.png' %}" />
+  <meta property="og:image" content="{% baseurl %}{% static 'images/path5815.jpg' %}" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nome associazione con stele di Castionetto" />
+  <meta property="og:image" content="{% baseurl %}{% static 'images/path5815.png' %}" />
   <meta property="og:site_name"
     content="Sito ufficiale dell&#039;associazione culturale &quot;Il viale della Formica&quot;" />
   <meta property="og:url" id="OgUrl" content="{% baseurl %}" />
@@ -25,7 +41,7 @@
   <meta property="fb:app_id" content="790382868110792" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="{% static 'images/favicon.ico' %}" />
+  <link rel="icon" href="{% baseurl %}{% static 'images/favicon.ico' %}" />
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>
@@ -108,8 +124,9 @@
       margin-bottom: 0rem;
       padding: 0px;
     }
-    ul li {
-list-style-type: none  }
+    .TreeView ul li {
+      list-style-type: none  
+      }
     
 .flex-fixed-width-item {
     flex: 0 0 4px; width: 4px;
@@ -187,9 +204,9 @@ list-style-type: none  }
     </div>
     <div class="row" id="footer-container">
       <div class="col-xs-6 col-md-9" id="footer-left">
-        2007 - {% now "Y" %} Il viale della Formica - <span class="small-text">associazione culturale</span>
+        2007 - {% now "Y" %} Il viale della formica - <span class="small-text">associazione promozione sociale</span>
         <br />
-        email: IlVialeDellaFormica@gmail.com rss: <a
+        email: info@VialeFormica.org rss: <a
           href="http://ilvialedellaformica.blogspot.com">http://ilvialedellaformica.blogspot.com</a>
         <a href="http://ilvialedellaformica.blogspot.com/feeds/posts/default">
           <img src="{% static "images/rssLogo.gif" %}" alt="Indirizzo feed associazione 'il viale della Formica'" /></a>
