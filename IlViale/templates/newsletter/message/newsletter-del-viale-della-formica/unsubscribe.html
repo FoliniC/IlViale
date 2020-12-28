@@ -5,17 +5,10 @@
 {% block body %}
 
 Ciao {{ subscription.name }},<br/>
-<<<<<<< HEAD
 tu, o qualcuno a tuo nome, ha richiesto di cancellare la sottoscrizione de {{ newsletter.title }}.
 <br/><br/>
 Per confermare la tua scelta clicka sul link seguente:<br/>
 {% baseurl %}{{ subscription.subscribe_activate_url }}
-=======
-tu, o qualcuno a tuo nome, ha richiesto la cancellazione dalla newsletter de {{ newsletter.title }}.
-<br/><br/>
-Per confermare la tua cancellazione clicka sul link seguente:<br/>
-{% baseurl %}{{ subscription.unsubscribe_activate_url }}
->>>>>>> 08e1e12f7f74b9136faa3bbcfe7208a5aede0065
 <br/><br/>
 {{ newsletter.sender }}
 {% endblock body %}
