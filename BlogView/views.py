@@ -50,9 +50,10 @@ def index(request):
         http = urllib3.PoolManager()
     else:
         base_url = request.build_absolute_uri
-        http = urllib3.PoolManager()
+        http = urllib3.PoolManager()    
     logger = logging.getLogger("django")
-    rss_response_data = ""
+    #logger.warning("New request 111 " + os.getenv ('PROVA   ') )
+    rss_response_data = ""      
     try:
         rss_response = http.request(
             "GET",
@@ -65,7 +66,7 @@ def index(request):
         #logger.warning("check file exists:" + rss_cache_file_path)
         # logger.warning(os.listdir('home/ubuntu/django/IlViale/media/'))
         # move('home/ubuntu/django/IlViale/media/django.log2', 'home/ubuntu/django/IlViale/media/django.log2.rename')
-        # logger.warning(os.listdir('home/ubuntu/IlViale/media/'))
+        # logger.warning(os.listdir('home/ubuntu/IlViale/media/'))  
         # os.rename('home/ubuntu/django/IlViale/media/django.log1', 'home/ubuntu/django/IlViale/media/django.log1.rename')
         # logger.warning(os.listdir('home/ubuntu/IlViale/media/'))
         if os.path.exists(rss_cache_file_path):
@@ -90,7 +91,7 @@ def index(request):
         # binascii.hexlify(rss_response_data.find(b'imageanchor="1"')
         # a single replace isn't enough ?!?!?
         # rss_response_data = rss_response_data.replace(rb'imageanchor=&quot;1&quot; ', rb'')
-        #rss_response_data = rss_response_data.replace(b'imageanchor="1"', b'') 
+        #rss_response_data = rss_response_data.replace(b'imageanchor="1"', b'')         
         with open(rss_cache_file_path, "wb") as cache_file:
             cache_file.write(rss_response.data)
             cache_file.close
@@ -204,7 +205,7 @@ def index(request):
 
 """ def signup(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = SignUpForm(re    quest.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.is_active = False

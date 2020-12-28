@@ -12,7 +12,13 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import logging
-
+import environ
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# reading .env file
+environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +31,11 @@ BASE_URL = ''
 #SECRET_KEY = 'p$6-^4q-9@j2z!y^d^^5l3-nc_pvlh8*8ld&_(0!971-b6jvu('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+SECURE_CONTENT_TYPE_NOSNIFF = False
+X_FRAME_OPTIONS = 'DENY'
 
 ALLOWED_HOSTS = ['*']
 
@@ -49,6 +59,8 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'newsletter',
     'django_user_agents',
+    'django_ses',
+    'cookielaw',
 ] 
 
 MIDDLEWARE = [
@@ -196,17 +208,17 @@ LOGGING = {
             'maxBytes': 50*1024,
             'backupCount': 5    
         },
-        'file': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',    
-            'filename': os.path.join(BASE_DIR, 'ilviale.log'),
-            'formatter': 'verbose',
-        },  
+        # 'file': {
+        #     'level': 'INFO',
+        #     'class': 'logging.FileHandler',    
+        #     'filename': os.path.join(BASE_DIR, 'ilviale.log'),
+        #     'formatter': 'verbose',
+        # },  
     },
     'loggers': {
          'newsletter': {
             'handlers': ['console',
-                         'file', ],
+                         'file1', ],
             'level': 'INFO',
             'propagate': True,
         },
@@ -221,19 +233,23 @@ LOGGING = {
 }
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django_ses.SESBackend'
+EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')     #'AKIA4NPCGD67DG5UVZ5U'
+AWS_SECRET_ACCESS_KEY = env('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'info@VialeFormica.org'
 #EMAIL_HOST_PASSWORD = 'fcyhiwjzhavokdpq'
 # on unix > create a shell script in /etc/profile.d
-# sudo nano /etc/profile.d/set_environment.sh
+# sudo nano /etc/profile.d/set_environment.sh   
 # insert following line at the end
 # export EMAIL_HOST_PASSWORD='your_password'
+# in ubuntu with apache set environment variable in
+# sudo nano /etc/apache2/envvars
 # on windows > setx EMAIL_HOST_PASSWORD "your_password" /M
 
-#EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_CONFIRM_EMAIL = True
-NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"
+#NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"
