@@ -1,7 +1,19 @@
 {
-    "python.pythonPath": "envIlViale\\Scripts\\python.exe",
+    "python.pythonPath": "C:\\Programs\\Python\\Python38\\python.exe",
     "python.formatting.provider": "black",
     "console": "integratedTerminal",
-    "justMyCode" : false, 
+    "justMyCode": false,
+    "githubIssues.queries": [
+    
+        {
+            "label": "My Issues",
+            "query": "default"
+        },
+        {
+            "label": "Created Issues",
+            "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
+        }
+    ],
+    
     
 }

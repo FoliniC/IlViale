@@ -15,7 +15,7 @@ from django.utils.http import urlsafe_base64_encode
 from django.template.loader import render_to_string
 from IlViale.settings import BASE_DIR
 from BlogView.forms import RegisterForm
-from BlogView.tokens import account_activation_token
+#from BlogView.tokens import account_activation_token
 from django.core.mail import EmailMessage
 from BlogView import LocalFileAdapter
 from shutil import move
@@ -45,7 +45,7 @@ def index(request):
     except KeyError:
         server = "PROD"
     if server == "DEV":
-        http = urllib3.ProxyManager("http://proxy.d1.bkd:8080")
+        http = urllib3.ProxyManager("http://cn-1998267596-vnsg12623.ibosscloud.com:80")
     elif server == "DEVHOME":
         http = urllib3.PoolManager()
     else:

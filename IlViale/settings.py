@@ -31,7 +31,7 @@ BASE_URL = ''
 #SECRET_KEY = 'p$6-^4q-9@j2z!y^d^^5l3-nc_pvlh8*8ld&_(0!971-b6jvu('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env('DEBUG', False)
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 SECURE_CONTENT_TYPE_NOSNIFF = False
@@ -217,14 +217,12 @@ LOGGING = {
     },
     'loggers': {
          'newsletter': {
-            'handlers': ['console',
-                         'file1', ],
+            'handlers': ['console','file1',],
             'level': 'INFO',
             'propagate': True,
         },
         'django': {
-            'handlers': ['console',
-                         'file1', ],
+            'handlers': ['console','file1',],
             'level': 'INFO',
             'propagate': True,
 
