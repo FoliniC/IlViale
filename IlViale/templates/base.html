@@ -8,7 +8,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
 
 <head id="Head1">
-  <meta name="google-site-verification" content="2BcDAo6QaxChraENX608XYF3nk5Do121ocpnATmuPGo" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1824496-5"></script>
 <script>
@@ -30,12 +29,15 @@
   <meta name="Description "
     content="Sito dell'associazione culturale Il viale della Formica, promozione culturale Castionetto di Chiuro" />
   <meta property="og:type" content="website" />
-      <meta property="og:image_remove" content="{% baseurl %}{% static 'images/path5815.jpg' %}" />
+  <meta property="og:image" content="{% baseurl %}{% static 'images/path5815.jpg' %}" />
   <meta property="og:image:type" content="image/jpeg" />  
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Nome associazione con stele di Castionetto" />
-    <meta property="remove_og:image" content="{% baseurl %}{% static 'images/path5815.png' %}" />
+  <meta property="og:image" content="{% baseurl %}{% static 'images/path5815.png' %}" />
   <meta property="og:site_name"
     content="Sito ufficiale dell&#039;associazione culturale &quot;Il viale della Formica&quot;" />
+  <meta property="og:url" id="OgUrl" content="{% baseurl %}" />
   <meta property="fb:admins" content="1283626161" />
   <meta property="fb:app_id" content="790382868110792" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -59,8 +61,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-
-    
   <style>
     .container-fluid {
       padding-top: 15px;
@@ -221,7 +221,10 @@
       <div class="flex-fixed-width-item d-none d-md-table-cell" style=" background-color: white;">
         &#160;</div> 
       <div class="col" id="footer-right">
-          <a href="https://www.iubenda.com/privacy-policy/97052090" class="iubenda-white iubenda-embed" title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>        <br /><a
+        <a href="//www.iubenda.com/privacy-policy/7898839" class="iubenda-white iubenda-embed"
+          title="Privacy Policy">Privacy Policy</a>
+        <script>(function (w, d) { var loader = function () { var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s, tag); }; if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; } })(window, document);</script>
+        <br /><a
           href="http://translate.google.com/translate?js=n&sl=it&tl=en&u={{ request.scheme }}://{{ request.get_host }}{{ request.get_full_path }}"><img
             width="30" height="30" alt="Google translate" src="{% static "images/GoogleTranslate.webp" %}" />Translate</a>
         <br /><a href="{{ request.scheme }}://{{ request.get_host }}/admin">login@formica</a>

@@ -1,0 +1,14 @@
+{% load static %}
+{% comment %} {% load i18n %} {% endcomment %}
+{% load context_base_url_template %}
+
+{% block body %}
+
+Ciao {{ subscription.name }},<br/>
+tu, o qualcuno a tuo nome, ha richiesto di cancellare la sottoscrizione de {{ newsletter.title }}.
+<br/><br/>
+Per confermare la tua scelta clicka sul link seguente:<br/>
+{% baseurl %}{{ subscription.subscribe_activate_url }}
+<br/><br/>
+{{ newsletter.sender }}
+{% endblock body %}

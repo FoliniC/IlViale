@@ -1,0 +1,234 @@
+{% load static %}
+{% load sitetree %}
+{% load context_base_url_template %}
+{% load i18n %}
+{% load date_filter %}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
+
+<head id="Head1">
+  <meta name="google-site-verification" content="2BcDAo6QaxChraENX608XYF3nk5Do121ocpnATmuPGo" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1824496-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-1824496-5');
+</script>
+
+  <title>Il viale della formica - associazione promozione sociale</title>
+  {% block head_top %}{% endblock %}
+  <meta name="og:title" id="OgTitle" content="Il viale della formica - associazione promozione sociale" />
+  <meta property="og:title" id="OgTitle" content="Il viale della formica - associazione promozione sociale" />
+  <meta property="og:description" id="OgDescription"
+    content="Sito dell'associazione culturale Il viale della Formica, promozione culturale Castionetto di Chiuro" />
+  <meta name="Keywords"
+    content="Castionetto, Chiuro, Castionetto di Chiuro, il viale della Formica, Valtellina, Sondrio, associazione culturale, asp.net 2.0, dalico" />
+  <meta name="Description "
+    content="Sito dell'associazione culturale Il viale della Formica, promozione culturale Castionetto di Chiuro" />
+  <meta property="og:type" content="website" />
+      <meta property="og:image_remove" content="{% baseurl %}{% static 'images/path5815.jpg' %}" />
+  <meta property="og:image:type" content="image/jpeg" />  
+  <meta property="og:image:alt" content="Nome associazione con stele di Castionetto" />
+    <meta property="remove_og:image" content="{% baseurl %}{% static 'images/path5815.png' %}" />
+  <meta property="og:site_name"
+    content="Sito ufficiale dell&#039;associazione culturale &quot;Il viale della Formica&quot;" />
+  <meta property="fb:admins" content="1283626161" />
+  <meta property="fb:app_id" content="790382868110792" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="{% baseurl %}{% static 'images/favicon.ico' %}" />
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0"></script>
+  <link rel="alternate" type="application/atom+xml" title="Il viale della Formica - Atom"
+    href="http://ilvialedellaformica.blogspot.com/feeds/posts/default" />
+  <link rel="alternate" type="application/rss+xml" title="Il viale della Formica - RSS"
+    href="http://ilvialedellaformica.blogspot.com/feeds/posts/default?alt=rss" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+    
+  <style>
+    .container-fluid {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      font-family: "trebuchet MS", tahoma, verdana, arial, helvetica, sans-serif;
+    }
+    #header-container {
+      background: #828AD0 url({% static "images/bg-main.jpg" %}) repeat-x;
+      font-size: 2em;
+      margin: 0px;
+      font-weight: bold;
+    }
+
+    #footer-container {
+      background: #828AD0 url({% static "images/bg-main.jpg" %})  repeat-x;
+      color: #FFFFFF;
+      font-size: .6em;
+      margin: 0px;
+      font-weight: bold;
+    }
+
+    #header-left {
+      float: left;
+      color: #FFFFFF;
+      padding: 1px 5px 2px 40px;
+      background: url({% static "images/bg-curve-top-left.gif" %}) no-repeat;
+      text-align: left;
+    }
+
+    #footer-left {
+      float: left;
+      color: #FFFFFF;
+      text-align: left;
+    }
+
+    #header-right div {
+      color: #FFFFFF;
+      font-size: .3em;
+      text-align: right;
+      position: absolute;
+      padding-right: 4px;
+      bottom: 0;
+      right: 0;
+    }
+
+
+    #footer-right {
+      float: right;
+      color: #FFFFFF;
+      background: url({% static "images/bg-curve-bottom-right.gif" %}) no-repeat right bottom;
+    }
+    #footer-container a {
+      color: rgb(243, 217, 217);
+    }
+    .navbar {
+      padding: 0px;
+    }
+
+    .breadcrumb {
+      margin-top: 0.5rem;
+      margin-left: 0.1rem;
+      margin-bottom: 0rem;
+      padding: 0px;
+    }
+    .TreeView ul li {
+      list-style-type: none  
+      }
+    
+.flex-fixed-width-item {
+    flex: 0 0 4px; width: 4px;
+}
+.ImageContainer {
+        width:auto;
+        height:auto;
+    } 
+
+    .ImageContainer img {
+    max-width: 100%;
+    max-height: 100%;
+}
+    </style>
+  {% block head %}{% endblock %}
+  {% block head_newsletter %}{% endblock %}
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row" id="header-container">
+      <div class="col-xs-6 col-md-9" id="header-left">
+        <a title="Il Viale della Formica homepage" href="/">
+          <img height="50" width="200" alt="logo associazione" src="{% static "images/LogoVialeBianco2019.png" %}" />
+        </a>
+        <div style="display: inline-flex;" class="fb-like" data-href="{{ request.build_absolute_uri }}" data-width=""
+          data-layout="button" data-action="like" data-size="small" data-share="false">
+        </div>
+      </div>
+      <div class="flex-fixed-width-item d-none d-md-table-cell" style=" background-color: white;">
+      &#160;</div>   
+      <div class="col" id="header-right">
+        <div>Associazione culturale</div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-xs-4 col-md-4">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"    
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+            {% sitetree_menu from "Main" include "trunk,topmenu" template "sitetree/menu_bootstrap4.html"  %}
+          </div>
+        </nav>
+      </div>
+      <div class="col-xs-6 col-md-6">{% sitetree_breadcrumbs from "Main" template "sitetree/breadcrumbs_bootstrap4.html" %}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6 col-md-9">
+        {% block body %}{% endblock %}
+      </div>
+      <div class="col-md-3">
+        {% block newsletter %}{% endblock %}
+        {% block tree %}{% endblock %}
+      </div>
+    </div>
+    <div class="row" >
+      <div class="col-xs-4 col-md-1"></div>
+      <div class="col-xs-4 col-md-10" >
+        {% block body_static %}{% endblock %}
+      </div>
+      <div class="col-xs-4 col-md-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2 col-md-1"></div>
+      <div class="col-xs-2 col-md-9" style="margin: 10px;">
+        {% block body_admin %}{% endblock %}
+      </div>
+     
+    </div>
+    <div class="row" id="footer-container">
+      <div class="col-xs-6 col-md-9" id="footer-left">
+        2007 - {% now "Y" %} Il viale della formica - <span class="small-text">associazione promozione sociale</span>
+        <br />
+        email: info@VialeFormica.org rss: <a
+          href="http://ilvialedellaformica.blogspot.com">http://ilvialedellaformica.blogspot.com</a>
+        <a href="http://ilvialedellaformica.blogspot.com/feeds/posts/default">
+          <img src="{% static "images/rssLogo.gif" %}" alt="Indirizzo feed associazione 'il viale della Formica'" /></a>
+        <br />
+        <div style="display:inline-flex">
+          Tutti i contenuti di questa pagina sono distribuiti con licenza &#160;<a rel="license"
+            href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribuzione - Condividi allo stesso
+            modo 3.0 Unported</a>.
+        </div>
+      </div>
+      <div class="flex-fixed-width-item d-none d-md-table-cell" style=" background-color: white;">
+        &#160;</div> 
+      <div class="col" id="footer-right">
+          <a href="https://www.iubenda.com/privacy-policy/97052090" class="iubenda-white iubenda-embed" title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>        <br /><a
+          href="http://translate.google.com/translate?js=n&sl=it&tl=en&u={{ request.scheme }}://{{ request.get_host }}{{ request.get_full_path }}"><img
+            width="30" height="30" alt="Google translate" src="{% static "images/GoogleTranslate.webp" %}" />Translate</a>
+        <br /><a href="{{ request.scheme }}://{{ request.get_host }}/admin">login@formica</a>
+      </div>
+    </div>
+  </div>
+  
+</body>
+
+</html> 

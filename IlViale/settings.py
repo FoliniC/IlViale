@@ -240,7 +240,6 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'info@VialeFormica.org'
-#EMAIL_HOST_PASSWORD = 'fcyhiwjzhavokdpq'
 # on unix > create a shell script in /etc/profile.d
 # sudo nano /etc/profile.d/set_environment.sh   
 # insert following line at the end
