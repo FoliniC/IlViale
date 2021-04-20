@@ -40,7 +40,7 @@ Pillow==8.1.0
 pluggy==0.13.1
 portalocker==2.0.0
 protobuf==3.6.0
-py==1.8.1
+py==1.10.0
 pylint==2.4.4
 pyparsing==2.4.6
 pyRFC3339==1.1
