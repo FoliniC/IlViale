@@ -2,35 +2,38 @@
 {% load static %}
 {% load i18n %}
 {% load date_filter %}
+
 {% load context_base_url_template %}
 {% block head %}
 {% if feed %}
     {% if feed.entries %}
         {% if post_id is None or post_id.strip == '' %}
-        <meta property="og:title" id="OgTitle" content="Il viale della Formica - associazione culturale" />
-        <meta property="og:description" id="OgDescription"
-          content="Sito dell'associazione culturale Il viale della Formica, promozione culturale Castionetto di Chiuro" />
-          <meta property="og:image" content="{% baseurl %}{% static 'images/path5815.jpg' %}" />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="630" />
-            {% else %}  
+            <meta property="og:title" id="OgTitle" content="Il viale della Formica - associazione promozione sociale" />
+            <meta property="og:description" id="OgDescription"
+            content="Sito dell'associazione di promozione sociale Il viale della Formica, promozione culturale Castionetto di Chiuro" />
+            <meta property="og:image" content="https://vialeformica.org{% static 'images/LogoViale2019Small.png' %}" />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+        {% else %}  
     
-    {% for entry in feed.entries %} 
+            {% for entry in feed.entries %} 
                 {% if post_id == entry.id %}
-
-                <meta property="og:title" id="OgTitle" content="{{ entry.title }}" />
-                <meta property="og:description" id="Ogdescription" content="Il viale della Formica - associazione culturale" />
-                <meta property="og:image" id="OgImage" content="{{ entry.media_thumbnail.0.url }}" />
-                      <meta property="og:image:width" content="{{ entry.media_thumbnail.0.width }}" />
-                    <meta property="og:image:height" content="{{ entry.media_thumbnail.0.height }}" />
-                    <meta property="og:image:alt" content="Nome associazione con stele di Castionetto" />
-                     
-                        {% endif %}
+                    <!-- prova {{ base_url }}-->
+                    <meta property="og:title" id="OgTitle" content="{{ entry.title }}" />
+                    <meta property="og:description" id="OgDescription" content="Il viale della Formica - associazione promozione sociale" />
+                    <meta property="og:url" id="OgUrl" content="{{ entry.link }}" /> 
+                    {% comment %} {% for thumb_image in entry.media_thumbnail %}  
+                        {{ django.utils.html(entry.content.0.value) }} 
+                        {% if not 'Logo' in thumb_image.url %}   {% endcomment %}   
+                            <meta property="og:image" id="OgImage" content="{{ imgUrl }}" />
+                            <meta property="og:image:alt" content="immagine articolo" />
+                       {% comment %}  {% endif %}
+                    {% endfor %} {% endcomment %}
+                {% endif %}
             {% endfor %}
         {% endif %}
     {% endif %}
 {% endif %}
-
 
 
 <script src="{% static 'js/rss_tree.js' %}"></script>
@@ -106,63 +109,62 @@ hr {
             onclick="document.getElementById('IndirizzoNewsletter').focus()">qui</a>!!! </div>
     <br />
     {% if feed %}
-    {% if feed.entries %}
-    <div id="ctl00_ContentPlaceHolder1_Div1">
-        {% if post_id is None or post_id.strip == '' %}
-        {% for entry in feed.entries|slice:":5" %}
-        <div class="post uncustomized-post-template">
-            <div class="post-title">
-                <a href="{{ request.build_absolute_uri }}?post_id={{ entry.id }}">{{ entry.title }}</a>
-                <div class="bookmarks">
-                    <a title="Condividi su facebook" class="facebook"
-                        href="http://www.facebook.com/sharer/sharer.php?u={{ base_url|default_if_none:entry.link }}?post_id={{ entry.id }}"></a>
-                </div>
-            </div>
+        {% if feed.entries %}
+            <div id="ctl00_ContentPlaceHolder1_Div1">
+            {% if post_id is None or post_id.strip == '' %}
+                {% for entry in feed.entries|slice:":5" %}
+                    <div class="post uncustomized-post-template">
+                        <div class="post-title">
+                            <a href="{{ request.build_absolute_uri }}?post_id={{ entry.id }}">{{ entry.title }}</a>
+                            <div class="bookmarks">
+                                <a title="Condividi su facebook" class="facebook"
+                                    href="http://www.facebook.com/sharer/sharer.php?u={{ base_url|default_if_none:entry.link }}?post_id={{ entry.id }}"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-header-line-1"></div>
+                    <div class="post-body">
+                        {{ entry.content.0.value|safe }}
+                    </div>
+                    <div class="post-footer">
+                        <span class="post-timestamp">Modificato
+                            <small>{{ entry.published|parse_date:"%Y-%m-%dT%H:%M:%S.%f%z"|date:"l j F Y" }}</small></span>
+                        <span class="post-comment-link">
+                            <a class="comment-link" href="{{ entry.link }}">Aggiungi commento</a><br />
+                        </span>
+                    </div>
+                    <div>
+                        <hr >
+                    </div>
+                {% endfor %}
+            {% else %}
+                {% for entry in feed.entries %}
+                    {% if post_id == entry.id %}
+                        <div class="post uncustomized-post-template">
+                            <div class="post-title"><a
+                                    href="{{ request.build_absolute_uri }}?post_id={{ entry.id }}">{{ entry.title }}</a>
+                                <div class="bookmarks"><a title="Condividi su facebook" class="facebook"
+                                        href="http://www.facebook.com/sharer/sharer.php?u={{ base_url|default_if_none:entry.link }}?post_id={{ entry.id }}"></a>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="post-header-line-1"></div>
+                        <div class="post-body">
+                            {{ entry.content.0.value|safe }}</div>
+                        <div class="post-footer">
+                            <span class="post-timestamp">Modificato
+                                <small>{{ entry.published|parse_date:"%Y-%m-%dT%H:%M:%S.%f%z"|date:"l j F Y" }}</small></span>
+                            <span class="post-comment-link">
+                                <a class="comment-link" href="{{ entry.link }}">Aggiungi commento</a><br />
+                            </span>
+                        </div>
+                        <div>
+                            <hr align="center" width="80%">
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
         </div>
-        <div class="post-header-line-1"></div>
-        <div class="post-body">
-            {{ entry.content.0.value|safe }}
-        </div>
-        <div class="post-footer">
-            <span class="post-timestamp">Modificato
-                <small>{{ entry.published|parse_date:"%Y-%m-%dT%H:%M:%S.%f%z"|date:"l j F Y" }}</small></span>
-            <span class="post-comment-link">
-                <a class="comment-link" href="{{ entry.link }}">Aggiungi commento</a><br />
-            </span>
-        </div>
-        <div>
-            <hr >
-        </div>
-        {% endfor %}
-        {% else %}
-        {% for entry in feed.entries %}
-        {% if post_id == entry.id %}
-        <div class="post uncustomized-post-template">
-            <div class="post-title"><a
-                    href="{{ request.build_absolute_uri }}?post_id={{ entry.id }}">{{ entry.title }}</a>
-                <div class="bookmarks"><a title="Condividi su facebook" class="facebook"
-                        href="http://www.facebook.com/sharer/sharer.php?u={{ base_url|default_if_none:entry.link }}?post_id={{ entry.id }}"></a>
-                </div>
-            </div>
-        </div>  
-        <div class="post-header-line-1"></div>
-        <div class="post-body">
-            {{ entry.content.0.value|safe }}</div>
-        <div class="post-footer">
-            <span class="post-timestamp">Modificato
-                <small>{{ entry.published|parse_date:"%Y-%m-%dT%H:%M:%S.%f%z"|date:"l j F Y" }}</small></span>
-            <span class="post-comment-link">
-                <a class="comment-link" href="{{ entry.link }}">Aggiungi commento</a><br />
-            </span>
-        </div>
-        <div>
-            <hr align="center" width="80%">
-        </div>
-        {% endif %}
-        {% endfor %}
-        {% endif %}
-
-    </div>
     {% endif %}
     {% endif %}
 </div>

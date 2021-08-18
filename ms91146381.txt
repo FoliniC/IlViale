@@ -1,0 +1,5 @@
+﻿{
+  "Description": "File di verifica della proprietà del dominio per Microsoft 365 - posizionato nella radice del sito Web",
+  "Domain": "vialeformica.org",
+  "Id": "13e0c226-0149-49e0-9388-dd7b9f494084"
+}

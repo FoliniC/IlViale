@@ -73,7 +73,7 @@ def my_request_started(sender, environ, **kwargs):
         except :
             logger.exception("server_type not found > prod")
             server_type = 'PROD'
-        logger.warning('>>>>>>>>>>>SERVER_TYPE' + server_type )
+        logger.warning('>>>>>>>>>>>SERVER_TYPE ' + server_type )
         if not (server_type=='DEVHOME' or server_type=='DEV') and not (base_url_request.find('http://VialeFormica.it')>-1 or base_url_request.lower().find('http://vialeformica.org')>-1 or ( base_url_request.find('.compute.amazonaws.com')>-1 and base_url_request.find('http://ec2')>-1)):
             # double check if it's the right url
             logger.warning(">>>>>>>>>>>first:" + str(base_url_request.find('.compute.amazonaws.com')))
@@ -81,7 +81,7 @@ def my_request_started(sender, environ, **kwargs):
             logger.error("Base url didn\'t come from AWS -> clear: " + base_url_request )
             base_url_request = ''    
             raise Exception("Base url didn\'t come from AWS -> clear: " + base_url_request)
-        logger.warning('>>>>>>>>>>>Error Base Url:' + base_url_request)
+        logger.warning('>>>>>>>>>>>Base Url:' + base_url_request)
         settings.BASE_URL = base_url_request 
 
 

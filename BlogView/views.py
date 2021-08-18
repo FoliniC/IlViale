@@ -1,5 +1,7 @@
 import os
 import lxml.etree as ET
+import lxml.html
+
 import urllib3
 import logging
 import filecmp
@@ -21,6 +23,7 @@ from BlogView import LocalFileAdapter
 from shutil import move
 from shutil import copy2
 from datetime import datetime
+from html import unescape
 
 # Create your views here.
 from django.http import HttpResponse
@@ -45,14 +48,18 @@ def index(request):
     except KeyError:
         server = "PROD"
     if server == "DEV":
-        http = urllib3.ProxyManager("http://cn-1998267596-vnsg12623.ibosscloud.com:80")
+        http = urllib3.ProxyManager("http://cn-1998267631-nx10650.ibosscloud.com:80")
+        
+        base_url = request.build_absolute_uri("")
+        
     elif server == "DEVHOME":
         http = urllib3.PoolManager()
     else:
-        base_url = request.build_absolute_uri
+        base_url = request.build_absolute_uri("")
         http = urllib3.PoolManager()    
     logger = logging.getLogger("django")
-    #logger.warning("New request 111 " + os.getenv ('PROVA   ') )
+
+    logger.warning("New request base_url:" + base_url )
     rss_response_data = ""      
     try:
         rss_response = http.request(
@@ -124,6 +131,7 @@ def index(request):
             raise
     # myfeed = feedparser.parse('http://ilvialedellaformica.blogspot.com/feeds/posts/default?max-results=1500')
     myfeed = feedparser.parse(rss_response_data)
+    # myfeed.entries
     dom = ET.XML(rss_response_data)
 
     # logger.warning ('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' + BASE_DIR)
@@ -167,6 +175,17 @@ def index(request):
     else:
         post_id = request.GET.get("post_id")
         form = RegisterForm()
+        imgUrl = ""
+        if not( post_id is None or post_id == ''):
+            PostContent = dom.xpath("//*[local-name() = 'id' and .='" + post_id + "']/../*[local-name() = 'content']")
+            imgTags = PostContent[0].text.split("<img ")
+            for imgTag in imgTags:
+                imgHeightArray = imgTag.split(" height=\"")
+                if len(imgHeightArray) > 1:
+                    if int(imgHeightArray[1].split("\"")[0])>200:
+                        imgUrl =  imgTag.split("src=\"",2)[1]
+                        imgUrl = imgUrl.split("\"",1)[0]
+                        break
     if request.GET.get("Cronologia") == 'visualizza':
         return render(
         request,
@@ -198,6 +217,7 @@ def index(request):
                 "base_url": base_url,
                 "form": form,
                 "HTMLTree": HTMLTree,
+                "imgUrl": imgUrl,
                 'ext_templ':'reader.html'
             },
         )
