@@ -6,7 +6,7 @@ beautifulsoup4==4.8.2
 boto3==1.16.54
 botocore==1.19.54
 bsdiff4==1.1.9
-certifi==2019.11.28
+certifi==2022.12.7
 chardet==3.0.4
 colorama==0.4.3
 concurrent-log-handler==0.9.19
