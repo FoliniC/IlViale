@@ -44,7 +44,7 @@ py==1.10.0
 pylint==2.4.4
 pyparsing==2.4.6
 pyRFC3339==1.1
-pytest==5.3.5
+pytest==7.2.0
 pytest-runner==5.2
 python-card-me==0.9.3
 python-dateutil==2.8.1
