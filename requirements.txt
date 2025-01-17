@@ -39,7 +39,7 @@ packaging==20.3
 Pillow==10.3.0
 pluggy==0.13.1
 portalocker==2.0.0
-protobuf==3.6.0
+protobuf==3.18.3
 py==1.8.1
 pylint==2.4.4
 pyparsing==2.4.6
