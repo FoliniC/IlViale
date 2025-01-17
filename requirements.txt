@@ -36,7 +36,7 @@ lxml @ file:///E:/Progetti/WebSites/IlViale/lxml-4.6.2-cp38-cp38-win_amd64.whl
 mccabe==0.6.1
 more-itertools==8.2.0
 packaging==20.3
-Pillow==8.1.0
+Pillow==9.3.0
 pluggy==0.13.1
 portalocker==2.0.0
 protobuf==3.6.0
