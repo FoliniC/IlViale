@@ -112,10 +112,10 @@ hr {
         {% if feed.entries %}
             <div id="ctl00_ContentPlaceHolder1_Div1">
             {% if post_id is None or post_id.strip == '' %}
-                {% for entry in feed.entries|slice:":5" %}
+                {% for entry in feed.entries|slice:postToShow %}
                     <div class="post uncustomized-post-template">
                         <div class="post-title">
-                            <a href="{{ request.build_absolute_uri }}?post_id={{ entry.id }}">{{ entry.title }}</a>
+                            <a href="{{ base_url }}?post_id={{ entry.id }}&postToShow={{ postToShow}}">{{ entry.title }}</a>
                             <div class="bookmarks">
                                 <a title="Condividi su facebook" class="facebook"
                                     href="http://www.facebook.com/sharer/sharer.php?u={{ base_url|default_if_none:entry.link }}?post_id={{ entry.id }}"></a>
@@ -142,7 +142,7 @@ hr {
                     {% if post_id == entry.id %}
                         <div class="post uncustomized-post-template">
                             <div class="post-title"><a
-                                    href="{{ request.build_absolute_uri }}?post_id={{ entry.id }}">{{ entry.title }}</a>
+                                    href="{{ base_url }}?post_id={{ entry.id }}&postToShow={{ postToShow}}">{{ entry.title }}</a>
                                 <div class="bookmarks"><a title="Condividi su facebook" class="facebook"
                                         href="http://www.facebook.com/sharer/sharer.php?u={{ base_url|default_if_none:entry.link }}?post_id={{ entry.id }}"></a>
                                 </div>
@@ -163,6 +163,9 @@ hr {
                         </div>
                     {% endif %}
                 {% endfor %}
+            {% endif %}
+            {% if post_id is None or post_id.strip == '' %}
+            Sono visualizzati {{ postToShow }} articoli su {{maxPost}}.&nbsp;&nbsp;<a href="?postToShow={{ postToShow|add:5 }}">Visualizza più articoli</a>&nbsp;&nbsp;&nbsp;<a href="?postToShow={{ postToShow|add:-5 }}">Visualizza meno articoli</a>&nbsp;&nbsp;&nbsp;<a href="?postToShow={{ maxPost }}">Visualizza tutti gli articoli</a>
             {% endif %}
         </div>
     {% endif %}

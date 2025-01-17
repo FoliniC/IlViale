@@ -1,4 +1,6 @@
 import os
+import django
+import lxml
 import lxml.etree as ET
 import lxml.html
 
@@ -140,7 +142,12 @@ def index(request):
     xslt = ET.parse(os.path.join(BASE_DIR, "BlogView", "RSS2HTMLUL.xslt"))
     transform = ET.XSLT(xslt)
     HTMLTree = transform(dom)
-
+    
+    postToShow = request.GET.get("postToShow")
+    maxPost = int(dom.xpath("count(//*[local-name() = 'entry'])")   )
+    if postToShow is None or int(postToShow) < 5:
+        postToShow = 5  
+        
     # site = get_current_site(request)
     # logger.warning('current_site' + site.domain)
     # print(ET.tostring(HTMLTree, pretty_print=True))
@@ -218,6 +225,8 @@ def index(request):
                 "form": form,
                 "HTMLTree": HTMLTree,
                 "imgUrl": imgUrl,
+                "postToShow": postToShow,
+                "maxPost": maxPost,
                 'ext_templ':'reader.html'
             },
         )
