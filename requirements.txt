@@ -26,7 +26,7 @@ factory-boy==2.12.0
 faker==4.0.1
 feedparser==5.2.1
 feedreader==0.3.1
-future==0.18.2
+future==0.18.3
 idna==2.9
 isort==4.3.21
 jmespath==0.10.0
