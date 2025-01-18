@@ -67,12 +67,12 @@ def my_request_started(sender, environ, **kwargs):
         scheme = 'http' #if self.request.is_secure() else 'http'
         base_url_request = scheme + '://' + site
         #logger.warning('>>>>>>>>>>>Check Base Url:' + base_url_request)
-        server_type = ''
+        server_type = 'DEV'
         try:
              server_type = os.environ["SERVER_TYPE"]
         except :
             logger.exception("server_type not found > prod")
-            server_type = 'PROD'
+            server_type = 'DEV'
         logger.warning('>>>>>>>>>>>SERVER_TYPE ' + server_type )
         if not (server_type=='DEVHOME' or server_type=='DEV') and not (base_url_request.lower().find('https://vialeformica.org')>-1 or base_url_request.lower().find('http://vialeformica.org')>-1 or ( base_url_request.find('.compute.amazonaws.com')>-1 and base_url_request.find('http://ec2')>-1)):
             # double check if it's the right url

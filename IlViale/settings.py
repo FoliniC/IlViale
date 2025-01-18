@@ -10,18 +10,19 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+#import environ
 import os
 import logging
-import environ
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
-# reading .env file
-environ.Env.read_env()
+# env = environ.Env(
+#     # set casting, default value
+#     DEBUG=(bool, False)
+# )
+# # reading .env file
+# environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = '/home/azureuser/IlViale'
 BASE_URL = ''
 
 # Quick-start development settings - unsuitable for production
@@ -31,7 +32,7 @@ BASE_URL = ''
 #SECRET_KEY = 'p$6-^4q-9@j2z!y^d^^5l3-nc_pvlh8*8ld&_(0!971-b6jvu('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG', False)
+#DEBUG = env('DEBUG', False)
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 SECURE_CONTENT_TYPE_NOSNIFF = False
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'BlogView.apps.BlogViewConfig',
     'sitetree',
+    'environ',
     'tinymce',
     'sorl.thumbnail',
     'newsletter',
@@ -96,7 +98,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.request',
+                
+                'django.template.context_processors.csrf', 
+                'django.template.context_processors.tz', 
+                'django.template.context_processors.static', 
+                'django.template.context_processors.media', 
+                'django.template.context_processors.i18n',                
                 #'IlViale.context_base_url.baseurl',
             ],
         },
@@ -199,15 +206,20 @@ LOGGING = {
             'class': 'logging.StreamHandler',
             'formatter': 'verbose',
         },
-        'file1': {
-            'level': 'INFO',
-            #'class': 'logging.FileHandler',    
-            'class': 'concurrent_log_handler.ConcurrentRotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs', 'ilviale.log'),
-            'formatter': 'verbose',
-            'maxBytes': 50*1024,
-            'backupCount': 5    
-        },
+        'file1': { 
+            'level': 'DEBUG', 
+            'class': 'logging.FileHandler', 
+            'filename': os.path.join(BASE_DIR, 'debug.log'), 
+            },
+        # 'file1': {
+        #     'level': 'INFO',
+        #     #'class': 'logging.FileHandler',    
+        #     'class': 'concurrent_log_handler.ConcurrentRotatingFileHandler',
+        #     'filename': os.path.join(BASE_DIR, 'logs', 'ilviale.log'),
+        #     'formatter': 'verbose',
+        #     'maxBytes': 50*1024,
+        #     'backupCount': 5    
+        # },
         # 'file': {
         #     'level': 'INFO',
         #     'class': 'logging.FileHandler',    
@@ -234,9 +246,9 @@ LOGGING = {
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND = 'django_ses.SESBackend'
 EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'
-AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')     #'AKIA4NPCGD67DG5UVZ5U'
-AWS_SECRET_ACCESS_KEY = env('EMAIL_HOST_PASSWORD')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+#AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')     #'AKIA4NPCGD67DG5UVZ5U'
+#AWS_SECRET_ACCESS_KEY = env('EMAIL_HOST_PASSWORD')
+#EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'info@VialeFormica.org'
