@@ -9,22 +9,28 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
-#import environ
+import environ
 import os
 import logging
-# env = environ.Env(
-#     # set casting, default value
-#     DEBUG=(bool, False)
-# )
-# # reading .env file
-# environ.Env.read_env()
+import pkg_resources
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# reading .env file
+environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR = '/home/azureuser/IlViale'
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#BASE_DIR = '/home/azureuser/IlViale'
 BASE_URL = ''
-
+logger.info(f'BASE_DIR: {BASE_DIR}')
+env = environ.Env() 
+environ.Env.read_env()
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -32,9 +38,10 @@ BASE_URL = ''
 #SECRET_KEY = 'p$6-^4q-9@j2z!y^d^^5l3-nc_pvlh8*8ld&_(0!971-b6jvu('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = env('DEBUG', False)
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
+DEBUG = env.bool('DEBUG')
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 SECURE_CONTENT_TYPE_NOSNIFF = False
 X_FRAME_OPTIONS = 'DENY'
 
@@ -61,8 +68,10 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'newsletter',
     'django_user_agents',
-    'django_ses',
+#    'django_ses',
     'cookielaw',
+    'captcha',
+    'debug_toolbar',    
 ] 
 
 MIDDLEWARE = [
@@ -70,14 +79,14 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_user_agents.middleware.UserAgentMiddleware',
-
+    #'debug_toolbar.middleware.DebugToolbarMiddleware',
     ]
-
+CSRF_TRUSTED_ORIGINS = [ 'https://vialeformica.org', ]
 # SITETREE_CLS = 'IlViale.mysitetree.MySiteTree'
 
 # Name of cache backend to cache user agents. If it not specified default
@@ -93,13 +102,14 @@ TEMPLATES = [
                  os.path.join(BASE_DIR, 'sito_statico', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': True,  
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 
-                'django.template.context_processors.csrf', 
+                #'django.template.context_processors.csrf', 
                 'django.template.context_processors.tz', 
                 'django.template.context_processors.static', 
                 'django.template.context_processors.media', 
@@ -117,6 +127,9 @@ TEMPLATE_CONTEXT_PROCESSORS = [
 
 WSGI_APPLICATION = 'IlViale.wsgi.application'
 
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -173,7 +186,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'IlViale/static'),
+    os.path.join(BASE_DIR, 'staticfiles'),
         os.path.join(BASE_DIR, 'sito_statico'),
     ]
 # Random secret key
@@ -183,12 +196,18 @@ SECRET_KEY = ''.join([
     random.SystemRandom().choice(key_chars) for i in range(50)
 ])
 
+# settings.py
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '[%(asctime)s] %(levelname)s %(filename)s:%(lineno)s %(message)s',
+            #'format': '[%(asctime)s] %(levelname)s %(filename)s:%(lineno)s %(message)s',
+            'format': '[%(asctime)s] %(levelname)s %(filename)s:%(lineno)s %(message)s Physical path: %(pathname)s',
             #'style': '{',
             # %(module) %(process:d) %(thread:d) 
             #'datefmt': "%d/%b/%Y %H:%M:%S",
@@ -202,14 +221,15 @@ LOGGING = {
 #format = %(created)f %(levelname)-5.5s [%(name)s] %(message)s
     'handlers': {
         'console': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'verbose',
         },
         'file1': { 
             'level': 'DEBUG', 
             'class': 'logging.FileHandler', 
-            'filename': os.path.join(BASE_DIR, 'debug.log'), 
+            'filename': os.path.join(BASE_DIR, 'logs/debug.log'), 
+            'formatter': 'verbose',
             },
         # 'file1': {
         #     'level': 'INFO',
@@ -230,28 +250,30 @@ LOGGING = {
     'loggers': {
          'newsletter': {
             'handlers': ['console','file1',],
-            'level': 'INFO',
+            'level': 'DEBUG',
             'propagate': True,
         },
         'django': {
             'handlers': ['console','file1',],
-            'level': 'INFO',
+            'level': 'DEBUG',
             'propagate': True,
 
         },
+        #'azure.core.pipeline.policies.http_logging_policy': { 'handlers': ['console'], 'level': 'DEBUG', 'propagate': False, },
     },
 }
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_BACKEND = 'django_ses.SESBackend'
-EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'
+#EMAIL_BACKEND = 'django_ses.SESBackend'
+EMAIL_BACKEND = 'django_azure_communication_email.EmailBackend'
+#EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'
 #AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')     #'AKIA4NPCGD67DG5UVZ5U'
 #AWS_SECRET_ACCESS_KEY = env('EMAIL_HOST_PASSWORD')
 #EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'info@VialeFormica.org'
+#EMAIL_USE_TLS = True
+#EMAIL_PORT = 587
+EMAIL_HOST_USER = 'DoNotReply@vialeformica.org'
 # on unix > create a shell script in /etc/profile.d
 # sudo nano /etc/profile.d/set_environment.sh   
 # insert following line at the end
@@ -260,5 +282,54 @@ EMAIL_HOST_USER = 'info@VialeFormica.org'
 # sudo nano /etc/apache2/envvars
 # on windows > setx EMAIL_HOST_PASSWORD "your_password" /M
 
-DEFAULT_CONFIRM_EMAIL = True
+#DEFAULT_CONFIRM_EMAIL = True
 #NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"
+# installed_packages = sorted(["%s==%s" % (i.key, i.version) 
+#                              for i in pkg_resources.working_set]) 
+# logger.info("Installed packages:\n" + "\n".join(installed_packages))
+
+# for key, value in os.environ.items():
+#     logger.info(f'{key}: {value}')
+# #logging.getLogger("azure.core.pipeline.policies.http_logging_policy").setLevel(logging.DEBUG)
+AZURE_COMMUNICATION_CONNECTION_STRING = os.environ['AZURE_COMMUNICATION_CONNECTION_STRING']
+DEFAULT_FROM_EMAIL = os.environ['DEFAULT_FROM_EMAIL']
+# from azure.communication.email import EmailClient
+# connection_string = os.getenv("AZURE_COMMUNICATION_CONNECTION_STRING") 
+# client = EmailClient.from_connection_string(connection_string) 
+# message = { "senderAddress": "DoNotReply@vialeformica.org", "recipients": { "to": [{"address": "carlo.folini@hotmail.com"}] }, "content": { "subject": "Test Email", "plainText": "Hello world via email.", "html": """ <html> <body> <h1>Hello world via email.</h1> </body> </html>""" }, } 
+# poller = client.begin_send(message) 
+# result = poller.result() 
+# print("Message sent: ", result.message_id)
+
+# try:
+#     connection_string = "endpoint=https://communicationsviale.europe.communication.azure.com/;accesskey=xxxxxxxxxxxxxxxxxxxx"
+#     logger.info(f'from code: {connection_string}')
+#     logger.info(f'from env : {AZURE_COMMUNICATION_CONNECTION_STRING}')
+#     client = EmailClient.from_connection_string(connection_string)
+
+#     message = {
+#         "senderAddress": "DoNotReply@vialeformica.org",
+#         "recipients": {
+#             "to": [{"address": "carlo.folini@hotmail.com"}]
+#         },
+#         "content": {
+#             "subject": "33333333333Test Email",
+#             "plainText": "Hello world via email.",
+#             "html": """
+#             <html>
+#                 <body>
+#                     <h1>Hello world via email.</h1>
+#                 </body>
+#             </html>"""
+#         },
+        
+#     }
+
+#     poller = client.begin_send(message)
+#     result = poller.result()
+#     print("Message sent: ", result.message_id)
+
+# except Exception as ex:
+#     print(ex)
+
+

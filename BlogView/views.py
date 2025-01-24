@@ -50,10 +50,10 @@ def index(request):
     except KeyError:
         server = "PROD"
     if server == "DEV":
-        http = urllib3.ProxyManager("http://cn-1998267631-nx10650.ibosscloud.com:80")
+        #http = urllib3.ProxyManager("http://cn-1998267631-nx10650.ibosscloud.com:80")
         
         base_url = request.build_absolute_uri("")
-        
+        http = urllib3.PoolManager()
     elif server == "DEVHOME":
         http = urllib3.PoolManager()
     else:
@@ -69,7 +69,7 @@ def index(request):
             "http://ilvialedellaformica.blogspot.com/feeds/posts/default?max-results=1500",
         )
         renamed_file = ""
-        rss_cache_file_path = os.path.join(BASE_DIR, "media", "il_viale_rss_payload.rss").replace('/home/', 'home/')
+        rss_cache_file_path = os.path.join(BASE_DIR, "media", "il_viale_rss_payload.rss")#.replace('/home/', 'home/')
         if not rss_response.status == 200:
             raise Exception("Load cache file")
         #logger.warning("check file exists:" + rss_cache_file_path)

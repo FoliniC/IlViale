@@ -43,6 +43,8 @@ urlpatterns = [
     path('info/', include('sito_statico.urls')),
     path('', RedirectView.as_view(url='/BlogView/', permanent=True)),
     re_path(r'^newsletter/', include('newsletter.urls')),
+    path('captcha/', include('captcha.urls')),
+    path('__debug__/', include('debug_toolbar.urls')),    
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 admin.site.site_header = "Amministrazione sito"

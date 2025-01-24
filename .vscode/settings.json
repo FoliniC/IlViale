@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "C:\\Programs\\Python\\Python38\\python.exe",
+    "python.pythonPath": "C:\\Programs\\Python\\Python312\\python.exe",
     "python.formatting.provider": "black",
     "console": "integratedTerminal",
     "justMyCode": false,

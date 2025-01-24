@@ -1,5 +1,6 @@
 {% load i18n %}
 <div class="actions">
+ <!--{% csrf_token %}-->
   {% block actions %}
     {% block actions-form %}
     {% for field in action_form %}{% if field.label %}<label>{{ field.label }} {% endif %}{{ field }}{% if field.label %}</label>{% endif %}{% endfor %}

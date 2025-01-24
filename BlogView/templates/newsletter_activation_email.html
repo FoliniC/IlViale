@@ -2,6 +2,7 @@
 Ciao {{ user }},
 
 Clicka nel link sottostante per attivare la sottoscrizione:
-
+<a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">Clicka per confermare</a>
+oppure copia nel browser il seguente link:
 http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
 {% endautoescape %}

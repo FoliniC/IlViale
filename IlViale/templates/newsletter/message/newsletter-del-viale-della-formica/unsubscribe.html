@@ -8,7 +8,11 @@ Ciao {{ subscription.name }},<br/>
 tu, o qualcuno a tuo nome, ha richiesto la cancellazione dalla newsletter de {{ newsletter.title }}.
 <br/><br/>
 Per confermare la tua cancellazione clicka sul link seguente:<br/>
+<a href="{% baseurl %}{{ subscription.unsubscribe_activate_url }}">link</a>
+oppure copia nel browser il seguente url:
 {% baseurl %}{{ subscription.unsubscribe_activate_url }}
 <br/><br/>
-{{ newsletter.sender }}
+{{ newsletter.sender }}<br/>
+In caso di problemi puoi contattarci all'indirizzo info@vialeformica.org
+
 {% endblock body %}
