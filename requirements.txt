@@ -36,7 +36,7 @@ dill==0.3.9
     # via
     #   -r requirements.in
     #   pylint
-django==5.1.5
+django==5.1.8
     # via
     #   -r requirements.in
     #   django-braces
@@ -130,7 +130,7 @@ pluggy==1.5.0
     # via
     #   -r requirements.in
     #   pytest
-portalocker
+portalocker==3.1.1
     # via
     #   -r requirements.in
     #   concurrent-log-handler
@@ -223,7 +223,3 @@ wrapt==1.17.2
     # via -r requirements.in
 xlwt==1.3.0
     # via excel-base
-django_azure_communication_email
-django-simple-captcha
-setuptools
-django.debug_toolbar
