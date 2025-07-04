@@ -1,8 +1,5 @@
-{% extends "turni_bar/base.html" %}
+{% extends "biblioteca/base.html" %}
 
 {% block content %}
-<h1>Biblioteca</h1>
-<iframe src="https://mailchi.mp/e4fc2f1a5400/ellida" width="100%" height="800" style="border:none;">
-    Il tuo browser non supporta gli iframe.
-</iframe>
+{{ mailchimp_html|safe }}
 {% endblock %}

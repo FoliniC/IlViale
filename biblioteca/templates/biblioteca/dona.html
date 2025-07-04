@@ -1,0 +1,34 @@
+{% extends "biblioteca/base.html" %}
+
+{% block content %}
+<div id="donate-now-box">
+    <h3>Dona ora</h3>
+    <p>Puoi donare con uno dei seguenti metodi:</p>
+    <ul id="pelican-payments">
+    <li>
+        <label>Paypal</label>
+        <div style="padding:10px; display:block;">
+            <p>Conto PayPal intestato a FONDAZIONE PRO VALTELLINA Ente Filantropico</p>
+            <p>Dalla tua donazione PayPal tratterrà 1,8% + 0,35€ per transazione</p>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="text-align:center; width:100%">
+                <input type="hidden" name="business" value="info@provaltellina.org">
+                <input type="hidden" name="cmd" value="_donations">
+                <input type="hidden" name="item_name" value="Spazio Ellida (da sistemare)">
+                <input type="hidden" name="currency_code" value="EUR">
+                <input type="image" name="submit" src="https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donateCC_LG.gif" alt="Donate">
+                <img alt="" width="1" height="1" src="https://www.paypal.com/it_IT/i/scr/pixel.gif">
+            </form>
+        </div>
+    </li>
+    <li>
+        <label>Bonifico</label>
+        <div style="padding:10px; display:block;">
+            <p>Bonifico bancario su conto INTESA SAN PAOLO</p>
+            <p>FONDAZIONE PRO VALTELLINA Ente Filantropico</p>
+            <p>IBAN&nbsp; IT 47 M 03069 09606 10000 0009186</p>
+            <p>Causale: Spazio Ellida (da sistemare)</p>
+        </div>
+    </li>
+    </ul>
+</div>
+{% endblock %}

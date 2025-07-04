@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Biblioteca</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i|Roboto:400,400i,700,700i" rel="stylesheet">
+    <style>
+        html, body, .wrapper { min-height: 100vh; height: auto; box-sizing: border-box; }
+        body { margin: 0 !important; padding: 0 !important; width: 100%; font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #f6f6f6; }
+        .wrapper { display: flex; flex-direction: column; align-items: center; }
+        .ellida-title { text-align: center; font-size: 38px; font-weight: bold; margin-top: 32px; color: #2A2A2A; }
+        .ellida-subtitle { text-align: center; font-size: 22px; font-weight: bold; margin-top: 16px; color: #4A4A4A; }
+        .ellida-desc { text-align: center; font-size: 18px; margin-top: 16px; color: #686868; }
+        @media only screen and (max-width: 480px) {
+            .ellida-title { font-size: 28px; }
+            .ellida-subtitle { font-size: 18px; }
+            .ellida-desc { font-size: 16px; }
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <div class="wrapper">
+        <div class="ellida-title">SPAZIO ELLIDA</div>
+        <div class="ellida-subtitle">Un Progetto di Chiuro per Chiuro</div>
+        <div class="ellida-desc">
+            Nuova Sala Multifunzionale per Cultura e Inclusione dedicata a<br>
+            Ellida Schiappadini Faccinelli nella storica Biblioteca di Chiuro
+        </div>
+        <hr style="margin: 32px 0; width: 80%; border: none; border-top: 2px solid #EAEAEA;">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
