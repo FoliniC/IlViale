@@ -1,7 +1,7 @@
 from django.db import models
 from newsletter.models import Subscription as ParentSubscription
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 class Subscription(ParentSubscription):
      localita_field = models.CharField(
@@ -9,4 +9,4 @@ class Subscription(ParentSubscription):
         verbose_name=_('localita'), help_text=_('optional')
     )
 
-from newsletter import *
+# from newsletter import *

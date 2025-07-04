@@ -28,6 +28,7 @@ environ.Env.read_env()
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #BASE_DIR = '/home/azureuser/IlViale'
 BASE_URL = ''
+LOGIN_URL = '/admin/login/'
 logger.info(f'BASE_DIR: {BASE_DIR}')
 env = environ.Env() 
 environ.Env.read_env()
@@ -72,6 +73,9 @@ INSTALLED_APPS = [
     'cookielaw',
     'captcha',
     'debug_toolbar',    
+    'IlViale', 
+    'turni_bar.apps.TurniBarConfig',
+    'biblioteca',
 ] 
 
 MIDDLEWARE = [
@@ -115,6 +119,7 @@ TEMPLATES = [
                 'django.template.context_processors.media', 
                 'django.template.context_processors.i18n',                
                 #'IlViale.context_base_url.baseurl',
+                'IlViale.context_processors.canonical_url',
             ],
         },
     },

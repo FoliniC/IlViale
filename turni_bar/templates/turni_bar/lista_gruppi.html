@@ -1,0 +1,18 @@
+{% extends "turni_bar/base.html" %}
+
+{% block content %}
+<h1>I Tuoi Gruppi</h1>
+
+<ul>
+    {% for gruppo in gruppi %}
+    <li>
+        <a href="{% url 'gestione_turni' gruppo.id %}">{{ gruppo.nome }}</a>
+        <small>({{ gruppo.barista_set.count }} baristi)</small>
+    </li>
+    {% empty %}
+    <li>Nessun gruppo creato</li>
+    {% endfor %}
+</ul>
+
+<a href="/admin/turni_bar/" class="btn btn-primary">Crea nuovo gruppo</a>
+{% endblock %}

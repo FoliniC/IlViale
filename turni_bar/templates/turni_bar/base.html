@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Turni Bar</title>
+    <style>
+        body { font-family: Arial; max-width: 800px; margin: 0 auto; }
+        .gruppo { border: 1px solid #ddd; padding: 15px; margin: 10px 0; }
+        .barista { display: inline-block; margin: 5px; padding: 8px; background: #f5f5f5; }
+    </style>
+    <script>
+        async function caricaTurni() {
+            const response = await fetch('/turni/');
+            const turni = await response.json();
+            const selectTurno = document.getElementById('turno');
+            selectTurno.innerHTML = '';
+            for (const turno in turni) {
+                const option = document.createElement('option');
+                option.value = turno;
+                option.textContent = turno;
+                selectTurno.appendChild(option);
+            }
+        }
+
+        async function caricaBaristi() {
+            const turno = document.getElementById('turno').value;
+            const response = await fetch(`/baristi/?turno=${turno}`);
+            const data = await response.json();
+            const baristiDiv = document.getElementById('baristi');
+            baristiDiv.innerHTML = '';
+
+            if (data.baristi) {
+                const ul = document.createElement('ul');
+                data.baristi.forEach(barista => {
+                    const li = document.createElement('li');
+                    li.textContent = `${barista.nome} - Turni effettuati: ${barista.turni_effettuati}`;
+                    ul.appendChild(li);
+                });
+                baristiDiv.appendChild(ul);
+
+                if (data.baristi.length > 0) {
+                    document.getElementById('barista').value = data.baristi[0].nome;
+                }
+            }
+
+            if (data.assegnato) {
+                document.getElementById('assegnato').textContent = `Barista assegnato: ${data.assegnato}`;
+            } else {
+                document.getElementById('assegnato').textContent = 'Nessun barista assegnato';
+            }
+        }
+
+        async function assegnaBarista() {
+            const turno = document.getElementById('turno').value;
+            const barista = document.getElementById('barista').value;
+            const response = await fetch('/assegna/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ turno, barista })
+            });
+            const data = await response.json();
+            if (data.success) {
+                alert('Barista assegnato con successo!');
+                caricaBaristi();
+            } else {
+                alert('Errore durante l\'assegnazione');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            caricaTurni();
+            document.getElementById('turno').addEventListener('change', caricaBaristi);
+        });
+    </script>
+    </head>
+<body>
+    <h1>Gestione Turni Bar</h1>
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -15,12 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path, re_path
+#from . import views
+from turni_bar import views
 from django.views.generic import RedirectView
 from django.conf import settings
 #from django.conf.urls import url
 from django.conf.urls.static import static
 import logging
 import concurrent_log_handler
+from django.contrib.auth.views import LogoutView
 
 # # First import the register function.
 # from sitetree.sitetreeapp import register_items_hook
@@ -44,7 +47,13 @@ urlpatterns = [
     path('', RedirectView.as_view(url='/BlogView/', permanent=True)),
     re_path(r'^newsletter/', include('newsletter.urls')),
     path('captcha/', include('captcha.urls')),
-    path('__debug__/', include('debug_toolbar.urls')),    
+    path('__debug__/', include('debug_toolbar.urls')),
+    path("turni_bar/", include("turni_bar.urls")),
+    path('gestione/<int:gruppo_id>/', views.gestione_turni, name='gestione_turni'),  # Ensure this matches the name used in the template
+    path('gestione/', views.gestione_turni_no_id, name='gestione_turni_no_id'),
+    path('lista-gruppi/', views.lista_gruppi, name='lista_gruppi'),  # URL pattern for lista_gruppi
+    path("logout/", LogoutView.as_view(), name="logout"),
+    path('Biblioteca/', include('biblioteca.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 admin.site.site_header = "Amministrazione sito"
@@ -84,6 +93,6 @@ def my_request_started(sender, environ, **kwargs):
             base_url_request = ''    
             raise Exception("Base url didn\'t come from AWS -> clear: " + base_url_request)
         logger.warning('>>>>>>>>>>>Base Url:' + base_url_request)
-        settings.BASE_URL = base_url_request 
+        settings.BASE_URL = base_url_request
 
 

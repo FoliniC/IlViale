@@ -1,0 +1,21 @@
+{% extends "turni_bar/base.html" %}
+
+{% block content %}
+<h1>Gestione Turni Bar</h1>
+<label for="turno">Seleziona Turno:</label>
+<select id="turno"></select>
+<p id="assegnato"></p>
+
+<label for="barista">Seleziona Barista:</label>
+<select id="barista"></select>
+<button onclick="assegnaBarista()">Assegna Barista</button>
+
+<h2>Baristi Disponibili</h2>
+<div id="baristi"></div>
+
+<p>Seleziona una delle seguenti opzioni:</p>
+<ul>
+    <li><a href="{% url 'gestione_turni_no_id' %}">Gestione Turni</a></li>
+    <li><a href="{% url 'lista_gruppi' %}">Lista Gruppi</a></li>
+</ul>
+{% endblock %}

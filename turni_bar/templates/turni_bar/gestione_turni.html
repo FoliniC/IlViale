@@ -1,0 +1,34 @@
+{% extends "turni_bar/base.html" %}
+
+{% block content %}
+<h1>Turni per {{ gruppo.nome }}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    
+    <div class="baristi-list">
+        {% for barista in baristi %}
+        <div class="barista-card">
+            <h3>{{ barista.nome }}</h3>
+            <p>Turni effettuati: {{ barista.turni_effettuati }}</p>
+            <button type="submit" name="barista" value="{{ barista.id }}">
+                Registra Turno
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+</form>
+
+<h2>Ultimi 5 turni registrati</h2>
+<ul>
+    {% for turno in gruppo.turno_set.all|slice:":5" %}
+    <li>{{ turno.barista.nome }} - {{ turno.data|date:"d/m/Y H:i" }}</li>
+    {% endfor %}
+</ul>
+<p>Seleziona una delle seguenti opzioni:</p>
+<ul>
+    <li><a href="{% url 'gestione_turni_no_id' %}">Gestione Turni</a></li>
+    <li><a href="{% url 'lista_gruppi' %}">Lista Gruppi</a></li>
+</ul>
+
+{% endblock %}
