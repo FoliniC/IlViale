@@ -30,6 +30,8 @@ bld/
 [Mm]edia/
 envIlViale/
 envIlViale.bak/
+envViale/
+envViale.bak/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
