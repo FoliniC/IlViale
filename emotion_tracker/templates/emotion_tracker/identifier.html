@@ -1,0 +1,155 @@
+{% extends 'emotion_tracker/base.html' %}
+
+{% block title %}Nuova Identificazione - Identificatore Emozioni{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto">
+    <div class="bg-white rounded-2xl shadow-xl p-8">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">
+                Identifica la tua Emozione
+            </h2>
+            <p class="text-gray-600">
+                Rispondi alle domande per scoprire cosa stai provando
+            </p>
+        </div>
+
+        <form method="post" id="emotionForm">
+            {% csrf_token %}
+
+            <!-- Situazione -->
+            <div class="mb-8">
+                <label class="block text-lg font-semibold text-gray-800 mb-3">
+                    1. Descrivi la situazione
+                </label>
+                {{ form.situation }}
+                {% if form.situation.errors %}
+                <p class="text-red-600 text-sm mt-1">{{ form.situation.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Sensazioni corporee -->
+            <div class="mb-8">
+                <label class="block text-lg font-semibold text-gray-800 mb-3">
+                    2. Dove senti questa emozione nel corpo?
+                </label>
+                <div class="space-y-2">
+                    {% for choice in form.body_sensations %}
+                    <label
+                        class="flex items-start gap-3 p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                        {{ choice.tag }}
+                        <span class="text-gray-700">{{ choice.choice_label }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Tipo di energia -->
+            <div class="mb-8">
+                <label class="block text-lg font-semibold text-gray-800 mb-3">
+                    3. Che tipo di energia senti?
+                </label>
+                {{ form.energy_type }}
+                {% if form.energy_type.errors %}
+                <p class="text-red-600 text-sm mt-1">{{ form.energy_type.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Fattori scatenanti -->
+            <div class="mb-8">
+                <label class="block text-lg font-semibold text-gray-800 mb-3">
+                    4. Cosa ha scatenato questa emozione?
+                </label>
+                <div class="space-y-2">
+                    {% for choice in form.triggers %}
+                    <label
+                        class="flex items-start gap-3 p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                        {{ choice.tag }}
+                        <span class="text-gray-700">{{ choice.choice_label }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Impulsi -->
+            <div class="mb-8">
+                <label class="block text-lg font-semibold text-gray-800 mb-3">
+                    5. Cosa ti viene voglia di fare?
+                </label>
+                <div class="space-y-2">
+                    {% for choice in form.impulses %}
+                    <label
+                        class="flex items-start gap-3 p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                        {{ choice.tag }}
+                        <span class="text-gray-700">{{ choice.choice_label }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Intensità -->
+            <div class="mb-8">
+                <label class="block text-lg font-semibold text-gray-800 mb-3">
+                    6. Intensità dell'emozione
+                </label>
+                <div class="space-y-4">
+                    {{ form.intensity }}
+                    <div class="flex justify-between text-sm text-gray-600">
+                        <span>Lieve</span>
+                        <span>Moderata</span>
+                        <span>Intensa</span>
+                    </div>
+                    <div class="text-center">
+                        <span id="intensityValue" class="text-3xl font-bold text-blue-600">5</span>
+                        <span class="text-gray-500"> / 10</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Valenza -->
+            <div class="mb-8">
+                <label class="block text-lg font-semibold text-gray-800 mb-3">
+                    7. Come la descriveresti?
+                </label>
+                {{ form.valence }}
+                {% if form.valence.errors %}
+                <p class="text-red-600 text-sm mt-1">{{ form.valence.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Durata -->
+            <div class="mb-8">
+                <label class="block text-lg font-semibold text-gray-800 mb-3">
+                    8. Da quanto tempo la provi?
+                </label>
+                {{ form.duration }}
+                {% if form.duration.errors %}
+                <p class="text-red-600 text-sm mt-1">{{ form.duration.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mt-10">
+                <button type="submit"
+                    class="w-full bg-blue-600 text-white py-4 px-6 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg">
+                    🔍 Analizza le mie emozioni
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Aggiorna il valore visualizzato dello slider
+    const intensitySlider = document.getElementById('id_intensity');
+    const intensityValue = document.getElementById('intensityValue');
+
+    if (intensitySlider && intensityValue) {
+        intensitySlider.addEventListener('input', function () {
+            intensityValue.textContent = this.value;
+        });
+    }
+</script>
+{% endblock %}

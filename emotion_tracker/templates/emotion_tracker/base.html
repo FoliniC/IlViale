@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Identificatore Emozioni{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Stili personalizzati per il range slider */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: #e5e7eb;
+            outline: none;
+            border-radius: 0.5rem;
+            height: 0.5rem;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: #2563eb;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 1.5rem;
+            height: 1.5rem;
+            background: #2563eb;
+            cursor: pointer;
+            border-radius: 50%;
+            border: none;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900">
+                        <a href="{% url 'emotion_tracker:identifier' %}" class="hover:text-blue-600">
+                            🧠 Identificatore Emozioni
+                        </a>
+                    </h1>
+                </div>
+                <nav class="flex items-center space-x-4">
+                    <a href="{% url 'emotion_tracker:identifier' %}"
+                        class="text-gray-700 hover:text-blue-600 font-medium">
+                        Nuova Identificazione
+                    </a>
+                    <a href="{% url 'emotion_tracker:history' %}" class="text-gray-700 hover:text-blue-600 font-medium">
+                        Storico
+                    </a>
+                    <span class="text-gray-500">|</span>
+                    <span class="text-gray-700">👤 {{ user.username }}</span>
+                    <a href="{% url 'admin:logout' %}?next=/emo/" class="text-red-600 hover:text-red-700 font-medium">
+                        Esci
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Messages -->
+    {% if messages %}
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
+        {% for message in messages %}
+        <div
+            class="bg-{{ message.tags }}-100 border border-{{ message.tags }}-400 text-{{ message.tags }}-700 px-4 py-3 rounded mb-2">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-16 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600">
+            <p>&copy; 2025 Viale Formica - Identificatore Emozioni</p>
+            <p class="text-sm mt-2">
+                Questo strumento è una guida indicativa. Per supporto professionale, consulta uno specialista.
+            </p>
+        </div>
+    </footer>
+
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>
