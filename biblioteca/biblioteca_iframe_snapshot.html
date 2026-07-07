@@ -1,0 +1,912 @@
+<!doctype html>
+<html style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;height: auto;min-height: 100vh;box-sizing: border-box !important;">
+<head style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/ab5e8ed8c9b39209c68db19d5/b341616f426fd2381272f94f8.js");</script>
+    <meta charset="UTF-8" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+    <title style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Progetto Spazio Ellida</title>
+    
+<style type="text/css" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+		html,body{
+			height:100%;
+		}
+		p{
+			margin:10px 0;
+			padding:0;
+		}
+		h1,h2,h3,h4,h5,h6{
+			display:block;
+			margin:0;
+			padding:0;
+		}
+		img,a img{
+			border:0;
+			height:auto;
+			outline:none;
+			text-decoration:none;
+		}
+		body{
+			margin:0 !important;
+			padding:0 !important;
+			width:100%;
+		}
+		.mcnTextBlock:after,.mcnTextBlockInner:after{
+			display:table;
+			clear:both;
+		}
+		*{
+			-webkit-box-sizing:border-box;
+			-moz-box-sizing:border-box;
+			box-sizing:border-box !important;
+		}
+		html,body,.wrapper{
+			height:auto;
+			min-height:100vh;
+		}
+		body{
+			position:relative;
+		}
+		.wrapper{
+			display:flex;
+			flex-direction:column;
+		}
+		.templateSection{
+			position:relative;
+			display:flex;
+			flex-shrink:0;
+			justify-content:center;
+		}
+		.templateSection:last-of-type{
+			flex-grow:2;
+		}
+		.columnContent{
+			padding-right:27px;
+			padding-left:27px;
+			max-width:612px;
+			width:100%;
+		}
+		.columnContainer{
+			display:flex;
+			flex-direction:row;
+			width:100%;
+		}
+		.column{
+			flex:1;
+		}
+		a.mcnButton{
+			display:block;
+		}
+		.mcnImage{
+			vertical-align:bottom;
+		}
+		.mcnTextContent{
+			word-break:break-word;
+			flex-flow:column;
+		}
+		.mcnTextContent img{
+			max-width:100%;
+			height:auto !important;
+		}
+		.mcnDividerBlock{
+			table-layout:fixed !important;
+		}
+		.mcPrivacyBadge{
+			opacity:0.6;
+		}
+		.mcPrivacyBadge:hover{
+			opacity:1;
+		}
+		.mcPrivacyBadge a.privacyLink{
+			text-decoration:none;
+		}
+		.mcPrivacyBadge a.privacyLink:hover{
+			text-decoration:underline;
+		}
+		.mcnTemplatePageBanner{
+			position:fixed;
+			padding:18px;
+			bottom:0;
+			top:unset;
+			left:0;
+			right:0;
+			box-sizing:border-box;
+			z-index:1;
+		}
+		.mcnPageBannerContainer{
+			position:relative;
+			display:flex;
+			justify-content:center;
+			padding:18px;
+			box-shadow:0px 2px 3px rgba(36, 28, 21, 0.1);
+			border:1px solid #dedddc;
+			overflow:auto;
+			max-height:calc(100vh - 36px);
+		}
+		.mcnPageBannerContentContainer{
+			padding:0 24px 0 0;
+		}
+		.mcnCloseButton{
+			opacity:.4;
+			background:url(data:image/png;
+			base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAABGdBTUEAALGPC/xhBQAAAEVQTFRFAAAA////////////////////////////////////////////////////////AAAACwsLlpaWv7+/wMDAwcHB5+fn////js+8jgAAAA90Uk5TABkaT2lvcJi1ttny8/v+KMQKuwAAAJdJREFUKM91UuEawiAIRGdp6pZzi/d/1HDo11bd/RAFTk6QSGFdiDnH4CydYfzMHbM3H/+U+IQ0Df994QuWW8//8kvk4JjEP0itjtf962K86FQ9a6nN1LKqNktOE8uzbMybGOU4eii3imvfZal6DhR7vZastAOR8lAi6UIap4wD8KqAikO58IGwJbiJsO14UHi0+DP8+z5v3a8i3EEOD1IAAAAASUVORK5CYII=); position:absolute;
+			top:18px;
+			right:18px;
+			height:24px;
+			width:24px;
+		}
+		.mcnCloseButton:hover{
+			opacity:.9;
+		}
+		.sr-only{
+			position:absolute;
+			width:1px;
+			height:1px;
+			padding:0;
+			margin:-1px;
+			overflow:hidden;
+			clip:rect(0,0,0,0);
+			border:0;
+		}
+		.mcnPaymentTextContent{
+			min-width:284px;
+		}
+		.templateSection{
+			padding-right:0px;
+			padding-left:0px;
+		}
+		.contentContainer{
+			max-width:960px;
+			width:100%;
+			flex:0 0 auto;
+		}
+		h1{
+			color:#2A2A2A;
+			font-family:'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-size:72px;
+			font-style:normal;
+			font-weight:normal;
+			line-height:150%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		h2{
+			color:#4A4A4A;
+			font-family:'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-size:48px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		h3{
+			color:#2A2A2A;
+			font-family:'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-size:34px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:150%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		h4{
+			color:#2A2A2A;
+			font-family:'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-size:24px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:200%;
+			letter-spacing:normal;
+			text-align:center;
+		}
+		.templateHeader{
+			border-top:0;
+			border-bottom:0;
+			padding-top:0;
+			padding-bottom:0;
+		}
+		.headerLeftColumnContainer{
+			background-color:transparent;
+			background-image:url("https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/forms-landing-pages/landing-page-template-images/1003/lp-exp-bgnd.jpg");
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:cover;
+			border-top:0;
+			border-bottom:0;
+			padding-top:800px;
+			padding-bottom:0;
+		}
+		.headerRightColumnContainer{
+			background-color:#FFFFFF;
+			background-image:none;
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:cover;
+			border-top:0;
+			border-bottom:0;
+			padding-top:36px;
+			padding-bottom:135px;
+		}
+		.headerRightColumnContainer .mcnTextContent,.headerRightColumnContainer .mcnTextContent p{
+			color:#2A2A2A;
+			font-family:Playfair Display;
+			font-size:16px;
+			line-height:150%;
+			text-align:left;
+		}
+		.headerRightColumnContainer .mcnTextContent a,.headerRightColumnContainer .mcnTextContent p a{
+			color:#2A2A2A;
+			font-weight:normal;
+			text-decoration:none;
+		}
+		.templateBody{
+			background-color:#f6f6f6;
+			background-image:none;
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:cover;
+			border-top:0;
+			border-bottom:0;
+			padding-top:16px;
+			padding-bottom:16px;
+		}
+		.bodyContainer{
+			background-color:#transparent;
+			background-image:none;
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:cover;
+			border-top:0;
+			border-bottom:0;
+			padding-top:0;
+			padding-bottom:0;
+		}
+		.bodyContainer .mcnTextContent,.bodyContainer .mcnTextContent p,.mcnTemplatePageBanner{
+			color:#686868;
+			font-family:Playfair Display;
+			font-size:22px;
+			line-height:150%;
+			text-align:center;
+		}
+		.bodyContainer .mcnTextContent a,.bodyContainer .mcnTextContent p a,.mcnTemplatePageBanner a,.mcnTemplatePageBanner p a{
+			color:#00ADD8;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		.templateFooter{
+			border-top:0;
+			border-bottom:0;
+			padding-top:0;
+			padding-bottom:0;
+		}
+		.footerLeftColumnContainer{
+			background-color:#transparent;
+			background-image:none;
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:cover;
+			border-top:0;
+			border-bottom:0;
+			padding-top:0px;
+			padding-bottom:0;
+		}
+		.footerRightColumnContainer{
+			background-color:#transparent;
+			background-image:none;
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:cover;
+			border-top:0;
+			border-bottom:0;
+			padding-top:135px;
+			padding-bottom:135px;
+		}
+		.footerRightColumnContainer .mcnTextContent,.footerRightColumnContainer .mcnTextContent p{
+			color:#808080;
+			font-family:Playfair Display;
+			font-size:16px;
+			line-height:150%;
+			text-align:left;
+		}
+		.footerRightColumnContainer .mcnTextContent a,.footerRightColumnContainer .mcnTextContent p a{
+			color:#00ADD8;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+	@media only screen and (max-width: 480px){
+		body,table,td,p,a,li,blockquote{
+			-webkit-text-size-adjust:none !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		body{
+			width:100% !important;
+			min-width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcPrivacyBadge{
+			padding:12px 12px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcPrivacyBadgeContent{
+			flex-direction:column;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.monkeyrewards{
+			order:1;
+			margin-bottom:18px;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.reportAbuseWrapper{
+			order:2;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnCaptionBlockInner{
+			flex:0 0 auto;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnCaptionBlock{
+			flex-direction:column;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnVideoContainer{
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnRetinaImage{
+			max-width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnTextBlockInner{
+			padding:9px 0 !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageGroupContent{
+			padding:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnCaptionColumn{
+			flex-direction:column !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnSignUpFormContentContainer{
+			padding-right:0 !important;
+			padding-left:0 !important;
+			flex:auto !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnCaptionLeftContentInner,.mcnCaptionRightContentInner{
+			padding:0 9px 9px 9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageCardRightContentInner .mcnImageCardImageContent,.mcnImageCardLeftContentInner .mcnImageCardImageContent{
+			padding:18px 18px 0 18px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnTextBlockInner,.mcnBoxedTextBlockInner,.mcnImageCardLeftContentInner,.mcnImageCardRightContentInner,.mcnCaptionLeftContentInner,.mcnCaptionRightContentInner{
+			flex-direction:column !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnCaptionLeftContentInner .mcnTextContent,.mcnCaptionRightContentInner .mcnTextContent{
+			padding:9px 9px 0 9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageCardTopImageContent,.mcnCaptionBlockInner .mcnCaptionTopContent:last-child .mcnTextContent{
+			padding-top:18px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageCardBottomImageContent{
+			padding-bottom:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageGroupBlockInner{
+			padding-top:0 !important;
+			padding-bottom:0 !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageGroupBlockOuter{
+			padding-top:9px !important;
+			padding-bottom:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnTextContent,.mcnBoxedTextContentColumn{
+			padding-right:18px !important;
+			padding-left:18px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageCardLeftImageContent,.mcnImageCardRightImageContent{
+			padding-right:18px !important;
+			padding-bottom:0 !important;
+			padding-left:18px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcpreview-image-uploader{
+			display:none !important;
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnRecContentContainer--row{
+			flex:0 0 50% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnRecContentContainer .mcnProductTitle,.mcnRecContentContainer .mcnButtonBlock,.mcnRecContentContainer .mcnProductPrice{
+			padding-left:0 !important;
+			padding-right:0 !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnPaymentProduct{
+			flex-direction:column !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnPaymentTextContent{
+			min-width:200px !important;
+			padding-left:0 !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnPaymentGalleryImages div{
+			width:100% !important;
+			min-width:0 !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnGalleryImage:nth-last-child(2):first-child,.mcnGalleryImage:nth-last-child(2):first-child ~ .mcnGalleryImage{
+			height:90px !important;
+			min-width:55px !important;
+			max-width:90px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnGalleryImage:nth-last-child(3):first-child,.mcnGalleryImage:nth-last-child(3):first-child ~ .mcnGalleryImage{
+			height:60px !important;
+			min-width:55px !important;
+			max-width:60px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnGalleryImage:nth-last-child(4):first-child,.mcnGalleryImage:nth-last-child(4):first-child ~ .mcnGalleryImage{
+			height:60px !important;
+			min-width:35px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnGalleryImage:nth-last-child(5):first-child,.mcnGalleryImage:nth-last-child(5):first-child ~ .mcnGalleryImage{
+			height:50px !important;
+			min-width:35px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.templateFooter .columnContainer{
+			flex-direction:column !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.templateHeader .columnContainer{
+			flex-direction:column-reverse !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.columnContent{
+			padding-right:0 !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcPrivacyBadge{
+			opacity:1;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h1{
+			font-size:36px !important;
+			line-height:125% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h2{
+			font-size:30px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h3{
+			font-size:24px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h4{
+			font-size:20px !important;
+			line-height:200% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnBoxedTextContentContainer .mcnTextContent,.mcnBoxedTextContentContainer .mcnTextContent p{
+			font-size:14px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.headerRightColumnContainer .mcnTextContent,.headerRightColumnContainer .mcnTextContent p{
+			font-size:16px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.bodyContainer .mcnTextContent,.bodyContainer .mcnTextContent p,.mcnTemplatePageBanner{
+			font-size:16px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.footerRightColumnContainer .mcnTextContent,.footerRightColumnContainer .mcnTextContent p{
+			font-size:16px !important;
+			line-height:150% !important;
+		}
+
+}</style><!--[if !mso]><!--><link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i|Roboto:400,400i,700,700i" rel="stylesheet"><!--<![endif]--><meta property="og_removed:title" content="Progetto Spazio Ellida"><meta name="twitter:title" content="Progetto Spazio Ellida"><meta property="og_removed:type" content="website"><meta name="twitter:type" content="website"><meta property="og_removed:image" content="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/images/ee48db55-70c7-065e-b857-ed2f8f346211.png"><meta name="twitter:image" content="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/images/ee48db55-70c7-065e-b857-ed2f8f346211.png"><meta property="og_removed:url" content="https://mailchi.mp/e4fc2f1a5400/ellida"><meta name="twitter:url" content="https://mailchi.mp/e4fc2f1a5400/ellida"><link rel="icon" href="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/images/e5adaab8-0385-1579-f8e4-f6b011d926b5.jpg" type="image/jpg" sizes="16x16"><link rel="icon" href="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/images/e5adaab8-0385-1579-f8e4-f6b011d926b5.jpg" type="image/jpg" sizes="32x32"><link rel="icon" href="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/images/e5adaab8-0385-1579-f8e4-f6b011d926b5.jpg" type="image/jpg" sizes="192x192"><link rel="icon" href="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/images/e5adaab8-0385-1579-f8e4-f6b011d926b5.jpg" type="image/jpg" sizes="512x512"><link rel="apple-touch-icon" href="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/images/e5adaab8-0385-1579-f8e4-f6b011d926b5.jpg" sizes="180x180">
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://vialeformica.org/static/images/logoassociazione1.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Nome associazione con stele di Castionetto" />
+    
+</head>
+<body style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;height: auto;width: 100%;position: relative;min-height: 100vh;box-sizing: border-box !important;margin: 0 !important;padding: 0 !important;">
+<div class="wrapper" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;height: auto;min-height: 100vh;display: flex;flex-direction: column;box-sizing: border-box !important;">
+    
+    <div mc:template_section="Body" class="templateSection templateBody" data-template-container style="background:#f6f6f6 none no-repeat center/cover;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;position: relative;display: flex;flex-shrink: 0;justify-content: center;padding-right: 0px;padding-left: 0px;background-color: #f6f6f6;background-image: none;background-repeat: no-repeat;background-position: center;background-size: cover;border-top: 0;border-bottom: 0;padding-top: 16px;padding-bottom: 16px;box-sizing: border-box !important;">
+        <div class="bodyContainer contentContainer" style="background:#transparent none no-repeat center/cover;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;max-width: 960px;width: 100%;flex: 0 0 auto;background-color: #transparent;background-image: none;background-repeat: no-repeat;background-position: center;background-size: cover;border-top: 0;border-bottom: 0;padding-top: 0;padding-bottom: 0;box-sizing: border-box !important;"><div width="100%" class="mcnBoxedTextBlock" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+    <div class="mcnBoxedTextBlockInner" style="display: flex;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        
+        <div class="mcnBoxedTextBlockColumn" style="width: 100%;padding: 9px 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div class="mcnTextContentContainer mcnTextContent" style="padding: 18px;color: #666666;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: center;background-color: #FFFFFF;border: 1px solid #CCCCCC;box-shadow: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;line-height: 150%;box-sizing: border-box !important;">
+                <div style="text-align: center;font-size: 38px;line-height: 40px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="color: #0b4270;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><strong style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">PROGETTO SPAZIO ELLIDA</strong></span></div>
+
+<div style="margin-top: 16px;font-size: 22px;text-align: center;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><strong style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Un Progetto di Chiuro per Chiuro</strong></div>
+
+<div style="text-align: center;margin-top: 16px;font-size: 18px;padding-bottom: 24px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Una Nuova Sala Multifunzionale per Cultura e Inclusione dedicata a&nbsp;Ellida Schiappadini Faccinelli nella storica Biblioteca di Chiuro</div>
+
+<div style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><img data-file-id="7532131" src="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/images/0ecb169e-5e74-ace2-2b29-4c7daf2982e9.png" style="border: 0px;width: 600px;margin: 0px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;height: auto !important;outline: none;text-decoration: none;max-width: 100%;box-sizing: border-box !important;" width="1000"></div>
+
+            </div>
+        </div>
+        
+    </div>
+</div><div class="mcnCaptionBlock" style="display: flex;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+    
+    <div class="mcnCaptionBlockInner" style="padding: 9px;width: 100%;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        <div class="" style="display: flex;flex-direction: column;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div style="display: flex;flex: 0 0 auto;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+                <div class="mcnCaptionBottomImageContent" style="padding: 0 9px 9px 9px;justify-content: center;display: flex;flex: 1 1 100%;align-self: flex-start;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+                    
+                    
+
+                        <img alt="" src="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/images/7cf73781-4b08-e61d-65e2-675da4021cea.png" width="1587" style="align-self: center;max-width: 100%;box-shadow: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;border: 0;height: auto;outline: none;text-decoration: none;vertical-align: bottom;box-sizing: border-box !important;" class="mcnImage">
+                        
+                    
+                </div>
+            </div>
+            <div style="display: flex;flex: 0 0 auto;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+                <div class="mcnTextContent" style="flex-display: row;flex: 1 1 100%;padding: 0 9px 0 9px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;color: #686868;font-family: Playfair Display;font-size: 22px;line-height: 150%;text-align: center;box-sizing: border-box !important;">
+                    Inaugurazione del nuovo "Spazio Ellida" con presentazione al pubblico.&nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div><div class="mcnDividerBlock" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;table-layout: fixed !important;">
+    <div class="mcnDividerBlockInner" style="padding: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        <div class="mcnDividerContent" style="border-top: 2px solid #F6F6F6;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"></div>
+    </div>
+</div><div class="mcnDividerBlock" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;table-layout: fixed !important;">
+    <div class="mcnDividerBlockInner" style="padding: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        <div class="mcnDividerContent" style="border-top: 2px solid #F6F6F6;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"></div>
+    </div>
+</div><div class="mcnDividerBlock" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;table-layout: fixed !important;">
+    <div class="mcnDividerBlockInner" style="padding: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        <div class="mcnDividerContent" style="border-top: 2px solid #F6F6F6;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"></div>
+    </div>
+</div><div class="mcnCaptionBlock" style="display: flex;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+    
+    <div class="mcnCaptionBlockInner" style="padding: 9px;width: 100%;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        <div class="" style="display: flex;flex-direction: column;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div style="display: flex;flex: 0 0 auto;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+                <div class="mcnCaptionBottomImageContent" style="padding: 0 9px 9px 9px;justify-content: center;display: flex;flex: 1 1 100%;align-self: flex-start;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+                    
+                    
+
+                        <img alt="" src="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/images/2797bb46-6612-d66d-9305-9ab7cebc7e4a.jpg" width="1205" style="align-self: center;max-width: 100%;border: 4px solid #CCCCCC;border-radius: 3%;box-shadow: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;height: auto;outline: none;text-decoration: none;vertical-align: bottom;box-sizing: border-box !important;" class="mcnImage">
+                        
+                    
+                </div>
+            </div>
+            <div style="display: flex;flex: 0 0 auto;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+                <div class="mcnTextContent" style="flex: 1 1 100%;padding: 0px 9px;color: #222222;font-size: 18px;text-align: center;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;font-family: Playfair Display;line-height: 150%;box-sizing: border-box !important;">
+                    <h4 style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;display: block;margin: 0;padding: 0;color: #2A2A2A;font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 24px;font-style: normal;font-weight: bold;line-height: 200%;letter-spacing: normal;text-align: center;box-sizing: border-box !important;"><span style="font-size: 24px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Il punto di partenza</span></span></h4>
+<span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">ll Comune di Chiuro, con il sostegno dell’associazione <a href="https://vialeformica.org/" target="_blank" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;color: #00ADD8;font-weight: normal;text-decoration: underline;box-sizing: border-box !important;">Il Viale della Formica APS</a>, ha vinto un bando dalla <a href="https://www.provaltellina.org/" target="_blank" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;color: #00ADD8;font-weight: normal;text-decoration: underline;box-sizing: border-box !important;">Fondazione Pro Valtellina</a> per ampliare la biblioteca di Chiuro con uno spazio dedicato a Ellida.</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mcnCaptionBlockInner" style="padding: 9px;width: 100%;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        <div class="" style="display: flex;flex-direction: column;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div style="display: flex;flex: 0 0 auto;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+                <div class="mcnCaptionBottomImageContent" style="padding: 0 9px 9px 9px;justify-content: center;display: flex;flex: 1 1 100%;align-self: flex-start;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+                    
+                    
+
+                        <img alt="" src="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/images/3f45c476-3c80-d6fc-b4fa-23eaf6bb604b.jpg" width="2250" style="align-self: center;max-width: 100%;border: 4px solid #CCCCCC;border-radius: 3%;box-shadow: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;height: auto;outline: none;text-decoration: none;vertical-align: bottom;box-sizing: border-box !important;" class="mcnImage">
+                        
+                    
+                </div>
+            </div>
+            <div style="display: flex;flex: 0 0 auto;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+                <div class="mcnTextContent" style="flex: 1 1 100%;padding: 0px 9px;color: #222222;font-size: 18px;text-align: center;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;font-family: Playfair Display;line-height: 150%;box-sizing: border-box !important;">
+                    <h4 style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;display: block;margin: 0;padding: 0;color: #2A2A2A;font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 24px;font-style: normal;font-weight: bold;line-height: 200%;letter-spacing: normal;text-align: center;box-sizing: border-box !important;"><span style="font-size: 24px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Cosa dobbiamo fare</span></span></h4>
+<span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">La <a href="https://www.provaltellina.org/" target="_blank" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;color: #00ADD8;font-weight: normal;text-decoration: underline;box-sizing: border-box !important;">Fondazione Pro Valtellina</a>&nbsp;darà un contributo di €12.600 al Progetto Spazio Ellida solo se ci saranno donazioni private. Per questo motivo ci siamo posti l'obiettivo di raccogliere €4.200 con le vostre donazioni per coprire il piano economico del progetto.&nbsp;Per raggiungere l'obiettivo abbiamo bisogno del contributo di tutti voi!</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mcnCaptionBlockInner" style="padding: 9px;width: 100%;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        <div class="" style="display: flex;flex-direction: column;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div style="display: flex;flex: 0 0 auto;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+                <div class="mcnCaptionBottomImageContent" style="padding: 0 9px 9px 9px;justify-content: center;display: flex;flex: 1 1 100%;align-self: flex-start;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+                    
+                    
+
+                        <img alt="" src="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/images/16c8634e-59a6-75ec-c6b9-8af9a041bf48.jpg" width="1747" style="align-self: center;max-width: 100%;border: 4px solid #CCCCCC;border-radius: 3%;box-shadow: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;height: auto;outline: none;text-decoration: none;vertical-align: bottom;box-sizing: border-box !important;" class="mcnImage">
+                        
+                    
+                </div>
+            </div>
+            <div style="display: flex;flex: 0 0 auto;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+                <div class="mcnTextContent" style="flex: 1 1 100%;padding: 0px 9px;color: #222222;font-size: 18px;text-align: center;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;font-family: Playfair Display;line-height: 150%;box-sizing: border-box !important;">
+                    <h4 style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;display: block;margin: 0;padding: 0;color: #2A2A2A;font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 24px;font-style: normal;font-weight: bold;line-height: 200%;letter-spacing: normal;text-align: center;box-sizing: border-box !important;"><span style="font-size: 24px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">La partecipazione di tutti</span></span></h4>
+<span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">La tua donazione, grande o piccola, dovrà pervenire entro il 31 dicembre 2025. Puoi fare la differenza! Insieme raggiungeremo i €4.200 necessari per raggiungere l'obiettivo.</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div><div class="mcnDividerBlock" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;table-layout: fixed !important;">
+    <div class="mcnDividerBlockInner" style="padding: 36px 18px 24px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        <div class="mcnDividerContent" style="border-top: 4px solid #CCCCCC;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"></div>
+    </div>
+</div><div width="100%" class="mcnTextBlock" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+    <div class="mcnTextBlockInner" style="display: flex;padding: 9px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        
+        <div style="width: 100%;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div class="mcnTextContent" style="padding: 0px 9px 9px;font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;color: #686868;font-size: 22px;line-height: 150%;text-align: center;box-sizing: border-box !important;">
+                <span style="font-size: 48px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><strong style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Dona Ora!&nbsp;</strong></span></span>
+            </div>
+        </div>
+        
+    </div>
+</div><div width="100%" class="mcnBoxedTextBlock" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+    <div class="mcnBoxedTextBlockInner" style="display: flex;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        
+        <div class="mcnBoxedTextBlockColumn" style="width: 100%;padding: 9px 18px;flex: 1;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div class="mcnTextContentContainer mcnTextContent" style="padding: 18px;color: #222222;font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 24px;font-weight: normal;line-height: 150%;text-align: center;background-color: #B4CAD6;box-shadow: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;box-sizing: border-box !important;">
+                Puoi contribuire con un versamento sul conto Fondazione Pro Valtellina.<br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+<span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Causale: <strong style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Spazio Ellida</strong>&nbsp;<strong style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">3292</strong></span><br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+<a href="https://vialeformica.org/Biblioteca/provaltellina/" style="background: #0b4270;color: #fff;text-decoration: none;padding: 4px 16px;margin-top: 16px;display: inline-block;border-radius: 16px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;font-weight: normal;box-sizing: border-box !important;" target="_new">Dona su Pro Valtellina</a>
+            </div>
+        </div>
+        
+        <div class="mcnBoxedTextBlockColumn" style="width: 100%;padding: 9px 18px;flex: 1;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div class="mcnTextContentContainer mcnTextContent" style="padding: 18px;color: #222222;font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 24px;font-weight: normal;line-height: 150%;text-align: center;background-color: #B4CAD6;box-shadow: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;box-sizing: border-box !important;">
+                Vieni in biblioteca a Chiuro per assistenza con la donazione.<br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+<span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Causale: <strong style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Spazio Ellida</strong>&nbsp;<strong style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">3292</strong></span><br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+<a href="https://biblioteche.provinciasondrio.it/library/biblioteca-comunale-luigi-faccinelli-di-chiuro/timetable" style="background: #0b4270;color: #fff;text-decoration: none;padding: 4px 16px;margin-top: 16px;display: inline-block;border-radius: 16px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;font-weight: normal;box-sizing: border-box !important;" target="_blank">Orario Biblioteca</a>
+            </div>
+        </div>
+        
+    </div>
+</div><div width="100%" class="mcnTextBlock" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+    <div class="mcnTextBlockInner" style="display: flex;padding: 9px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        
+        <div style="width: 100%;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div class="mcnTextContent" style="padding-top: 0;padding-right: 9px;padding-bottom: 9px;padding-left: 9px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;color: #686868;font-family: Playfair Display;font-size: 22px;line-height: 150%;text-align: center;box-sizing: border-box !important;">
+                <div style="font-size: 18px;line-height: 19px;font-family: roboto, &quot;helvetica neue&quot;, helvetica, arial, sans-serif;text-align: justify;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><strong style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Donazioni al Progetto Spazio Ellida – Benefici Fiscali</strong><br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+Le donazioni effettuate al Progetto Spazio Ellida attraverso Fondazione ProValtellina (da persone fisiche o società) sono fiscalmente vantaggiose, con due possibili benefici:</span></span></div>
+
+<ul style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+	<li style="font-size: 18px;line-height: 19px;font-family: roboto, &quot;helvetica neue&quot;, helvetica, arial, sans-serif;text-align: justify;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Detrazione IRPEF (fino al 30% dell’importo donato, max €30.000)</span></span></li>
+	<li style="font-size: 18px;line-height: 19px;font-family: roboto, &quot;helvetica neue&quot;, helvetica, arial, sans-serif;text-align: justify;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Deduzione dal reddito (fino al 10% del reddito complessivo)</span></span></li>
+</ul>
+
+<div style="font-size: 18px;line-height: 19px;font-family: roboto, &quot;helvetica neue&quot;, helvetica, arial, sans-serif;text-align: justify;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Per ottenere questi vantaggi, è sufficiente allegare alla dichiarazione dei redditi la ricevuta del bonifico o del pagamento con carta di credito.&nbsp;<br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+<br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+<strong style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Come ricevere la documentazione per il 730 precompilato</strong><br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+Per facilitare l’inserimento automatico della donazione nel 730 precompilato dell'anno successivo, inviare una email a info@provaltellina.org specificando:<br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+Nominativo del donatore; Indirizzo del Donatore; Codice Fiscale; Data della donazione; Tipo di donazione: bonifico o paypal<br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+<br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+La Fondazione provvederà a inviare tutte le informazioni necessarie per la corretta registrazione fiscale.<br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+<br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+<strong style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Consulenza Fiscale</strong><br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+Per chiarimenti su detrazioni (riduzione diretta delle tasse) e deduzioni (riduzione del reddito imponibile), si consiglia di rivolgersi al proprio commercialista o consulente fiscale.<br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+<br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+Per maggiori dettagli su come detrarre o dedurre le donazioni, consultare la <a href="https://www.cantiereterzosettore.it/riforma/donazioni-e-raccolta-fondi/donazioni/" target="_blank" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;color: #00ADD8;font-weight: normal;text-decoration: underline;box-sizing: border-box !important;">guida online</a>.<br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+<br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+Fondazione ProValtellina è a disposizione per assistenza: contattala per richiedere la ricevuta ufficiale della donazione o per qualsiasi dubbio su info@provaltellina.org o +39 0342 514934.</span></span></div>
+
+            </div>
+        </div>
+        
+    </div>
+</div><div class="mcnDividerBlock" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;table-layout: fixed !important;">
+    <div class="mcnDividerBlockInner" style="padding: 36px 18px 24px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        <div class="mcnDividerContent" style="border-top: 4px solid #CCCCCC;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"></div>
+    </div>
+</div><div class="mcnCaptionBlock" style="display: flex;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+    
+    <div class="mcnCaptionBlockInner" style="padding: 9px;width: 100%;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        <div class="mcnCaptionColumn" style="display: flex;flex-direction: row-reverse;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div style="display: flex;flex: 0 0 30%;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+                <div class="mcnCaptionLeftContentInner" style="padding: 0 9px;justify-content: center;display: flex;flex: 1 1 100%;align-self: flex-start;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+                    
+                    
+
+                        <img alt="" src="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/_compresseds/c4693c53-317b-b758-84b0-e4eb250387fb.jpg" width="2250" style="align-self: center;max-width: 100%;border: 4px solid #CCCCCC;border-radius: 2%;box-shadow: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;height: auto;outline: none;text-decoration: none;vertical-align: bottom;box-sizing: border-box !important;" class="mcnImage">
+                        
+                    
+                </div>
+            </div>
+            <div style="display: flex;flex: 0 0 70%;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+                <div class="mcnTextContent" style="flex: 1 1 100%;padding: 0px 9px;font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;color: #686868;font-size: 22px;line-height: 150%;text-align: center;box-sizing: border-box !important;">
+                    <h2 class="null" style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;display: block;margin: 0;padding: 0;color: #4A4A4A;font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 48px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><strong style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-size: 48px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Come verrà usata&nbsp;la mia donazione?</span></strong></span></h2>
+
+<p style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;margin: 10px 0;padding: 0;color: #686868;font-family: Playfair Display;font-size: 22px;line-height: 150%;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">La tua donazione, unitamente al contributo della Fondazione Pro Valtellina, dell''Associazioen Viale della&nbsp;Formica&nbsp;e del Comune di Chiuro,&nbsp;verrà utilizzata per allestire uno spazio dedicato ad Ellida Schiappadini Faccinelli dove i volontari potranno&nbsp;svolgere attività per la comunità di Chiuro, come:</span></p>
+
+<ul style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+	<li style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Incontri di lettura dedicati ai bambini per trasmettere la passione della lettura.</span></li>
+	<li style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Incontri intergenerazionali,&nbsp;"Storie di ieri e oggi", per far dialogare le generazioni.</span></li>
+	<li style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Laboratorio FabLab per appassionare giovani alla tecnologia.</span></li>
+	<li style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Laboratori "StoriLab" per la produzione di audiolibri e digitalizzazione di guide al&nbsp;nostro territorio chiurese.</span></li>
+	<li style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Progetto "Culture Condivise" per valorizzare le radici culturali dei nuovi residenti a Chiuro, provenienti da diversi paesi.</span></li>
+	<li style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Eventi culturali annuali come la "Giornata Ellida" per promuovere la cultura.</span></li>
+	<li style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Corsi di lingua italiana per favorire l’integrazione sociale e culturale di cittadini stranieri.</span></li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div><div class="mcnDividerBlock" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;table-layout: fixed !important;">
+    <div class="mcnDividerBlockInner" style="padding: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        <div class="mcnDividerContent" style="border-top: 4px solid #CCCCCC;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"></div>
+    </div>
+</div><div width="100%" class="mcnTextBlock" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+    <div class="mcnTextBlockInner" style="display: flex;padding: 9px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        
+        <div style="flex: 1;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div class="mcnTextContent" style="padding-top: 0;padding-right: 9px;padding-bottom: 9px;padding-left: 9px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;color: #686868;font-family: Playfair Display;font-size: 22px;line-height: 150%;text-align: center;box-sizing: border-box !important;">
+                <h2 style="text-align: center;line-height: 26px!important;color: #666;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;display: block;margin: 0;padding: 0;font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 48px;font-style: normal;font-weight: bold;letter-spacing: normal;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-size: 24px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">In memoria di&nbsp;Ellida abbiamo aperto la campagna di&nbsp;raccolta fondi con un concerto di</span></span><br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+<br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+<span style="font-size: 36px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="color: #0b4270;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><strong style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">The Peter Karp Band</strong></span></span></span></h2>
+
+<p style="text-align: center;line-height: 24px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;margin: 10px 0;padding: 0;color: #686868;font-family: Playfair Display;font-size: 22px;box-sizing: border-box !important;"><span style="color: #0b4270;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Sabato 26 luglio ore 21:00&nbsp;<br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+Campo Sportivo, Castionetto di Chiuro</span></span></span><br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+<br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+<span style="font-size: 24px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-family: roboto, helvetica neue, helvetica, arial, sans-serif;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">Grazie a tutti voi che avete partecipato con la vostra presenza e la vostra donazione!</span></span></p>
+
+            </div>
+        </div>
+        
+        <div style="flex: 1;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div class="mcnTextContent" style="padding-top: 0;padding-right: 9px;padding-bottom: 9px;padding-left: 9px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;color: #686868;font-family: Playfair Display;font-size: 22px;line-height: 150%;text-align: center;box-sizing: border-box !important;">
+                <img data-file-id="7532080" height="966" src="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/images/89ae4237-e1c0-5f71-753b-5a90afd2ae43.jpeg" style="border: solid 4px #CCC;width: 791px;height: 966px;margin: 0px;border-radius: 11px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;outline: none;text-decoration: none;max-width: 100%;box-sizing: border-box !important;" width="791">
+            </div>
+        </div>
+        
+    </div>
+</div><div class="mcnDividerBlock" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;table-layout: fixed !important;">
+    <div class="mcnDividerBlockInner" style="padding: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        <div class="mcnDividerContent" style="border-top: 4px solid #CCCCCC;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"></div>
+    </div>
+</div><div width="100%" class="mcnBoxedTextBlock" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+    <div class="mcnBoxedTextBlockInner" style="display: flex;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        
+        <div class="mcnBoxedTextBlockColumn" style="width: 100%;padding: 9px 18px;flex: 1;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div class="mcnTextContentContainer mcnTextContent" style="padding: 18px;color: #FFFFFF;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: center;box-shadow: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;line-height: 150%;box-sizing: border-box !important;">
+                <a href="https://biblioteche.provinciasondrio.it/library/biblioteca-comunale-luigi-faccinelli-di-chiuro/" target="_blank" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;color: #00ADD8;font-weight: normal;text-decoration: underline;box-sizing: border-box !important;"><img data-file-id="7532060" height="304" src="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/images/b9c46aac-d09a-77f9-bc08-a7abf5aa145c.png" style="border: solid 1px #ccc;width: 254px;height: 304px;margin: 0px;padding: 16px;background-color: #fff;border-radius: 5px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;outline: none;text-decoration: none;max-width: 100%;box-sizing: border-box !important;" width="254"></a>
+            </div>
+        </div>
+        
+        <div class="mcnBoxedTextBlockColumn" style="width: 100%;padding: 9px 18px;flex: 1;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div class="mcnTextContentContainer mcnTextContent" style="padding: 18px;color: #FFFFFF;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: center;box-shadow: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;line-height: 150%;box-sizing: border-box !important;">
+                <a href="https://www.provaltellina.org/" target="_blank" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;color: #00ADD8;font-weight: normal;text-decoration: underline;box-sizing: border-box !important;"><img data-file-id="7532061" height="304" src="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/images/3bbacfa7-e58a-03b6-ed1b-6f96db70b1f6.png" style="border: solid 1px #ccc;width: 254px;height: 304px;margin: 0px;padding: 16px;background-color: #fff;border-radius: 5px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;outline: none;text-decoration: none;max-width: 100%;box-sizing: border-box !important;" width="254"></a>
+            </div>
+        </div>
+        
+    </div>
+</div><div width="100%" class="mcnBoxedTextBlock" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+    <div class="mcnBoxedTextBlockInner" style="display: flex;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        
+        <div class="mcnBoxedTextBlockColumn" style="width: 100%;padding: 9px 18px;flex: 1;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div class="mcnTextContentContainer mcnTextContent" style="padding: 18px;color: #FFFFFF;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: center;box-shadow: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;line-height: 150%;box-sizing: border-box !important;">
+                <a href="https://www.comune.chiuro.so.it/" target="_new" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;color: #00ADD8;font-weight: normal;text-decoration: underline;box-sizing: border-box !important;"><img data-file-id="7532145" height="304" src="https://mcusercontent.com/ab5e8ed8c9b39209c68db19d5/images/8b895770-de6e-b6da-9caf-008f03743762.png" style="border: solid 1px #ccc;width: 254px;height: 304px;margin: 0px;padding: 16px;background-color: #fff;border-radius: 5px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;outline: none;text-decoration: none;max-width: 100%;box-sizing: border-box !important;" width="254"></a>
+            </div>
+        </div>
+        
+        <div class="mcnBoxedTextBlockColumn" style="width: 100%;padding: 9px 18px;flex: 1;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div class="mcnTextContentContainer mcnTextContent" style="padding: 18px;color: #FFFFFF;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: center;box-shadow: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;line-height: 150%;box-sizing: border-box !important;">
+                <a href="https://vialeformica.org/" target="_new" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;color: #00ADD8;font-weight: normal;text-decoration: underline;box-sizing: border-box !important;"><img data-file-id="7532144" height="304" src="https://vialeformica.org/static/images/LogoViale2019_plain.svg" style="border: solid 1px #ccc;width: 254px;height: 304px;margin: 0px;padding: 16px;background-color: #fff;border-radius: 5px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;outline: none;text-decoration: none;max-width: 100%;box-sizing: border-box !important;" width="254"></a>
+            </div>
+        </div>
+        
+    </div>
+</div><div class="mcnDividerBlock" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;table-layout: fixed !important;">
+    <div class="mcnDividerBlockInner" style="padding: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        <div class="mcnDividerContent" style="border-top: 4px solid #CCCCCC;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"></div>
+    </div>
+</div><div width="100%" class="mcnBoxedTextBlock" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+    <div class="mcnBoxedTextBlockInner" style="display: flex;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+        
+        <div class="mcnBoxedTextBlockColumn" style="width: 100%;padding: 9px 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+            <div class="mcnTextContentContainer mcnTextContent" style="padding: 18px;color: #222222;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: center;box-shadow: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;word-break: break-word;flex-flow: column;line-height: 150%;box-sizing: border-box !important;">
+                <h2 class="null" style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;display: block;margin: 0;padding: 0;color: #4A4A4A;font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 48px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;box-sizing: border-box !important;">Press Kit</h2>
+
+<ul style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+	<li style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><a href="https://vialeformica.org/static/PresentazioneConferenzaStampaSpazioEllida.pdf" target="_blank" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;color: #00ADD8;font-weight: normal;text-decoration: underline;box-sizing: border-box !important;">Presentazione Progetto Spazio Ellida per la Conferenza Stampa del 8 luglio, 2025</a></span></li>
+	<li style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><a href="https://vialeformica.org/static/COMUNICATO%20STAMPA.pdf" target="_blank" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;color: #00ADD8;font-weight: normal;text-decoration: underline;box-sizing: border-box !important;">Comunicato stampa del 8 luglio 2025</a></span></li>
+	<li style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><a href="https://docs.google.com/document/d/1rmbD2x3PcDOKud0QwBK-uWGpfaH9S3FWXcxn7_F7Iok/edit?usp=sharing" target="_blank" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;color: #00ADD8;font-weight: normal;text-decoration: underline;box-sizing: border-box !important;">Dichiarazione Sandro Faccinelli - 8 luglio, 2025</a></span></li>
+	<li style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><a href="https://drive.google.com/file/d/1T4ofmK4ErirIJfkxwJ6PtZfrEsxgzQ_D/view?usp=sharing" target="_blank" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;color: #00ADD8;font-weight: normal;text-decoration: underline;box-sizing: border-box !important;">Immagine Ellida Schiappadini Faccinelli</a></span><br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+	&nbsp;</li>
+	<li style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><a href="https://drive.google.com/file/d/1x1Xs2NtLaGjcEZ1yY_8ZA_qToK9xsD-6/view?usp=sharing" target="_blank" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;color: #00ADD8;font-weight: normal;text-decoration: underline;box-sizing: border-box !important;">Locandina A3 Concerto Peter Karp Band del 26 luglio,&nbsp;2025</a></span></li>
+	<li style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><a href="https://drive.google.com/file/d/1v3koxbpn7Wvmlc_X93iJLnlYpM9FLdo_/view?usp=sharing" target="_blank" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;color: #00ADD8;font-weight: normal;text-decoration: underline;box-sizing: border-box !important;">Banner Social-Media Concerto Peter Karp Band del 26 luglio, 2025</a></span><br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+	&nbsp;</li>
+	<li style="text-align: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><span style="font-size: 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;"><a href="https://drive.google.com/file/d/1ObaOwg3k7ntKXmdiLQi7ewWDlnb3u1pW/view?usp=sharing" target="_blank" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;color: #00ADD8;font-weight: normal;text-decoration: underline;box-sizing: border-box !important;">Immagine&nbsp;ufficiale Peter Karp Band</a></span><br style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box !important;">
+	&nbsp;</li>
+</ul>
+
+            </div>
+        </div>
+        
+    </div>
+</div></div>
+    </div>
+    <div class="templateSection templateFooter" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;position: relative;display: flex;flex-shrink: 0;justify-content: center;padding-right: 0px;padding-left: 0px;border-top: 0;border-bottom: 0;padding-top: 0;padding-bottom: 0;box-sizing: border-box !important;">
+        <div class="columnContainer" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;display: flex;flex-direction: row;width: 100%;box-sizing: border-box !important;">
+            <div class="footerLeftColumnContainer column" data-template-container-bg style="background:#transparent none no-repeat center/cover;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;flex: 1;background-color: #transparent;background-image: none;background-repeat: no-repeat;background-position: center;background-size: cover;border-top: 0;border-bottom: 0;padding-top: 0px;padding-bottom: 0;box-sizing: border-box !important;"></div>
+            <div class="footerRightColumnContainer column" style="background:#transparent none no-repeat center/cover;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;flex: 1;background-color: #transparent;background-image: none;background-repeat: no-repeat;background-position: center;background-size: cover;border-top: 0;border-bottom: 0;padding-top: 135px;padding-bottom: 135px;box-sizing: border-box !important;">
+                <div class="columnContent" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;padding-right: 27px;padding-left: 27px;max-width: 612px;width: 100%;box-sizing: border-box !important;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div data-dojo-type="mojo/widgets/pages/PaymentGalleryImages"></div><div data-dojo-type="mojo/widgets/pages/ClickTracker" data-dojo-props="endpoint: &quot;//mc.us9.list-manage.com/pages/track/url-clicked?u=ab5e8ed8c9b39209c68db19d5&id=0300aff1e1f0&quot;"></div><script type="text/javascript" src="https://eep.io/mc-release/1.1.107b3d7c49ccfa1c1ed1e27bb905b67a0fb1aaf38/js-legacy/js/dojo/dojo.js" data-dojo-config="parseOnLoad: true, usePlainJson: true, isDebug: false"></script><script type="text/javascript" src="https://eep.io/mc-release/1.1.107b3d7c49ccfa1c1ed1e27bb905b67a0fb1aaf38/js-legacy/js/mojo/mclandingpage.js"></script><script type="text/javascript" src="//mc.us9.list-manage.com/pages/track/open?u=ab5e8ed8c9b39209c68db19d5&id=0300aff1e1f0" async></script>
+    
+    <div id="snapshot-banner" style="position:fixed; right:8px; bottom:8px; z-index:2147483647; opacity:0.55; background:#111; color:#f5f5f5; padding:4px 8px; border-radius:4px; font:11px/1.2 Arial,sans-serif; box-shadow:none; pointer-events:none;">Snapshot locale · 07/07/2026</div></body>
+</html>
