@@ -9,6 +9,7 @@
         <a href="{% url 'gestione_turni' gruppo.id %}">{{ gruppo.nome }}</a>
         <small>({{ gruppo.barista_set.count }} baristi)</small>
     </li>
+    <br/>
     {% empty %}
     <li>Nessun gruppo creato</li>
     {% endfor %}

@@ -23,21 +23,23 @@
   {% block head_top %}{% endblock %}
   <link rel="canonical" href="{{ CANONICAL_URL }}">
   <meta name="og:title" id="OgTitle" content="Il viale della formica - associazione promozione sociale" />
-  <meta property="og:title" id="OgTitle" content="Il viale della formica - associazione promozione sociale" />
-  <meta property="og:description" id="OgDescription"
-    content="Sito dell'associazione culturale Il viale della Formica, promozione culturale Castionetto di Chiuro" />
+  <meta property="og:type" content="website" />
   <meta name="Keywords"
     content="Castionetto, Chiuro, Castionetto di Chiuro, il viale della Formica, Valtellina, Sondrio, associazione culturale, asp.net 2.0, dalico" />
   <meta name="Description "
     content="Sito dell'associazione di promozione sociale Il viale della Formica, promozione culturale Castionetto di Chiuro" />
     {% if 1 == 1  %}
-  <meta property="og:type" content="website" />
+    {% block og_tags %}
+  <meta property="og:description" id="OgDescription"
+    content="Sito dell'associazione culturale Il viale della Formica, promozione culturale Castionetto di Chiuro" />
+  <meta property="og:title" id="OgTitle" content="Il viale della formica - associazione promozione sociale" />
   <meta property="og:image" content="https://vialeformica.org{% static 'images/LogoViale2019.png' %}" />
   <meta property="og:image:type" content="image/jpeg" />  
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Nome associazione con stele di Castionetto" />
   <!--<meta property="og:image" content="{% baseurl %}{% static 'images/path5815.png' %}" />-->
+  {% endblock %}
           {% endif %}
 
   <meta property="og:site_name"

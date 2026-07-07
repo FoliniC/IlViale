@@ -42,6 +42,7 @@ from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('BlogView', RedirectView.as_view(url='/BlogView/', permanent=True)),
     path('BlogView/', include('BlogView.urls')),
     path('info/', include('sito_statico.urls')),
     path('', RedirectView.as_view(url='/BlogView/', permanent=True)),
@@ -53,7 +54,11 @@ urlpatterns = [
     path('gestione/', views.gestione_turni_no_id, name='gestione_turni_no_id'),
     path('lista-gruppi/', views.lista_gruppi, name='lista_gruppi'),  # URL pattern for lista_gruppi
     path("logout/", LogoutView.as_view(), name="logout"),
+    # re_path(r'^(?i:biblioteca)/', include('biblioteca.urls')),
     path('Biblioteca/', include('biblioteca.urls')),
+    path('biblioteca/', RedirectView.as_view(url='/Biblioteca/', permanent=True)),
+    path('BIBLIOTECA/', RedirectView.as_view(url='/Biblioteca/', permanent=True)),
+    path('emo/', include('emotion_tracker.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 admin.site.site_header = "Amministrazione sito"

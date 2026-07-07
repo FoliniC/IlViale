@@ -13,6 +13,7 @@ import environ
 import os
 import logging
 import pkg_resources
+import sys  # AGGIUNTO per gestione logging
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -76,6 +77,8 @@ INSTALLED_APPS = [
     'IlViale', 
     'turni_bar.apps.TurniBarConfig',
     'biblioteca',
+    'django_extensions',
+    'emotion_tracker',  # AGGIUNTO - App identificatore emozioni
 ] 
 
 MIDDLEWARE = [
@@ -88,7 +91,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_user_agents.middleware.UserAgentMiddleware',
-    #'debug_toolbar.middleware.DebugToolbarMiddleware',
+     #  'debug_toolbar.middleware.DebugToolbarMiddleware',
     ]
 CSRF_TRUSTED_ORIGINS = [ 'https://vialeformica.org', ]
 # SITETREE_CLS = 'IlViale.mysitetree.MySiteTree'
@@ -120,6 +123,7 @@ TEMPLATES = [
                 'django.template.context_processors.i18n',                
                 #'IlViale.context_base_url.baseurl',
                 'IlViale.context_processors.canonical_url',
+                'IlViale.context_processors.sitetree_menu_classes',
             ],
         },
     },
@@ -206,6 +210,74 @@ SECRET_KEY = ''.join([
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+# ============================================
+# LOGGING CONFIGURATION - MODIFICATA
+# ============================================
+# Assicurati che la cartella logs esista con i permessi corretti
+LOGS_DIR = os.path.join(BASE_DIR, 'logs')
+
+def setup_logs_directory():
+    """Crea la directory logs e verifica i permessi di scrittura"""
+    try:
+        if not os.path.exists(LOGS_DIR):
+            os.makedirs(LOGS_DIR, mode=0o775)
+        
+        # Prova a creare i file di log se non esistono
+        for log_file in ['debug.log', 'biblioteca.log']:
+            log_path = os.path.join(LOGS_DIR, log_file)
+            if not os.path.exists(log_path):
+                open(log_path, 'a').close()
+                os.chmod(log_path, 0o664)
+        
+        # Verifica che possiamo scrivere (test rapido)
+        test_file = os.path.join(LOGS_DIR, '.test_write')
+        with open(test_file, 'w') as f:
+            f.write('test')
+        os.remove(test_file)
+        return True
+    except (OSError, IOError, PermissionError) as e:
+        # Se non possiamo scrivere, usa solo console logging
+        print(f"Warning: Cannot write to logs directory: {e}", file=sys.stderr)
+        return False
+
+# Verifica se possiamo usare i file di log
+CAN_USE_FILE_LOGGING = setup_logs_directory()
+
+# Configurazione base dei handler (sempre disponibile)
+LOG_HANDLERS = {
+    'console': {
+        'level': 'DEBUG',
+        'class': 'logging.StreamHandler',
+        'formatter': 'verbose',
+    },
+}
+
+# Aggiungi i file handler solo se possiamo scrivere nei file
+if CAN_USE_FILE_LOGGING:
+    LOG_HANDLERS['file1'] = { 
+        'level': 'DEBUG', 
+        'class': 'logging.handlers.RotatingFileHandler',  # Cambiato da FileHandler
+        'filename': os.path.join(BASE_DIR, 'logs/debug.log'), 
+        'formatter': 'verbose',
+        'maxBytes': 1024 * 1024 * 5,  # 5 MB
+        'backupCount': 5,
+        'encoding': 'utf-8',
+    }
+    LOG_HANDLERS['biblioteca_log'] = { 
+        'level': 'DEBUG', 
+        'class': 'logging.handlers.RotatingFileHandler',  # Cambiato da FileHandler
+        'filename': os.path.join(BASE_DIR, 'logs/biblioteca.log'), 
+        'formatter': 'verbose',
+        'maxBytes': 1024 * 1024 * 5,  # 5 MB
+        'backupCount': 5,
+        'encoding': 'utf-8',
+        # Rimosso 'delay': False che causava problemi di permessi
+    }
+
+# Determina quali handler usare per ogni logger
+DEFAULT_HANDLERS = ['console', 'file1'] if CAN_USE_FILE_LOGGING else ['console']
+BIBLIOTECA_HANDLERS = ['console', 'biblioteca_log'] if CAN_USE_FILE_LOGGING else ['console']
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -223,51 +295,45 @@ LOGGING = {
         },
     },
    # [formatter_generic]
-#format = %(created)f %(levelname)-5.5s [%(name)s] %(message)s
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose',
-        },
-        'file1': { 
-            'level': 'DEBUG', 
-            'class': 'logging.FileHandler', 
-            'filename': os.path.join(BASE_DIR, 'logs/debug.log'), 
-            'formatter': 'verbose',
-            },
-        # 'file1': {
-        #     'level': 'INFO',
-        #     #'class': 'logging.FileHandler',    
-        #     'class': 'concurrent_log_handler.ConcurrentRotatingFileHandler',
-        #     'filename': os.path.join(BASE_DIR, 'logs', 'ilviale.log'),
-        #     'formatter': 'verbose',
-        #     'maxBytes': 50*1024,
-        #     'backupCount': 5    
-        # },
-        # 'file': {
-        #     'level': 'INFO',
-        #     'class': 'logging.FileHandler',    
-        #     'filename': os.path.join(BASE_DIR, 'ilviale.log'),
-        #     'formatter': 'verbose',
-        # },  
-    },
+   # format = %(created)f %(levelname)-5.5s [%(name)s] %(message)s
+    'handlers': LOG_HANDLERS,  # Usa gli handler configurati dinamicamente
     'loggers': {
          'newsletter': {
-            'handlers': ['console','file1',],
+            'handlers': DEFAULT_HANDLERS,  # Usa handler dinamici invece di lista fissa
             'level': 'DEBUG',
             'propagate': True,
         },
         'django': {
-            'handlers': ['console','file1',],
+            'handlers': DEFAULT_HANDLERS,  # Usa handler dinamici invece di lista fissa
             'level': 'DEBUG',
             'propagate': True,
 
         },
+        'biblioteca': {
+            'handlers': BIBLIOTECA_HANDLERS,  # Usa handler dinamici invece di lista fissa
+            'level': 'DEBUG',
+            'propagate': True,
+
+        },
+        'emotion_tracker': {  # AGGIUNTO - Logger per la nuova app
+            'handlers': DEFAULT_HANDLERS,
+            'level': 'DEBUG',
+            'propagate': True,
+        },
         #'azure.core.pipeline.policies.http_logging_policy': { 'handlers': ['console'], 'level': 'DEBUG', 'propagate': False, },
     },
 }
+LOGGING['loggers']['biblioteca']['level'] = 'DEBUG'
 
+# ============================================
+# FINE MODIFICHE LOGGING
+# ============================================
+
+AFD_PROXY_URL = "https://provaltellina-bza5fpedf8ejehb5.z02.azurefd.net"  # Your AFD endpoint
+AFD_HEADERS = {
+    "X-Azure-FDID": "271ec543-e9df-490e-bda3-035bc78071a4",  # For request validation
+    "X-Forwarded-For": "4.232.134.237"    # If backend needs original IP
+}
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 #EMAIL_BACKEND = 'django_ses.SESBackend'
@@ -336,5 +402,3 @@ DEFAULT_FROM_EMAIL = os.environ['DEFAULT_FROM_EMAIL']
 
 # except Exception as ex:
 #     print(ex)
-
-

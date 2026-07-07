@@ -5,6 +5,12 @@ def canonical_url(request):
         'CANONICAL_URL': build_absolute_uri(request)
     }
 
+
+def sitetree_menu_classes(request):
+    return {
+        'extra_class_ul': '',
+    }
+
 # Assuming we have the request object
 def build_absolute_uri(self, location=None):
     if not location:
